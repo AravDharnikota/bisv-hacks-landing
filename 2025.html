@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>BISV Hacks 2025</title>
+    <title>BISV Hacks 2025 | Event Archive</title>
 
     <!-- Tailwind Play / Browser CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -13,15 +13,95 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;600;700;800&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-    <meta content="BISV Hacks - Let's build a better world, one hack at a time." property="og:title" />
-    <meta
-            content="BISV Hacks is an inclusive, student-led hackathon organized by the Programming for Data Science & Machine Learning Club at BASIS Independent Silicon Valley in San Jose, CA. The hackathon will last 12 hours on March 8th, 2025, hosting participants from many different areas.
-"
-            property="og:description"
-    />
-    <meta content="https://bisvhacks.com/" property="og:url" />
-    <meta content="/images/BISV_Hacks.png" property="og:image" />
+    <meta name="description" content="Explore the BISV Hacks 2025 event archive: the inaugural student-led high school hackathon held on March 1, 2025 at BASIS Independent Silicon Valley in San Jose, CA." />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="BISV Hacks" />
+    <link rel="canonical" href="https://bisvhacks.com/2025.html" />
+    <meta property="og:site_name" content="BISV Hacks" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="BISV Hacks 2025 | Event Archive" />
+    <meta property="og:description" content="Photos, schedule, prizes, sponsors, judges, and highlights from the inaugural BISV Hacks event in San Jose, CA." />
+    <meta property="og:url" content="https://bisvhacks.com/2025.html" />
+    <meta property="og:image" content="https://bisvhacks.com/images/2025/About.png" />
+    <meta property="og:image:alt" content="BISV Hacks 2025 group photo" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="BISV Hacks 2025 | Event Archive" />
+    <meta name="twitter:description" content="Photos, schedule, prizes, sponsors, judges, and highlights from BISV Hacks 2025." />
+    <meta name="twitter:image" content="https://bisvhacks.com/images/2025/About.png" />
     <meta content="#1d4ed8" data-react-helmet="true" name="theme-color" />
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Organization",
+                    "@id": "https://bisvhacks.com/#organization",
+                    "name": "BISV Hacks",
+                    "url": "https://bisvhacks.com/",
+                    "logo": "https://bisvhacks.com/images/BISV_Hacks.png",
+                    "email": "bisvhackathon@gmail.com",
+                    "sameAs": [
+                        "https://www.instagram.com/bisv.hacks/",
+                        "https://hcb.hackclub.com/donations/start/bisv-hacks"
+                    ]
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": "https://bisvhacks.com/#website",
+                    "url": "https://bisvhacks.com/",
+                    "name": "BISV Hacks",
+                    "publisher": {
+                        "@id": "https://bisvhacks.com/#organization"
+                    },
+                    "inLanguage": "en-US"
+                },
+                {
+                    "@type": "Event",
+                    "@id": "https://bisvhacks.com/2025.html#event",
+                    "name": "BISV Hacks 2025",
+                    "description": "BISV Hacks 2025 was the inaugural student-led high school hackathon at BASIS Independent Silicon Valley in San Jose, CA.",
+                    "url": "https://bisvhacks.com/2025.html",
+                    "startDate": "2025-03-01T08:00:00-08:00",
+                    "endDate": "2025-03-01T17:00:00-08:00",
+                    "eventStatus": "https://schema.org/EventScheduled",
+                    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+                    "image": [
+                        "https://bisvhacks.com/images/2025/About.png"
+                    ],
+                    "location": {
+                        "@type": "Place",
+                        "name": "BASIS Independent Silicon Valley Upper School",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "streetAddress": "1290 Parkmoor Ave",
+                            "addressLocality": "San Jose",
+                            "addressRegion": "CA",
+                            "postalCode": "95126",
+                            "addressCountry": "US"
+                        }
+                    },
+                    "organizer": {
+                        "@id": "https://bisvhacks.com/#organization"
+                    }
+                },
+                {
+                    "@type": "WebPage",
+                    "@id": "https://bisvhacks.com/2025.html#webpage",
+                    "url": "https://bisvhacks.com/2025.html",
+                    "name": "BISV Hacks 2025 Event Archive",
+                    "description": "Photos, schedule, prizes, sponsors, judges, and highlights from BISV Hacks 2025.",
+                    "isPartOf": {
+                        "@id": "https://bisvhacks.com/#website"
+                    },
+                    "mainEntity": {
+                        "@id": "https://bisvhacks.com/2025.html#event"
+                    },
+                    "inLanguage": "en-US"
+                }
+            ]
+        }
+    </script>
 
     <script>
         function toggleMenu() {
@@ -30,12 +110,24 @@
             panel.classList.toggle('invisible');
             panel.classList.toggle('opacity-0');
             panel.classList.toggle('scale-95');
+            panel.classList.toggle('pointer-events-none');
 
             panel.classList.toggle('visible');
             panel.classList.toggle('opacity-100');
             panel.classList.toggle('scale-100');
         }
+        function currentSiteHomeUrl() {
+            const localHosts = ['', 'localhost', '127.0.0.1', '::1'];
+            const isLocalFile = window.location.protocol === 'file:';
+            return isLocalFile || localHosts.includes(window.location.hostname) ? 'index.html' : 'https://bisvhacks.com/';
+        }
+        function updateCurrentSiteHomeLinks() {
+            document.querySelectorAll('[data-current-site-home]').forEach(link => {
+                link.href = currentSiteHomeUrl();
+            });
+        }
         document.addEventListener("DOMContentLoaded", function () {
+            updateCurrentSiteHomeLinks();
             twemoji.parse(document.body, {
                 folder: "svg",
                 ext: ".svg",
@@ -47,6 +139,7 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             const faqItems = document.querySelectorAll('.faq-item');
+            const galleryItems = document.querySelectorAll('#gallery .group');
 
             faqItems.forEach(item => {
                 const header = item.querySelector('h3');
@@ -76,6 +169,54 @@
                     }
                 });
             });
+
+            galleryItems.forEach(item => {
+                const image = item.querySelector('img');
+                const caption = item.querySelector('.absolute.bottom-0');
+                if (!image) return;
+
+                item.setAttribute('tabindex', '0');
+                item.setAttribute('role', 'button');
+                item.setAttribute('aria-label', 'Open gallery image');
+
+                const show = () => openModal(image.getAttribute('src'), caption ? caption.textContent.trim() : image.alt || 'BISV Hacks photo');
+                item.addEventListener('click', show);
+                item.addEventListener('keydown', event => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        show();
+                    }
+                });
+            });
+        });
+
+        function openModal(src, caption) {
+            const modal = document.getElementById('imgModal');
+            const modalImg = document.getElementById('modalImg');
+            const modalCaption = document.getElementById('modalCaption');
+            if (!modal || !modalImg || !modalCaption) return;
+
+            modalImg.src = src;
+            modalImg.alt = caption;
+            modalCaption.textContent = caption;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imgModal');
+            const modalImg = document.getElementById('modalImg');
+            if (!modal || !modalImg) return;
+
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            modalImg.src = '';
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape') closeModal();
         });
     </script>
 
@@ -91,13 +232,13 @@
     <div class="max-w-7xl mx-auto px-4 py-2 flex flex-col sm:flex-row items-center justify-center gap-3 text-center">
 
         <p class="text-sm md:text-base font-semibold tracking-wide">
-           <span class="hidden md:inline-block">This is the 2025 event.</span> Registration for <span class="orbitron font-extrabold">BISV Hacks 2026</span> is open!
+           <span class="hidden md:inline-block">This is the 2025 event.</span> <span class="orbitron font-extrabold">BISV Hacks 2027</span> is coming soon!
         </p>
 
-        <a href="https://bisvhacks.com/"
+        <a href="index.html" data-current-site-home
            class="backdrop-blur-sm orbitron shimmer-button inline-flex items-center px-3 py-0.5 rounded-full bg-white/30 border border-white text-white-200 font-semibold shadow-[0_0_15px_red] hover:bg-white/50 hover:shadow-[0_0_25px_red] transition duration-300">
 
-        Register →
+        Learn More →
         </a>
 
     </div>
@@ -105,10 +246,10 @@
 
 
 <!-- Header / Nav -->
-<header class="shadow-red-500/50  max-w-4xl top-24 md:top-16 left-1/2 -translate-x-1/2 w-3/4 lg:w-full rounded-2xl fixed inset-x-0 top-0 z-50 backdrop-blur-lg bg-black/50 border-b border-slate-800 shadow-sm">
+<header class="shadow-red-500/50  max-w-4xl top-24 md:top-16 left-1/2 -translate-x-1/2 w-3/4 lg:w-full rounded-2xl fixed inset-x-0 z-50 backdrop-blur-lg bg-black/50 border-b border-slate-800 shadow-sm">
     <div class="container mx-auto px-6 py-3">
         <nav class="flex items-center justify-between h-14">
-            <a href="https://bisvhacks.com/" class="orbitron flex items-center gap-3">
+            <a href="index.html" data-current-site-home class="orbitron flex items-center gap-3">
                 <img src="images/BISV_Hacks.png" alt="BISV Hacks Logo" class="w-16 h-14 object-contain p-1">
                 <span class="font-extrabold text-lg text-red-400">BISV Hacks</span>
             </a>
@@ -203,9 +344,9 @@
             March 1st, 2025 @ San Jose, CA
         </div>
 
-        <h1 class="orbitron text-5xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-white">
-            <span class="text-7xl font-extrabold">BISV Hacks </span>
-            <span class="block mt-2 text-red-500 text-4xl sm:text-5xl">2025</span>
+        <h1 class="orbitron text-4xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-white">
+            <span class="text-4xl md:text-6xl font-extrabold">BISV Hacks </span>
+            <span class="block mt-2 text-red-500 text-2xl sm:text-4xl">2025</span>
         </h1>
 
         <p class="mt-6 text-lg font-bold sm:text-xl italic text-slate-400 drop-shadow-md">Let's build a better world, one hack at a time.</p>
@@ -251,24 +392,24 @@
 <!-- ABOUT -->
 <section id="about" class="py-20 bg-slate-950">
     <div class="container mx-auto px-6">
-        <p class="orbitron text-3xl md:text-4xl font-extrabold text-center mb-16">
+        <p class="orbitron text-2xl md:text-3xl font-extrabold text-center mb-16">
             <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-600 via-red-400 to-orange-500">About BISV Hacks 2025</span>
         </p>
 
         <div class="grid md:grid-cols-2 gap-10 items-start">
             <div class="space-y-6">
                 <div>
-                    <h3 class="orbitron text-xl font-semibold text-red-500 mb-2">What is BISV Hacks?</h3>
+                    <h3 class="orbitron text-lg font-semibold text-red-500 mb-2">What is BISV Hacks?</h3>
                     <p class="text-slate-400"> <strong class="orbitron">BISV Hacks 2025</strong> marked our inaugural hackathon, bringing together over 70 passionate students from across the Bay Area. Held on March 1st, 2025, at BASIS Independent Silicon Valley, the event was a tremendous success that showcased the incredible talent and creativity of our participants.</p>
                 </div>
 
                 <div>
-                    <h3 class="orbitron text-xl font-semibold text-red-500 mb-2">Theme & Focus</h3>
+                    <h3 class="orbitron text-lg font-semibold text-red-500 mb-2">Theme & Focus</h3>
                     <p class="text-slate-400">The theme of our hackathon was to address issues of social justice and promote social good, which challenged participants to create innovative solutions addressing real-world problems. Throughout the day, students worked tirelessly on projects ranging from environmental sustainability to educational technology.</p>
                 </div>
 
                 <div>
-                    <h3 class="orbitron text-xl font-semibold text-red-500 mb-2">Experience & Learning</h3>
+                    <h3 class="orbitron text-lg font-semibold text-red-500 mb-2">Experience & Learning</h3>
                     <p class="text-slate-400">Participants had access to mentorship from industry professionals, engaging workshops, and networking opportunities. The event featured guest speakers from leading tech companies who shared their insights and experiences with the innovators.</p>
                 </div>
             </div>
@@ -287,7 +428,7 @@
 <!-- FEATURES -->
 <section id="features" class="py-20 bg-slate-950">
     <div class="container mx-auto px-6">
-        <p class="orbitron text-3xl md:text-4xl font-extrabold text-center mb-12">
+        <p class="orbitron text-2xl md:text-3xl font-extrabold text-center mb-12">
             <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-600 via-red-400 to-orange-500">Why Join BISV Hacks?</span>
         </p>
 
@@ -317,7 +458,7 @@
 <section id="prizes" class="py-20 bg-slate-950">
     <div class="container mx-auto px-6">
 
-        <p class="orbitron text-3xl md:text-4xl font-extrabold text-center mb-4">
+        <p class="orbitron text-2xl md:text-3xl font-extrabold text-center mb-4">
             <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-600 via-red-400 to-orange-500">
                 Prizes & Awards
             </span>
@@ -384,7 +525,7 @@
 <!-- Schedule Section -->
 <section id="schedule" class="py-16 bg-slate-950">
     <div class="container mx-auto px-6">
-        <p class="orbitron text-3xl md:text-4xl font-extrabold text-center mb-4">
+        <p class="orbitron text-2xl md:text-3xl font-extrabold text-center mb-4">
             <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-600 via-red-400 to-orange-500">Event Schedule</span>
         </p>
         <p class="text-xl text-center text-slate-400 mb-8">March 1, 2025</p>
@@ -469,7 +610,7 @@
 <!-- SPONSORS -->
 <section id="sponsors" class="py-16 bg-slate-950">
     <div class="container mx-auto px-6 text-center">
-        <p class="orbitron text-3xl md:text-4xl font-extrabold text-center mb-4">
+        <p class="orbitron text-2xl md:text-3xl font-extrabold text-center mb-4">
             <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-600 via-red-400 to-orange-500">Our Sponsors</span>
         </p>
         <div class="mt-4 mb-8">
@@ -489,7 +630,7 @@
         </div>
 
 
-        <p class="mt-10 orbitron text-xl md:text-2xl font-extrabold text-center mb-4">
+        <p class="mt-10 orbitron text-lg md:text-xl font-extrabold text-center mb-4">
             <span class="text-red-400">
                 Sponsors ✨
             </span>
@@ -500,7 +641,7 @@
             </a>
 
         </div>
-        <p class="mt-20 orbitron text-xl md:text-2xl font-extrabold text-center mb-4">
+        <p class="mt-20 orbitron text-lg md:text-xl font-extrabold text-center mb-4">
             <span class="text-orange-400">
                 Fiscal Sponsor 🏦
             </span>
@@ -512,7 +653,7 @@
             </a>
         </div>
 
-        <p class="mt-20 orbitron text-xl md:text-2xl font-extrabold text-center mb-4">
+        <p class="mt-20 orbitron text-lg md:text-xl font-extrabold text-center mb-4">
             <span class="text-purple-400">
                 Venue Sponsors 🏫
             </span>
@@ -536,7 +677,7 @@
 <!-- Judges Section -->
 <section id="judges" class="py-16 bg-slate-950">
     <div class="container mx-auto px-6">
-        <p class="orbitron text-3xl md:text-4xl font-extrabold text-center mb-4">
+        <p class="orbitron text-2xl md:text-3xl font-extrabold text-center mb-4">
             <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-600 via-red-400 to-orange-500">Guest Speakers & Judges</span>
         </p>
         <div class="text-center mb-10">
@@ -630,7 +771,7 @@
     <div class="container mx-auto px-6">
 
         <!-- Title -->
-        <p class="orbitron text-3xl md:text-4xl font-extrabold text-center mb-4">
+        <p class="orbitron text-2xl md:text-3xl font-extrabold text-center mb-4">
             <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-600 via-red-400 to-orange-500">
                 2025 Winners
             </span>
@@ -642,7 +783,7 @@
 
             <!-- First Place -->
             <div class="bg-slate-900 p-6 rounded-2xl border border-slate-700 shadow-sm hover:shadow-xl transition transform hover:-translate-y-2">
-                <h3 class="orbitron text-xl font-semibold text-white mb-2">Elora</h3>
+                <h3 class="orbitron text-lg font-semibold text-white mb-2">Elora</h3>
                 <div class="orbitron font-extrabold text-red-400 text-sm tracking-widest mb-2">🏆 FIRST PLACE</div>
 
 
@@ -657,7 +798,7 @@
 
             <!-- Second Place -->
             <div class="bg-slate-900 p-6 rounded-2xl border border-slate-700 shadow-sm hover:shadow-xl transition transform hover:-translate-y-2">
-                <h3 class="orbitron text-xl font-semibold text-white mb-2">Bias News Detector</h3>
+                <h3 class="orbitron text-lg font-semibold text-white mb-2">Bias News Detector</h3>
                 <div class="orbitron font-extrabold text-red-400 text-sm tracking-widest mb-2">🥈 SECOND PLACE</div>
 
 
@@ -671,7 +812,7 @@
 
             <!-- Third Place -->
             <div class="bg-slate-900 p-6 rounded-2xl border border-slate-700 shadow-sm hover:shadow-xl transition transform hover:-translate-y-2">
-                <h3 class="orbitron text-xl font-semibold text-white mb-2">Pocket Therapy</h3>
+                <h3 class="orbitron text-lg font-semibold text-white mb-2">Pocket Therapy</h3>
                 <div class="orbitron font-extrabold text-red-400 text-sm tracking-widest mb-2">🥉 THIRD PLACE</div>
 
 
@@ -693,7 +834,7 @@
 
 <section id="gallery" class="py-24">
     <div class="container mx-auto">
-        <p class="orbitron text-3xl md:text-4xl font-extrabold text-center mb-4">
+        <p class="orbitron text-2xl md:text-3xl font-extrabold text-center mb-4">
             <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-600 via-red-400 to-orange-500">Event Gallery</span>
         </p>
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-12">
@@ -871,7 +1012,7 @@
 <!-- TEAM -->
 <section id="team" class="py-20 bg-slate-950">
     <div class="container mx-auto px-6">
-        <p class="orbitron text-3xl md:text-4xl font-extrabold text-center mb-4">
+        <p class="orbitron text-2xl md:text-3xl font-extrabold text-center mb-4">
             <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-600 via-red-400 to-orange-500">Meet the Team</span>
         </p>
         <div class="mt-16 grid gap-6 lg:grid-cols-2">
@@ -932,7 +1073,7 @@
 <!-- FAQ -->
 <section id="faq" class="py-20 bg-slate-950">
     <div class="container mx-auto px-6 max-w-3xl">
-        <p class="orbitron text-3xl md:text-4xl font-extrabold text-center mb-4">
+        <p class="orbitron text-2xl md:text-3xl font-extrabold text-center mb-4">
             <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-600 via-red-400 to-orange-500">Frequently Asked Questions</span>
         </p>
 
@@ -1007,7 +1148,7 @@
                 </h3>
                 <div class="faq-answer px-4 pb-4 hidden">
                     <p class="text-slate-400">
-                        The hackathon will be held at BASIS Independent Silicon Valley. The school's adress is 1290 Parkmoor Ave, San Jose, CA 95126.
+                        The hackathon will be held at BASIS Independent Silicon Valley. The school's address is 1290 Parkmoor Ave, San Jose, CA 95126.
                     </p>
                 </div>
             </div>
@@ -1041,37 +1182,29 @@
 </section>
 
 
-<!-- CONTACT -->
-<section id="contact" class="py-16 bg-slate-950">
+<!-- PARTICIPANT LINKS -->
+<section id="participant-links" class="py-16 bg-slate-950">
     <div class="container mx-auto px-6 max-w-4xl">
-        <p class="orbitron text-3xl md:text-4xl font-extrabold text-center mb-4">
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-600 via-red-400 to-orange-500">Let's Connect</span>
+        <p class="orbitron text-2xl md:text-3xl font-extrabold text-center mb-4">
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-600 via-red-400 to-orange-500">Participant Hub</span>
         </p>
-        <p class="text-center text-slate-400 mb-8">Have questions? We'd love to hear from you!</p>
+        <p class="text-center text-slate-400 mb-8">Key links from the 2025 event.</p>
 
-        <div class="grid md:grid-cols-3 gap-6">
-            <a class="block bg-slate-900 p-6 rounded-2xl shadow-sm border border-slate-800 text-center" href="mailto:bisvhackathon@gmail.com"
-               target="_blank"
-            >
-                <div class="text-4xl mb-3">📧</div>
-                <h3 class="orbitron font-semibold">Email Us</h3>
-                <p class="text-slate-400 text-sm">bisvhackathon@gmail.com</p>
-            </a>
-
-            <a class="block bg-slate-900 p-6 rounded-2xl shadow-sm border border-slate-800 text-center" href="https://www.instagram.com/bisv.hacks/"
-               target="_blank"
-            >
-                <div class="text-4xl mb-3">📱</div>
-                <h3 class="orbitron font-semibold">Follow Us</h3>
-                <p class="text-slate-400 text-sm">@bisv.hacks</p>
-            </a>
-
-            <a class="block bg-slate-900 p-6 rounded-2xl shadow-sm border border-slate-800 text-center" href="https://discord.gg/T8cuesaNKB"
+        <div class="participant-grid grid md:grid-cols-2 gap-5">
+            <a class="participant-card block bg-slate-900 p-6 rounded-2xl shadow-sm border border-slate-800" href="https://discord.gg/T8cuesaNKB"
                target="_blank"
             >
                 <div class="text-4xl mb-3">💬</div>
                 <h3 class="orbitron font-semibold">Join Discord</h3>
-                <p class="text-slate-400 text-sm">Connect with other hackers</p>
+                <p class="text-slate-400 text-sm">Announcements, help, team updates, and participant communication.</p>
+            </a>
+
+            <a class="participant-card block bg-slate-900 p-6 rounded-2xl shadow-sm border border-slate-800" href="https://bisv-hacks.devpost.com"
+               target="_blank"
+            >
+                <div class="text-4xl mb-3">🚀</div>
+                <h3 class="orbitron font-semibold">Devpost</h3>
+                <p class="text-slate-400 text-sm">View 2025 rules, submissions, winners, and project gallery.</p>
             </a>
         </div>
     </div>
@@ -1079,20 +1212,47 @@
 
 
 <!-- FOOTER -->
-<footer class="bg-slate-950 text-white py-8 border-t border-slate-700">
-    <div class="container mx-auto px-6 text-center text-slate-400">
-        <p>© 2025 <span class="orbitron">BISV Hacks</span></p>
-        <p>Fiscally Backed by Hack Club, which is a 501(c)(3) Nonprofit</p>
-        <p>EIN: 81-2908499</p>
-        <p><span class="orbitron">Let's build a better world, one hack at a time  🚀</span></p>
+<footer class="site-footer bg-slate-950 text-white">
+    <div class="footer-shell container mx-auto px-6">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" data-current-site-home class="orbitron footer-logo">
+                    <img src="images/BISV_Hacks.png" alt="BISV Hacks Logo">
+                    <span>BISV Hacks</span>
+                </a>
+                <p>Archive page for the 2025 event.</p>
+            </div>
+
+            <div>
+                <h3 class="orbitron">Years</h3>
+                <a href="index.html" data-current-site-home>2027 Event</a>
+                <a href="2026.html">2026 Event</a>
+                <a href="2025.html">2025 Event</a>
+            </div>
+
+            <div>
+                <h3 class="orbitron">Connect</h3>
+                <a href="mailto:bisvhackathon@gmail.com">Email</a>
+                <a href="https://www.instagram.com/bisv.hacks/" target="_blank">Instagram</a>
+                <a href="https://discord.gg/T8cuesaNKB" target="_blank">Discord</a>
+                <a href="https://bisv-hacks.devpost.com" target="_blank">Devpost</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 <span class="orbitron">BISV Hacks</span></p>
+            <p>Fiscally backed by Hack Club, a 501(c)(3) nonprofit. EIN: 81-2908499</p>
+        </div>
     </div>
 </footer>
 
 <!-- Modal for gallery images (reusable) -->
-<div id="imgModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 p-6">
-    <button onclick="closeModal()" class="absolute top-6 right-6 text-white text-3xl">✕</button>
-    <img id="modalImg" src="" alt="modal" class="max-w-full max-h-[80vh] rounded-lg shadow-2xl">
-    <div id="modalCaption" class="mt-4 text-slate-200 text-center"></div>
+<div id="imgModal" class="gallery-modal fixed inset-0 z-50 hidden items-center justify-center p-5" onclick="closeModal()">
+    <button onclick="event.stopPropagation(); closeModal()" class="modal-close orbitron" aria-label="Close image">Close</button>
+    <div class="modal-frame" onclick="event.stopPropagation()">
+        <img id="modalImg" src="" alt="modal">
+        <div id="modalCaption"></div>
+    </div>
 </div>
 
 <style>
@@ -1106,6 +1266,537 @@
     body{
         font-family: "Quicksand", sans-serif;
         scroll-behavior: smooth;
+        color: white;
+        background:
+            linear-gradient(180deg, rgba(15, 23, 42, 0.82) 0, rgba(2, 6, 23, 0) 24rem),
+            linear-gradient(90deg, rgba(248, 113, 113, 0.035), transparent 34%, transparent 66%, rgba(249, 115, 22, 0.026)),
+            #020617;
+    }
+
+    body > div.fixed.top-0 {
+        background:
+            linear-gradient(90deg, rgba(236, 72, 153, 0.14), rgba(248, 113, 113, 0.14), rgba(249, 115, 22, 0.12)),
+            rgba(2, 6, 23, 0.88);
+        border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+        box-shadow: none;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+    }
+
+    body > div.fixed.top-0 a {
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.18);
+        box-shadow: none;
+    }
+
+    body > header {
+        top: 3.75rem !important;
+        width: calc(100% - 2rem) !important;
+        max-width: 52rem !important;
+        border: 1px solid rgba(148, 163, 184, 0.14) !important;
+        border-radius: 8px !important;
+        background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.045), transparent),
+            rgba(2, 6, 23, 0.84) !important;
+        box-shadow: 0 14px 38px rgba(0, 0, 0, 0.34), 0 1px 0 rgba(255, 255, 255, 0.04) inset !important;
+    }
+
+    body > header > div {
+        padding: 0.5rem 1.25rem !important;
+    }
+
+    body > header nav {
+        height: 3rem !important;
+    }
+
+    body > header img {
+        width: 2.75rem !important;
+        height: 2.25rem !important;
+    }
+
+    body > header ul {
+        display: none !important;
+        gap: 0.25rem !important;
+    }
+
+    body > header nav > div:last-child {
+        display: flex !important;
+    }
+
+    #mobilePanel {
+        display: block !important;
+    }
+
+    body > header ul a,
+    body > header button {
+        display: inline-flex;
+        align-items: center;
+        min-height: 2rem;
+        border-radius: 8px;
+        padding: 0.36rem 0.5rem;
+        color: rgb(148, 163, 184);
+        font-size: 0.8rem;
+        letter-spacing: 0;
+        transition: color 180ms ease, background 180ms ease;
+    }
+
+    body > header ul a:hover,
+    body > header button:hover {
+        color: rgb(248, 113, 113);
+        background: rgba(148, 163, 184, 0.08);
+    }
+
+    body > header ul li:last-child a {
+        min-height: 2.1rem;
+        padding: 0.5rem 0.875rem;
+        border-radius: 8px;
+        background: rgba(248, 113, 113, 0.12);
+        border-color: rgba(248, 113, 113, 0.45);
+        box-shadow: none;
+    }
+
+    #hero::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        height: 38%;
+        background: linear-gradient(to bottom, transparent, #020617 86%);
+        pointer-events: none;
+    }
+
+    #hero > div:last-child {
+        max-width: 46rem;
+        padding-top: clamp(7rem, 14vh, 11rem);
+    }
+
+    #hero .inline-block,
+    #hero .orbitron.mt-10 > div {
+        border-radius: 8px;
+        border: 1px solid rgba(148, 163, 184, 0.14);
+        background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent),
+            rgba(15, 23, 42, 0.5);
+        box-shadow: none;
+    }
+
+    #hero .orbitron.mt-10 {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.75rem;
+    }
+
+    #hero .orbitron.mt-10 > div {
+        padding: 0.9rem 1rem;
+    }
+
+    section[id]:not(#hero) {
+        padding: clamp(4rem, 6vw, 5.5rem) 0 !important;
+        border-top: 1px solid rgba(148, 163, 184, 0.08);
+    }
+
+    section[id]:not(#hero) > .container {
+        max-width: 1120px;
+    }
+
+    section[id]:not(#hero) > .container > p:first-child {
+        font-size: clamp(1.65rem, 3.2vw, 2.45rem);
+        line-height: 1.1;
+        margin-bottom: 2.2rem;
+    }
+
+    #about .grid {
+        align-items: stretch;
+    }
+
+    #about .space-y-6 {
+        border: 1px solid rgba(148, 163, 184, 0.12);
+        border-radius: 8px;
+        background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent),
+            rgba(15, 23, 42, 0.42);
+        padding: 0.4rem;
+    }
+
+    #about .space-y-6 > div {
+        padding: 1.25rem 1.35rem;
+    }
+
+    #about .space-y-6 > div + div {
+        border-top: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    #about .bg-slate-900.rounded-2xl.overflow-hidden {
+        position: relative;
+        min-height: 100%;
+    }
+
+    #about .bg-slate-900.rounded-2xl.overflow-hidden img {
+        height: 100%;
+        min-height: 25rem;
+    }
+
+    #about .bg-slate-900.rounded-2xl.overflow-hidden .p-4 {
+        position: absolute;
+        left: 0.85rem;
+        right: 0.85rem;
+        bottom: 0.85rem;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 8px;
+        background: rgba(2, 6, 23, 0.62);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        padding: 0.8rem 0.95rem;
+    }
+
+    #features .grid > div,
+    #prizes .grid > div,
+    #judges .judge,
+    #winners .grid > div,
+    #team .judge,
+    #gallery .group,
+    #contact .grid > a,
+    .faq-item {
+        border-radius: 8px !important;
+        background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent),
+            rgba(15, 23, 42, 0.48) !important;
+        border-color: rgba(148, 163, 184, 0.12) !important;
+        box-shadow: 0 14px 36px rgba(0, 0, 0, 0.2) !important;
+        transform: none !important;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+
+    #prizes div.absolute.inset-0 {
+        display: none;
+    }
+
+    #features .grid > div,
+    #participant-links .grid > a,
+    #contact .grid > a {
+        text-align: left;
+    }
+
+    #features .grid > div > div:first-child,
+    #participant-links .grid > a > div:first-child,
+    #contact .grid > a > div:first-child {
+        width: 2.55rem;
+        height: 2.55rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(148, 163, 184, 0.13);
+        border-radius: 8px;
+        background: rgba(2, 6, 23, 0.42);
+    }
+
+    .participant-card:first-child {
+        background:
+            linear-gradient(140deg, rgba(248, 113, 113, 0.12), transparent 44%),
+            rgba(15, 23, 42, 0.52) !important;
+    }
+
+    #gallery .container {
+        max-width: 1120px;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    #gallery .grid {
+        gap: 0.85rem;
+    }
+
+    #gallery .group {
+        aspect-ratio: 4 / 3;
+        border-radius: 8px !important;
+        overflow: hidden;
+        background: rgba(15, 23, 42, 0.42) !important;
+        border-color: rgba(148, 163, 184, 0.12) !important;
+        box-shadow: none !important;
+        transform: none !important;
+    }
+
+    #gallery .group::after {
+        content: "View";
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        z-index: 2;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 8px;
+        background: rgba(2, 6, 23, 0.58);
+        color: rgb(226, 232, 240);
+        font-family: "Quicksand", sans-serif;
+        font-size: 0.72rem;
+        font-weight: 700;
+        padding: 0.25rem 0.55rem;
+        opacity: 0;
+        transform: translateY(-0.25rem);
+        transition: opacity 180ms ease, transform 180ms ease;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+
+    #gallery .group:hover::after,
+    #gallery .group:focus-visible::after {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    #gallery .group img {
+        width: 100%;
+        height: 100%;
+        transition: transform 260ms ease, filter 260ms ease;
+    }
+
+    #gallery .group:hover img,
+    #gallery .group:focus-visible img {
+        transform: scale(1.035);
+        filter: saturate(1.05);
+    }
+
+    #gallery .group > .absolute.inset-0 {
+        background: linear-gradient(to top, rgba(2, 6, 23, 0.74), rgba(2, 6, 23, 0.08) 55%, transparent) !important;
+        opacity: 1;
+    }
+
+    #gallery .group > .absolute.bottom-0 {
+        padding: 1rem;
+        color: rgb(226, 232, 240);
+        font-size: 0.85rem;
+        line-height: 1.35;
+    }
+
+    .gallery-modal {
+        z-index: 80;
+        background: rgba(2, 6, 23, 0.86);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+    }
+
+    .modal-frame {
+        width: min(100%, 72rem);
+        max-height: 88vh;
+        display: grid;
+        gap: 0.8rem;
+    }
+
+    .modal-frame img {
+        width: 100%;
+        max-height: 80vh;
+        object-fit: contain;
+        border-radius: 8px;
+        background: rgba(15, 23, 42, 0.62);
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
+    }
+
+    #modalCaption {
+        color: rgb(203, 213, 225);
+        text-align: center;
+        font-size: 0.95rem;
+    }
+
+    .modal-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        border: 1px solid rgba(148, 163, 184, 0.18);
+        border-radius: 8px;
+        background: rgba(15, 23, 42, 0.72);
+        color: rgb(226, 232, 240);
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 0.55rem 0.75rem;
+    }
+
+    #schedule .relative.max-w-3xl {
+        max-width: 56rem;
+        padding: 0.45rem;
+        border: 1px solid rgba(148, 163, 184, 0.12);
+        border-radius: 8px;
+        background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.028), transparent),
+            rgba(15, 23, 42, 0.38);
+    }
+
+    #schedule .space-y-8 {
+        display: grid;
+        gap: 0;
+    }
+
+    #schedule .space-y-8 > div {
+        display: grid !important;
+        grid-template-columns: 6.4rem minmax(0, 1fr) !important;
+        align-items: stretch !important;
+        gap: 0.65rem !important;
+        border-top: 1px solid rgba(148, 163, 184, 0.08);
+    }
+
+    #schedule .space-y-8 > div:first-child {
+        border-top: 0;
+    }
+
+    #schedule .space-y-8 > div > div:nth-child(2) {
+        display: none !important;
+    }
+
+    #schedule .space-y-8 > div > div:first-child {
+        text-align: left !important;
+        padding: 1rem 0 1rem 0.75rem !important;
+    }
+
+    #schedule .space-y-8 > div > div:first-child > div {
+        color: rgb(248, 113, 113);
+        font-family: 'Orbitron', sans-serif;
+        font-size: 0.8rem;
+        font-weight: 800;
+    }
+
+    #schedule .space-y-8 > div > div:last-child {
+        margin-top: 0 !important;
+        padding: 1rem 0.85rem !important;
+        border: 0 !important;
+        border-radius: 8px !important;
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+
+    #schedule h3 {
+        font-size: 0.96rem;
+        color: rgb(226, 232, 240);
+    }
+
+    p,
+    li,
+    .faq-answer p {
+        line-height: 1.65;
+    }
+
+    .site-footer {
+        border-top: 1px solid rgba(148, 163, 184, 0.1);
+        background:
+            linear-gradient(180deg, rgba(15, 23, 42, 0.5), rgba(2, 6, 23, 0.98)),
+            #020617;
+    }
+
+    .footer-shell {
+        max-width: 1120px;
+        padding-top: 3.25rem;
+        padding-bottom: 2rem;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.7fr) repeat(2, minmax(0, 0.7fr));
+        gap: clamp(2rem, 7vw, 5rem);
+    }
+
+    .footer-logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+        color: rgb(248, 113, 113);
+        font-weight: 800;
+    }
+
+    .footer-logo img {
+        width: 2.5rem;
+        height: 2rem;
+        object-fit: contain;
+    }
+
+    .footer-brand p,
+    .footer-bottom,
+    .footer-grid a {
+        color: rgb(148, 163, 184);
+    }
+
+    .footer-brand p {
+        margin-top: 0.9rem;
+        max-width: 22rem;
+        line-height: 1.65;
+    }
+
+    .footer-grid h3 {
+        margin-bottom: 0.75rem;
+        color: rgb(226, 232, 240);
+        font-size: 0.78rem;
+        text-transform: uppercase;
+    }
+
+    .footer-grid a:not(.footer-logo) {
+        display: block;
+        width: fit-content;
+        margin-top: 0.45rem;
+        font-size: 0.92rem;
+        transition: color 160ms ease;
+    }
+
+    .footer-grid a:hover {
+        color: rgb(248, 113, 113);
+    }
+
+    .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-top: 2.5rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid rgba(148, 163, 184, 0.1);
+        font-size: 0.86rem;
+    }
+
+    .footer-bottom p:last-child {
+        text-align: right;
+    }
+
+    @media (max-width: 767px) {
+        body > header {
+            top: 4.5rem !important;
+        }
+
+        #hero .orbitron.mt-10 {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        #about .bg-slate-900.rounded-2xl.overflow-hidden img {
+            height: 17rem;
+            min-height: 0;
+        }
+
+        #schedule .space-y-8 > div {
+            grid-template-columns: minmax(0, 1fr) !important;
+            padding: 0.75rem 0;
+        }
+
+        #schedule .space-y-8 > div > div:first-child {
+            padding: 0 0.85rem !important;
+        }
+
+        .footer-grid {
+            grid-template-columns: minmax(0, 1fr);
+            gap: 1.4rem;
+        }
+
+        .footer-bottom {
+            flex-direction: column;
+        }
+
+        .footer-bottom p:last-child {
+            text-align: left;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        body > header ul {
+            display: flex !important;
+        }
+
+        body > header nav > div:last-child {
+            display: none !important;
+        }
     }
 
     img.emoji {
@@ -1159,4 +1850,3 @@
 </style>
 </body>
 </html>
-

@@ -1,4 +1,4 @@
-// Modern JavaScript for BISV Hacks 2026
+// Modern JavaScript for BISV Hacks
 
 // FAQ Toggle Functionality
 document.addEventListener('DOMContentLoaded', function() {
