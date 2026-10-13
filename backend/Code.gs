@@ -506,10 +506,23 @@ function askClaude(question) {
   return { kind: out.kind === 'answer' && !answer ? 'unknown' : out.kind, answer: answer };
 }
 
-// Every URL and email in an answer must appear in KNOWLEDGE, in plain form or inside [text](url).
+// Every link in an answer must be exactly one of the links in KNOWLEDGE, or the team email.
+// "Exactly" matters: a check for "starts like a known link" lets a visitor steer the model to
+// another page on the same site (another Discord invite, another LinkedIn profile).
+// The page (faq.js) holds the same list and does the same check.
 function linksAreKnown(answer) {
-  const links = String(answer).match(/https?:\/\/[^\s)\]]+|[\w.+-]+@[\w-]+\.[\w.-]*\w/g) || [];
-  return links.every(l => KNOWLEDGE.indexOf(l.replace(/[.,;:!?]+$/, '')) !== -1);
+  const allowed = new Set((KNOWLEDGE.match(/https?:\/\/[^\s)\]]+/g) || []).map(u => u.replace(/[.,;:!?]+$/, '')));
+  allowed.add('mailto:' + CONTACT);
+  allowed.add(CONTACT);
+  let ok = true;
+  // 1. Markdown links: the target must be on the list, and the words must not look like a different address.
+  const rest = String(answer).replace(/\[([^\]]*)\]\(([^)]*)\)/g, (all, words, url) => {
+    if (!allowed.has(url) || /:\/\/|www\.|@/.test(words)) ok = false;
+    return ' ';
+  });
+  // 2. Anything left that looks like a link or an email must also be on the list.
+  const loose = rest.match(/https?:\/\/\S+|mailto:\S+|[\w.+-]+@[\w-]+\.[\w.-]*\w|[\[\]]\(/g) || [];
+  return ok && loose.every(l => allowed.has(l.replace(/[.,;:!?)]+$/, '')));
 }
 
 /* --- Helpers -------------------------------------------------------------- */

@@ -91,20 +91,36 @@
   // The page shows the words as an underlined link and hides the URL.
   // No HTML from the server is trusted. Answers come from a model and are cached,
   // so only link to places we trust. Everything else stays plain text.
-  const HOSTS = [
-    "bisvhacks.com", "www.bisvhacks.com", "discord.gg", "devpost.com",
-    "bisv-hacks.devpost.com", "bisv-hacks-2026.devpost.com",
-    "www.instagram.com", "www.linkedin.com", "hcb.hackclub.com",
-  ];
+  // The exact links the knowledge base contains. A link the model writes must equal one of these.
+  // Matching on the host alone is not enough: discord.gg and linkedin.com host anyone's page.
+  const LINKS = new Set([
+    "https://bisvhacks.com",
+    "https://bisvhacks.com/privacy.html",
+    "https://bisvhacks.com/sponsors.html",
+    "https://bisvhacks.com/team.html",
+    "https://bisv-hacks.devpost.com",
+    "https://bisv-hacks-2026.devpost.com",
+    "https://discord.gg/T8cuesaNKB",
+    "https://hcb.hackclub.com/donations/start/bisv-hacks",
+    "https://www.instagram.com/bisv.hacks/",
+    "https://www.linkedin.com/in/anderson-lu-b58663353/",
+    "https://www.linkedin.com/in/aravd/",
+    "https://www.linkedin.com/in/nicholasxwang/",
+    "https://www.linkedin.com/in/oscar-gu-12155a2b9/",
+    "https://www.linkedin.com/in/rithvikburki/",
+    "https://www.linkedin.com/in/siddharth-sivaraman-b3b6a8419/",
+  ].map((u) => new URL(u).href));
   const CONTACT = "bisvhackathon@gmail.com";
 
+  // Returns the href to use, or "" for a link we do not trust.
+  // The href comes from our own list, never from the model's text.
   function trusted(href) {
+    if (href.toLowerCase() === "mailto:" + CONTACT) return "mailto:" + CONTACT;
     try {
-      const u = new URL(href);
-      if (u.protocol === "mailto:") return u.pathname.toLowerCase() === CONTACT;
-      return u.protocol === "https:" && !u.username && HOSTS.includes(u.hostname);
+      const u = new URL(href).href;
+      return LINKS.has(u) ? u : "";
     } catch (e) {
-      return false;
+      return "";
     }
   }
 
@@ -123,10 +139,11 @@
       el.append(text.slice(i, m.index));
       const words = m[1] || m[0];
       const href = m[2] || m[3] || "mailto:" + m[4];
-      if (trusted(href)) {
+      const safe = trusted(href);
+      if (safe) {
         const a = document.createElement("a");
-        a.href = href;
-        if (!href.startsWith("mailto:")) { a.target = "_blank"; a.rel = "noopener noreferrer"; }
+        a.href = safe;
+        if (!safe.startsWith("mailto:")) { a.target = "_blank"; a.rel = "noopener noreferrer"; }
         a.textContent = words;
         el.append(a);
       } else {
