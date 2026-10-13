@@ -1,0 +1,10 @@
+# Cloudflare Worker that adds Markdown content negotiation in front of GitHub Pages.
+# Needs bisvhacks.com on Cloudflare DNS with the GitHub Pages records proxied (orange cloud).
+name = "bisvhacks-markdown"
+main = "index.js"
+compatibility_date = "2026-09-01"
+
+routes = [
+  { pattern = "bisvhacks.com/*", zone_name = "bisvhacks.com" },
+  { pattern = "www.bisvhacks.com/*", zone_name = "bisvhacks.com" }
+]

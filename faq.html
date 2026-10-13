@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Questions | BISV Hacks 2027</title>
+  <meta name="description" content="Ask anything about BISV Hacks 2027: dates, eligibility, teams, location, food, and sponsoring.">
+  <meta name="theme-color" content="#F0EEE9">
+  <link rel="icon" href="images/logo.png">
+  <meta property="og:title" content="BISV Hacks 2027">
+  <meta property="og:description" content="A hackathon for Silicon Valley's next builders. February 2027, San Jose.">
+  <meta property="og:image" content="images/BISV_Hacks.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <a class="brand" href="index.html">
+    <img src="images/logo.png" alt="" width="46" height="22">
+    <span>BISV Hacks</span>
+  </a>
+  <nav aria-label="Pages">
+    <a href="index.html">Home</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="sponsors.html">Sponsors</a>
+    <a href="team.html">Team</a>
+    <a href="faq.html" aria-current="page">Questions</a>
+  </nav>
+</header>
+
+<main class="page">
+<section class="desk">
+    <h1>Questions</h1>
+    <p>Ask anything about BISV Hacks. Dates, teams, food, sponsoring.</p>
+
+    <div class="glyph" aria-hidden="true">
+      <pre class="glyph-ink"></pre>
+      <pre class="glyph-red"></pre>
+    </div>
+
+    <!-- data-endpoint: the Apps Script web app URL. See backend/Code.gs and the README. -->
+    <form class="ask" data-endpoint="https://script.google.com/macros/s/AKfycbxKiVrc0hBtFRkfzrG60LPyqj42eK7iVgYJRGnVsYG07X8zmex58umA_n7VOL5zcoSS/exec">
+      <label for="q">Your question</label>
+      <input id="q" name="q" type="text" maxlength="300" autocomplete="off" placeholder="When is it?" required>
+      <button type="submit">Ask</button>
+    </form>
+    <p class="status" role="status"></p>
+
+    <p class="tries">
+      Try
+      <button type="button">Who can come?</button>
+      <button type="button">Do I need a team?</button>
+      <button type="button">Is there food?</button>
+      <button type="button">How do I sponsor?</button>
+    </p>
+
+    <ol class="slips" aria-live="polite"></ol>
+    <noscript><p class="note">This page needs JavaScript. You can also email <a href="mailto:bisvhackathon@gmail.com">bisvhackathon@gmail.com</a>.</p></noscript>
+  </section>
+</main>
+
+<footer>
+  <p>BISV Hacks is a student-led organization at BASIS Independent Silicon Valley. Fiscally sponsored by Hack Club Bank, a 501(c)(3).</p>
+  <p class="footer-links"><a href="about.html">About</a> · <a href="contact.html">Contact</a> · <a href="privacy.html">Privacy</a></p>
+  <p>© 2027 BISV Hacks</p>
+</footer>
+
+<script src="faq.js" defer></script>
+<script src="mode.js" defer></script>
+</body>
+</html>

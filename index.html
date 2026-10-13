@@ -1,1458 +1,161 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>BISV Hacks 2027 | High School Hackathon in San Jose, CA</title>
-
-    <!-- Tailwind Play / Browser CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="https://cdn.jsdelivr.net/npm/twemoji@latest/dist/twemoji.min.js"></script>
-    <link rel="icon" type="image/x-icon" href="images/BISV_Hacks_Favicon.png">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;600;700;800&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
-    <meta name="description" content="BISV Hacks 2027 is a student-led high school hackathon planned for February 2027 in San Jose, CA, bringing hackers together for a day of building, learning, and collaboration." />
-    <meta name="robots" content="index, follow" />
-    <meta name="author" content="BISV Hacks" />
-    <link rel="canonical" href="https://bisvhacks.com/" />
-    <meta property="og:site_name" content="BISV Hacks" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="BISV Hacks 2027 | High School Hackathon in San Jose, CA" />
-    <meta property="og:description" content="Join BISV Hacks 2027, a student-led high school hackathon planned for February 2027 in San Jose, CA." />
-    <meta property="og:url" content="https://bisvhacks.com/" />
-    <meta property="og:image" content="https://bisvhacks.com/images/BISV_Hacks.png" />
-    <meta property="og:image:alt" content="BISV Hacks logo" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="BISV Hacks 2027 | High School Hackathon in San Jose, CA" />
-    <meta name="twitter:description" content="A student-led high school hackathon planned for February 2027 in San Jose, CA." />
-    <meta name="twitter:image" content="https://bisvhacks.com/images/BISV_Hacks.png" />
-    <meta content="#1d4ed8" data-react-helmet="true" name="theme-color" />
-
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@graph": [
-                {
-                    "@type": "Organization",
-                    "@id": "https://bisvhacks.com/#organization",
-                    "name": "BISV Hacks",
-                    "url": "https://bisvhacks.com/",
-                    "logo": "https://bisvhacks.com/images/BISV_Hacks.png",
-                    "email": "bisvhackathon@gmail.com",
-                    "sameAs": [
-                        "https://www.instagram.com/bisv.hacks/",
-                        "https://hcb.hackclub.com/donations/start/bisv-hacks"
-                    ]
-                },
-                {
-                    "@type": "WebSite",
-                    "@id": "https://bisvhacks.com/#website",
-                    "url": "https://bisvhacks.com/",
-                    "name": "BISV Hacks",
-                    "publisher": {
-                        "@id": "https://bisvhacks.com/#organization"
-                    },
-                    "inLanguage": "en-US"
-                },
-                {
-                    "@type": "WebPage",
-                    "@id": "https://bisvhacks.com/#webpage",
-                    "url": "https://bisvhacks.com/",
-                    "name": "BISV Hacks 2027",
-                    "description": "BISV Hacks 2027 is a student-led high school hackathon planned for February 2027 in San Jose, CA.",
-                    "isPartOf": {
-                        "@id": "https://bisvhacks.com/#website"
-                    },
-                    "about": {
-                        "@id": "https://bisvhacks.com/#organization"
-                    },
-                    "inLanguage": "en-US"
-                }
-            ]
-        }
-    </script>
-
-    <script>
-        function toggleMenu() {
-            const panel = document.getElementById('mobilePanel');
-
-            panel.classList.toggle('invisible');
-            panel.classList.toggle('opacity-0');
-            panel.classList.toggle('scale-95');
-            panel.classList.toggle('pointer-events-none');
-
-            panel.classList.toggle('visible');
-            panel.classList.toggle('opacity-100');
-            panel.classList.toggle('scale-100');
-        }
-        document.addEventListener("DOMContentLoaded", function () {
-            twemoji.parse(document.body, {
-                folder: "svg",
-                ext: ".svg",
-                attributes: () => ({
-                    class: "twemoji"
-                })
-            });
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const faqItems = document.querySelectorAll('.faq-item');
-
-            faqItems.forEach(item => {
-                const header = item.querySelector('h3');
-                const answer = item.querySelector('.faq-answer');
-                const icon = header.querySelector('span');
-
-                if (!header || !answer) return;
-
-                header.addEventListener('click', () => {
-                    const isOpen = !answer.classList.contains('hidden');
-
-                    // close all others
-                    faqItems.forEach(other => {
-                        const otherAnswer = other.querySelector('.faq-answer');
-                        const otherIcon = other.querySelector('h3 span');
-                        if (otherAnswer) otherAnswer.classList.add('hidden');
-                        if (otherIcon) otherIcon.textContent = '+';
-                    });
-
-                    // toggle current
-                    if (isOpen) {
-                        answer.classList.add('hidden');
-                        if (icon) icon.textContent = '+';
-                    } else {
-                        answer.classList.remove('hidden');
-                        if (icon) icon.textContent = '×';
-                    }
-                });
-            });
-        });
-    </script>
-
-
-
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BISV Hacks 2027</title>
+  <meta name="description" content="BISV Hacks is a student-led hackathon for 300+ high school builders in San Jose, California. February 2027 at BASIS Independent Silicon Valley.">
+  <meta name="theme-color" content="#F0EEE9">
+  <link rel="icon" href="images/logo.png">
+  <meta property="og:title" content="BISV Hacks 2027">
+  <meta property="og:description" content="A hackathon for Silicon Valley's next builders. February 2027, San Jose.">
+  <meta property="og:image" content="images/BISV_Hacks.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="alternate" type="text/markdown" href="index.html.md">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://bisvhacks.com/#organization",
+        "name": "BISV Hacks",
+        "url": "https://bisvhacks.com/",
+        "logo": "https://bisvhacks.com/images/BISV_Hacks.png",
+        "description": "BISV Hacks is a free, student-led, one-day hackathon for high school students, organized by students at BASIS Independent Silicon Valley in San Jose, California.",
+        "email": "bisvhackathon@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "1290 Parkmoor Ave",
+          "addressLocality": "San Jose",
+          "addressRegion": "CA",
+          "postalCode": "95126",
+          "addressCountry": "US"
+        },
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "contactType": "general inquiries",
+            "email": "bisvhackathon@gmail.com",
+            "url": "https://bisvhacks.com/contact.html",
+            "availableLanguage": "en"
+          },
+          {
+            "@type": "ContactPoint",
+            "contactType": "sponsorships",
+            "email": "bisvhackathon@gmail.com",
+            "url": "https://bisvhacks.com/sponsors.html",
+            "availableLanguage": "en"
+          }
+        ],
+        "sameAs": [
+          "https://www.instagram.com/bisv.hacks/",
+          "https://hcb.hackclub.com/donations/start/bisv-hacks"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://bisvhacks.com/#website",
+        "url": "https://bisvhacks.com/",
+        "name": "BISV Hacks",
+        "publisher": {
+          "@id": "https://bisvhacks.com/#organization"
+        },
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://bisvhacks.com/#webpage",
+        "url": "https://bisvhacks.com/",
+        "name": "BISV Hacks 2027",
+        "description": "BISV Hacks 2027 is a free, student-led hackathon for 300+ high school builders in San Jose, California, in February 2027.",
+        "isPartOf": {
+          "@id": "https://bisvhacks.com/#website"
+        },
+        "about": {
+          "@id": "https://bisvhacks.com/#organization"
+        },
+        "inLanguage": "en-US"
+      }
+    ]
+  }
+  </script>
 </head>
+<body>
 
-<body class="site-body text-white bg-slate-950 antialiased">
-
-<!-- Header / Nav -->
-<header class="site-nav top-5 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-[52rem] fixed inset-x-0 z-50 backdrop-blur-lg">
-    <div class="mx-auto px-4 sm:px-5 py-2">
-        <nav class="flex items-center justify-between h-12">
-            <a href="#hero" class="nav-brand orbitron flex items-center gap-2.5">
-                <img src="images/BISV_Hacks.png" alt="BISV Hacks Logo" class="w-11 h-9 object-contain p-1">
-                <span class="font-extrabold text-base text-red-400">BISV Hacks</span>
-            </a>
-
-            <ul id="navLinks" class="nav-menu text-sm hidden lg:flex items-center gap-1">
-                <li><a class="nav-link hidden lg:block text-slate-400 hover:text-red-500 font-medium" href="#about">About</a></li>
-                <li><a class="nav-link hidden lg:block text-slate-400 hover:text-red-500 font-medium" href="#sponsors">Sponsors</a></li>
-                <li><a class="nav-link hidden lg:block text-slate-400 hover:text-red-500 font-medium" href="#judges">Judges</a></li>
-                <li><a class="nav-link hidden lg:block text-slate-400 hover:text-red-500 font-medium" href="#faq">FAQ</a></li>
-                <li><a class="nav-link hidden lg:block text-slate-400 hover:text-red-500 font-medium" target="_blank" href="https://hcb.hackclub.com/donations/start/bisv-hacks">Donate</a></li>
-
-
-                <li class="relative group">
-                    <button class="nav-link text-slate-400 hover:text-red-500 font-medium">
-                        Previous Years
-                    </button>
-
-                    <!-- Hover bridge -->
-                    <div class="absolute left-0 top-full h-3 w-full"></div>
-
-                    <div class="nav-dropdown absolute right-0 top-full mt-2
-                opacity-0 invisible
-                group-hover:opacity-100 group-hover:visible
-                transition-all duration-200 delay-150
-                bg-black rounded-lg shadow-lg border border-slate-800 w-28">
-                        <a href="2026.html" class="dropdown-link text-sm orbitron block px-3 py-2.5 text-slate-300">
-                            2026
-                        </a>
-                        <a href="2025.html" class="dropdown-link text-sm orbitron block px-3 py-2.5 text-slate-300">
-                            2025
-                        </a>
-                    </div>
-                </li>
-
-
-                <li>
-                    <a aria-disabled="true" title="Sign up link coming soon"
-                       class="nav-cta cursor-not-allowed opacity-60 text-sm orbitron px-3.5 py-2 bg-red-500/20 border border-red-400/60 text-red-200 font-semibold transition">
-                        Sign Up
-                    </a>
-                </li>
-            </ul>
-
-            <!-- Mobile hamburger -->
-            <div class="lg:hidden flex items-center">
-                <button id="hamburger" aria-label="Open menu" class="p-2" onclick="toggleMenu()">
-                    <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                         xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                                  d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                </button>
-            </div>
-        </nav>
-
-        <!-- Mobile nav panel -->
-        <div id="mobilePanel"
-             class="lg:hidden absolute left-0 right-0 top-full mt-3
-            origin-top transform scale-95
-            transition-all duration-200
-            invisible opacity-0 pointer-events-none">
-
-            <div class="mx-4 rounded-lg p-5
-                backdrop-blur-xl bg-black/80
-                border border-red-500/40
-                ring-1 ring-red-500/20">
-
-                <a class="orbitron block py-3 text-center text-slate-300 font-semibold
-                  hover:text-red-400 transition"
-                   href="#hero">Home</a>
-
-                <a class="orbitron block py-3 text-center text-slate-400
-                  hover:text-red-400 transition"
-                   href="#about">About</a>
-
-                <a class="orbitron block py-3 text-center text-slate-400
-                  hover:text-red-400 transition"
-                   href="#sponsors">Sponsors</a>
-
-                <a class="orbitron block py-3 text-center text-slate-400
-                  hover:text-red-400 transition"
-                   href="#judges">Judges</a>
-
-                <a class="orbitron block py-3 text-center text-slate-400
-                  hover:text-red-400 transition"
-                   href="#team">Team</a>
-
-                <a class="orbitron block py-3 text-center text-slate-400
-                  hover:text-red-400 transition"
-                   href="#faq">FAQ</a>
-
-                <a class="orbitron block py-3 text-center text-slate-400
-                  hover:text-red-400 transition"
-                   href="2026.html">2026 Archive</a>
-
-                <a class="orbitron block py-3 text-center text-slate-400
-                  hover:text-red-400 transition"
-                   href="2025.html">2025 Archive</a>
-
-                <!-- divider -->
-                <div class="my-3 h-px bg-gradient-to-r from-transparent via-red-500/40 to-transparent"></div>
-
-                <a class="orbitron block mt-2 text-center py-3
-                  rounded-xl font-semibold
-                  bg-red-500/20 border border-red-500/50
-                  text-red-300
-                  transition cursor-not-allowed opacity-60"
-                   aria-disabled="true"
-                   title="Sign up link coming soon">
-                    Sign Up
-                </a>
-
-            </div>
-        </div>
-
-    </div>
+<header class="top">
+  <a class="brand" href="index.html">
+    <img src="images/logo.png" alt="" width="46" height="22">
+    <span>BISV Hacks</span>
+  </a>
+  <nav aria-label="Pages">
+    <a href="index.html" aria-current="page">Home</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="sponsors.html">Sponsors</a>
+    <a href="team.html">Team</a>
+    <a href="faq.html">Questions</a>
+  </nav>
 </header>
 
-<!-- HERO -->
-<section id="hero" class="hero-section relative min-h-screen flex items-center justify-center pt-16">
-    <!-- background image -->
-     <div class="absolute inset-0 bg-cover bg-center" style="background-image:linear-gradient( rgba(2, 6, 23, 0.74), rgba(2, 6, 23, 0.86) ), url('images/BISV_Wallpaper.jpg'); filter: saturate(0.95) blur(0px);"></div>
-
-
-    <div class="hero-content relative z-10 max-w-4xl text-center px-6 py-20">
-        <div class="orbitron hero-badge inline-block bg-white/20 backdrop-blur-md px-4 py-2 rounded-full border border-white/30 mb-6 text-sm font-semibold text-white">
-            February 2027 @ San Jose, CA
-        </div>
-
-        <h1 class="orbitron text-4xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-white">
-            <span class="text-4xl md:text-6xl font-extrabold">BISV Hacks </span>
-            <span class="block mt-2 text-red-500 text-2xl md:text-4xl">2027</span>
-        </h1>
-
-        <p class="mt-6 text-lg font-bold sm:text-xl italic text-slate-300 drop-shadow-md">Let's build a better world, one hack at a time.</p>
-
-        <div class="mt-8 flex justify-center gap-4 flex-wrap">
-            <a aria-disabled="true" title="Sign up link coming soon"
-               class="cursor-not-allowed opacity-60 backdrop-blur-sm orbitron inline-flex items-center px-6 py-3 rounded-full bg-red-500/20 border border-red-400/60 text-red-200 font-semibold transition duration-300">
-                Sign Up
-            </a>
-            <a aria-disabled="true" title="Devpost link coming soon"
-               class="cursor-not-allowed opacity-60 backdrop-blur-sm orbitron inline-flex items-center px-6 py-3 rounded-full bg-slate-800/50 border border-slate-500/40 text-slate-300 font-semibold transition duration-300">
-                Devpost
-            </a>
-
-        </div>
-
-        <div class="hero-stats orbitron mt-10 grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
-            <div class="stat-card">
-                <div class="text-3xl font-extrabold text-red-400">12</div>
-                <div class="text-sm text-slate-200">Hours</div>
-            </div>
-            <div class="stat-card">
-                <div class="text-3xl font-extrabold text-red-400">100+</div>
-                <div class="text-sm text-slate-200">Hackers</div>
-            </div>
-            <div class="stat-card">
-                <div class="text-3xl font-extrabold text-red-400">TBD</div>
-                <div class="text-sm text-slate-200">Prizes</div>
-            </div>
-        </div>
+<main>
+<section class="hero">
+    <h1>BISV Hacks 2027</h1>
+    <p class="tagline">A hackathon for Silicon Valley's next builders.</p>
+    <p class="meta">February 2027 · Bay Area, California</p>
+    <div class="actions">
+      <a class="button" href="https://discord.gg/T8cuesaNKB">Join the Discord</a>
+      <a class="quiet" href="#links">Registration opens soon</a>
     </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="section-shell bg-slate-950">
-    <div class="container mx-auto px-6">
-        <p class="orbitron text-2xl md:text-3xl font-extrabold text-center mb-16">
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-600 via-red-400 to-orange-500">About BISV Hacks</span>
-        </p>
-
-        <div class="about-layout grid md:grid-cols-2 gap-10 items-start">
-            <div class="space-y-4">
-                <div class="info-panel">
-                    <h3 class="orbitron text-lg font-semibold text-red-500 mb-2">What is BISV Hacks?</h3>
-                    <p class="text-slate-400"> <strong class="orbitron">BISV Hacks</strong> is an inclusive, student-led hackathon organized by students at BASIS Independent Silicon Valley Upper School in San Jose, CA. BISV Hacks 2027 will bring high school hackers together for a 12-hour day of building, learning, and collaboration.</p>
-                </div>
-
-                <div class="info-panel">
-                    <h3 class="orbitron text-lg font-semibold text-red-500 mb-2">Our Mission</h3>
-                    <p class="text-slate-400">Our event encourages creativity and collaboration by welcoming students of all experience levels. Participants can form teams or work solo to develop projects, solve challenges, and gain experience.</p>
-                </div>
-
-                <div class="info-panel">
-                    <h3 class="orbitron text-lg font-semibold text-red-500 mb-2">What to Expect</h3>
-                    <p class="text-slate-400">In addition to coding, attendees can expect industry speakers, hands-on workshops, mentorship, meals, snacks, and space to turn ideas into working demos.</p>
-                </div>
-            </div>
-
-            <div class="photo-card bg-slate-900 overflow-hidden shadow-lg border border-slate-800">
-                <img src="images/2026/About.png" alt="BISV Hacks 2026 event" class="w-full h-72 object-cover">
-                <div class="p-4 text-white">
-                    <div class="orbitron text-sm font-medium">BISV Hacks 2026</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- FEATURES -->
-<section id="features" class="section-shell bg-slate-950">
-    <div class="container mx-auto px-6">
-        <p class="orbitron text-2xl md:text-3xl font-extrabold text-center mb-12">
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-600 via-red-400 to-orange-500">Why Join BISV Hacks?</span>
-        </p>
-
-        <div class="feature-grid grid gap-5 md:grid-cols-3">
-            <div class="feature-card bg-slate-900 p-6 shadow-sm border border-slate-700 text-center transition-transform transform">
-                <div class="text-4xl mb-3">🏆</div>
-                <h3 class="orbitron font-semibold text-lg mb-2 text-white">Amazing Prizes</h3>
-                <p class="text-slate-300">Prize categories, sponsor awards, swag, and subscriptions will be announced as the event gets closer.</p>
-            </div>
-
-            <div class="feature-card bg-slate-900 p-6 shadow-sm border border-slate-700 text-center transition-transform transform">
-                <div class="text-4xl mb-3">🍕</div>
-                <h3 class="orbitron font-semibold text-lg mb-2 text-white">Catered Meals</h3>
-                <p class="text-slate-300">Lunch, dinner, and snacks will be available throughout the day so you can focus on building.</p>
-            </div>
-
-            <div class="feature-card bg-slate-900 p-6 shadow-sm border border-slate-700 text-center transition-transform transform">
-                <div class="text-4xl mb-3">👥</div>
-                <h3 class="orbitron font-semibold text-lg mb-2 text-white">All Skill Levels</h3>
-                <p class="text-slate-300">No coding experience necessary — workshops and mentors will help you get started.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- PRIZES -->
-<section id="prizes" class="section-shell bg-slate-950">
-    <div class="container mx-auto px-6">
-        <p class="orbitron text-2xl md:text-3xl font-extrabold text-center mb-4">
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-600 via-red-400 to-orange-500">
-                Prizes & Awards
-            </span>
-        </p>
-
-        <p class="text-center text-slate-400 max-w-2xl text-lg mx-auto mb-12">
-            Details coming soon.
-        </p>
-
-        <!-- Top Places -->
-        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-
-            <!-- First -->
-            <div class="relative bg-slate-900/60 backdrop-blur-xl p-6 rounded-2xl border border-slate-700/60 shadow-lg shadow-black/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-red-500/10 hover:border-red-500/40">
-                <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-red-500/10 via-transparent to-orange-500/10 opacity-0 hover:opacity-100 transition"></div>
-
-                <h3 class="relative text-red-400 orbitron text-lg font-semibold mb-4 tracking-wide flex items-center gap-2">
-                    FIRST PLACE
-                </h3>
-
-                <ul class="relative space-y-2 text-slate-300 text-sm list-disc list-inside marker:text-red-400">
-                    <li>Details coming soon.</li>
-                </ul>
-            </div>
-
-            <!-- Second -->
-            <div class="relative bg-slate-900/60 backdrop-blur-xl p-6 rounded-2xl border border-slate-700/60 shadow-lg shadow-black/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-red-500/10 hover:border-red-500/40">
-                <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-red-500/10 via-transparent to-orange-500/10 opacity-0 hover:opacity-100 transition"></div>
-
-                <h3 class="relative text-red-400 orbitron text-lg font-semibold mb-4 tracking-wide flex items-center gap-2">
-                    SECOND PLACE
-                </h3>
-
-                <ul class="relative space-y-2 text-slate-300 text-sm list-disc list-inside marker:text-red-400">
-                    <li>Details coming soon.</li>
-                </ul>
-            </div>
-
-            <!-- Third -->
-            <div class="relative bg-slate-900/60 backdrop-blur-xl p-6 rounded-2xl border border-slate-700/60 shadow-lg shadow-black/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-red-500/10 hover:border-red-500/40">
-                <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-red-500/10 via-transparent to-orange-500/10 opacity-0 hover:opacity-100 transition"></div>
-
-                <h3 class="relative text-red-400 orbitron text-lg font-semibold mb-4 tracking-wide flex items-center gap-2">
-                    THIRD PLACE
-                </h3>
-
-                <ul class="relative space-y-2 text-slate-300 text-sm list-disc list-inside marker:text-red-400">
-                    <li>Details coming soon.</li>
-                </ul>
-            </div>
-
-            <!-- Fourth -->
-            <div class="relative bg-slate-900/60 backdrop-blur-xl p-6 rounded-2xl border border-slate-700/60 shadow-lg shadow-black/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-red-500/10 hover:border-red-500/40">
-                <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-red-500/10 via-transparent to-orange-500/10 opacity-0 hover:opacity-100 transition"></div>
-
-                <h3 class="relative text-red-400 orbitron text-lg font-semibold mb-4 tracking-wide">
-                    FOURTH PLACE
-                </h3>
-
-                <ul class="relative space-y-2 text-slate-300 text-sm list-disc list-inside marker:text-red-400">
-                    <li>Details coming soon.</li>
-                </ul>
-            </div>
-
-            <!-- Fifth -->
-            <div class="relative bg-slate-900/60 backdrop-blur-xl p-6 rounded-2xl border border-slate-700/60 shadow-lg shadow-black/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-red-500/10 hover:border-red-500/40">
-                <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-red-500/10 via-transparent to-orange-500/10 opacity-0 hover:opacity-100 transition"></div>
-
-                <h3 class="relative text-red-400 orbitron text-lg font-semibold mb-4 tracking-wide">
-                    FIFTH PLACE
-                </h3>
-
-                <ul class="relative space-y-2 text-slate-300 text-sm list-disc list-inside marker:text-red-400">
-                    <li>Details coming soon.</li>
-                </ul>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-
-<!-- Schedule Section -->
-<section id="schedule" class="section-shell bg-slate-950">
-    <div class="container mx-auto px-6">
-        <p class="orbitron text-2xl md:text-3xl font-extrabold text-center mb-4">
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-600 via-red-400 to-orange-500">Tentative Event Schedule</span>
-        </p>
-        <p class="text-center text-xl text-slate-400 mb-8">February 2027</p>
-
-        <div class="schedule-rail mx-auto max-w-4xl">
-            <div class="schedule-item">
-                <time class="orbitron">7:45 AM</time>
-                <article class="schedule-card">
-                    <span class="schedule-kicker">Arrival</span>
-                    <h3 class="orbitron">Check-in</h3>
-                    <p>Arrival window</p>
-                </article>
-            </div>
-
-            <div class="schedule-item">
-                <time class="orbitron">8:30 AM</time>
-                <article class="schedule-card">
-                    <span class="schedule-kicker">Kickoff</span>
-                    <h3 class="orbitron">Opening Ceremony</h3>
-                    <p>Kickoff, rules, and announcements</p>
-                </article>
-            </div>
-
-            <div class="schedule-item">
-                <time class="orbitron">9:00 AM</time>
-                <article class="schedule-card">
-                    <span class="schedule-kicker">Build</span>
-                    <h3 class="orbitron">Hacking Starts</h3>
-                    <p>Build time begins</p>
-                </article>
-            </div>
-
-            <div class="schedule-item">
-                <time class="orbitron">12:00 PM</time>
-                <article class="schedule-card">
-                    <span class="schedule-kicker">Break</span>
-                    <h3 class="orbitron">Lunch Break</h3>
-                    <p>Free lunch and team check-ins</p>
-                </article>
-            </div>
-
-            <div class="schedule-item">
-                <time class="orbitron">1:00 PM</time>
-                <article class="schedule-card">
-                    <span class="schedule-kicker">Build</span>
-                    <h3 class="orbitron">Hackathon Resumes</h3>
-                    <p>Workshops, mentorship, and building</p>
-                </article>
-            </div>
-
-            <div class="schedule-item">
-                <time class="orbitron">5:30 PM</time>
-                <article class="schedule-card">
-                    <span class="schedule-kicker">Break</span>
-                    <h3 class="orbitron">Dinner Break</h3>
-                    <p>Dinner and guest speaker programming</p>
-                </article>
-            </div>
-
-            <div class="schedule-item">
-                <time class="orbitron">6:00 PM</time>
-                <article class="schedule-card">
-                    <span class="schedule-kicker">Deadline</span>
-                    <h3 class="orbitron">Hacking Ends</h3>
-                    <p>Submission deadline</p>
-                </article>
-            </div>
-
-            <div class="schedule-item">
-                <time class="orbitron">7:30 PM</time>
-                <article class="schedule-card">
-                    <span class="schedule-kicker">Showcase</span>
-                    <h3 class="orbitron">Closing & Awards Ceremony</h3>
-                    <p>Project showcase and awards</p>
-                </article>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<!-- SPONSORS -->
-<section id="sponsors" class="section-shell bg-slate-950">
-    <div class="container mx-auto px-6 text-center">
-        <p class="orbitron text-2xl md:text-3xl font-extrabold text-center mb-4">
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-600 via-red-400 to-orange-500">Our Sponsors</span>
-        </p>
-        <div class="mt-4 mb-8">
-            <p class="text-slate-400 text-lg">Interested in sponsoring <span class="orbitron">BISV Hacks</span> 2027?</p>
-            <p class="text-slate-400 text-lg">
-                Take a look at our prospectus and email us at
-                <a  href="mailto:bisvhackathon@gmail.com" class="text-red-400 hover:underline font-medium transition">bisvhackathon@gmail.com</a>
-
-            </p>
-
-            <a href="BISV Hacks Sponsorship Prospectus.pdf" target="_blank"
-               class="mt-4 backdrop-blur-sm orbitron shimmer-button inline-flex items-center px-6 py-3 rounded-lg bg-red-500/20 border border-red-400/60 text-red-200 font-semibold hover:bg-red-500/30 transition duration-300">
-                View our Prospectus</a>
-            <p class="mt-4 text-slate-400 text-sm max-w-2xl mx-auto">
-                Although we prefer cash contributions, we would still love in-kind contributions such as subscriptions, speakers, workshops, prizes, swag, and anything else your company can offer to make BISV Hacks a better experience. Our 2027 sponsor list will be announced as partners are confirmed.
-            </p>
-        </div>
-        <div class="placeholder-panel mx-auto mt-12 max-w-2xl border border-slate-800 bg-slate-900/70 p-8 shadow-lg shadow-black/30">
-            <p class="orbitron text-xl font-extrabold text-red-400">Sponsors TBD</p>
-            <p class="mt-3 text-slate-400">Confirmed BISV Hacks 2027 sponsors will be announced here.</p>
-        </div>
-
-    </div>
-</section>
-
-<!-- Judges Section -->
-<section id="judges" class="section-shell bg-slate-950">
-    <div class="container mx-auto px-6">
-        <p class="orbitron text-2xl md:text-3xl font-extrabold text-center mb-4">
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-600 via-red-400 to-orange-500">Guest Speakers, Judges, & Mentors</span>
-        </p>
-        <div class="text-center mb-10">
-            <p class="text-slate-400 text-lg">Interested in judging, speaking, or mentoring at <span class="orbitron">BISV Hacks</span> 2027?</p>
-            <p class="text-slate-400 text-lg">
-               Email us at
-                <a href="mailto:bisvhackathon@gmail.com" class="text-red-400 hover:underline font-medium transition">bisvhackathon@gmail.com</a>.
-            </p>
-        </div>
-
-        <div class="placeholder-panel mx-auto max-w-2xl border border-slate-800 bg-slate-900/70 p-8 text-center shadow-lg shadow-black/30">
-            <p class="orbitron text-xl font-extrabold text-red-400">Announcing Soon</p>
-            <p class="mt-3 text-slate-400">BISV Hacks 2027 judges, speakers, and mentors will be announced here.</p>
-        </div>
-    </div>
-</section>
-
-<!-- TEAM -->
-<section id="team" class="section-shell bg-slate-950">
-    <div class="container mx-auto px-6">
-        <p class="orbitron text-2xl md:text-3xl font-extrabold text-center mb-4">
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-600 via-red-400 to-orange-500">Meet the Team</span>
-        </p>
-        <div class="team-grid mt-14 grid gap-5 lg:grid-cols-2">
-            <!-- Team Member Card -->
-            <div class="team-card judge bg-slate-900 border border-slate-700 p-6 shadow-sm flex gap-4 items-start">
-                <img src="images/2025/team/Nicholas.png" alt="Nicholas Wang" class="w-24 h-24 rounded-full object-cover shadow-md flex-shrink-0">
-                <div>
-                    <h3 class="orbitron font-semibold text-lg">Nicholas Wang</h3>
-                    <div class="orbitron text-red-400 font-extrabold text-sm mb-3">Co-President</div>
-                    <p class="text-slate-400 text-sm">Nicholas Wang is a senior at BASIS Independent Silicon Valley who has been coding since 6th grade and enjoys exploring technology and building projects. He works with a variety of tools and frameworks, including Svelte, TailwindCSS, Python, and Flask, among others. Nicholas likes experimenting with AI tools, APIs, and creative coding projects. He is also the founder of Stellar, an AI-powered platform aimed at providing free, engaging education. In his free time, he enjoys building websites, learning new technologies, and participating in hackathons.</p>
-                </div>
-            </div>
-            <div class="team-card judge bg-slate-900 border border-slate-700 p-6 shadow-sm flex gap-4 items-start">
-                <img src="images/2025/team/Anderson.jpg" alt="Anderson Lu" class="w-24 h-24 rounded-full object-cover shadow-md flex-shrink-0">
-                <div>
-                    <h3 class="orbitron font-semibold text-lg">Anderson Lu</h3>
-                    <div class="orbitron text-red-400 font-extrabold text-sm mb-3">Co-President</div>
-                    <p class="text-slate-400 text-sm">Anderson Lu is a junior at BASIS Independent Silicon Valley who has been actively engaged in computer science for over five years. He works with image processing in the machine learning field and has experience in making websites. In his free time, he plays basketball and strives increase his knowledge in machine learning.</p>
-                </div>
-            </div>
-
-            <div class="team-card judge bg-slate-900 border border-slate-700 p-6 shadow-sm flex gap-4 items-start">
-                <img src="images/2026/team/Arav.png" alt="Arav Dharnikota" class="w-24 h-24 rounded-full object-cover shadow-md flex-shrink-0">
-
-                <div>
-                    <h3 class="orbitron font-semibold text-lg">Arav Dharnikota</h3>
-                    <div class="orbitron text-red-400 font-extrabold text-sm mb-3">Vice President</div>
-                    <p class="text-slate-400 text-sm">Arav Dharnikota is a sophomore at BASIS Independent Silicon Valley.</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq" class="section-shell bg-slate-950">
-    <div class="container mx-auto px-6 max-w-3xl">
-        <p class="orbitron text-2xl md:text-3xl font-extrabold text-center mb-4">
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-600 via-red-400 to-orange-500">Frequently Asked Questions</span>
-        </p>
-
-        <div class="space-y-4 mt-8">
-            <div class="faq-item bg-slate-900 border border-slate-800 rounded-lg shadow-sm overflow-hidden">
-                <h3 class="p-4 flex justify-between items-center cursor-pointer font-semibold text-slate-100 orbitron">
-                    When is BISV Hacks 2027?
-                    <span class="text-slate-500">+</span>
-                </h3>
-                <div class="faq-answer px-4 pb-4 hidden">
-                    <p class="text-slate-400">BISV Hacks 2027 is planned for February 2027. We will update this site as soon as the exact date and registration details are ready.</p>
-                </div>
-            </div>
-
-            <div class="faq-item bg-slate-900 border border-slate-800 rounded-lg shadow-sm overflow-hidden">
-                <h3 class="p-4 flex justify-between items-center cursor-pointer font-semibold text-slate-100 orbitron">
-                    Who can participate?
-                    <span class="text-slate-500">+</span>
-                </h3>
-                <div class="faq-answer px-4 pb-4 hidden">
-                    <p class="text-slate-400">Any high school student with a passion for technology can participate, even with no prior coding experience.</p>
-                </div>
-            </div>
-
-            <div class="faq-item bg-slate-900 border border-slate-800 rounded-lg shadow-sm overflow-hidden">
-                <h3 class="p-4 flex justify-between items-center cursor-pointer font-semibold text-slate-100 orbitron">
-                    Do I need a team?
-                    <span class="text-slate-500">+</span>
-                </h3>
-                <div class="faq-answer px-4 pb-4 hidden">
-                    <p class="text-slate-400">You can come solo or work with up to 4 teammates.</p>
-                </div>
-            </div>
-
-            <div class="faq-item bg-slate-900 border border-slate-800 rounded-lg shadow-sm overflow-hidden">
-                <h3 class="p-4 flex justify-between items-center cursor-pointer font-semibold text-slate-100 orbitron">
-                    Where will the hackathon be held?
-                    <span class="text-slate-500">+</span>
-                </h3>
-                <div class="faq-answer px-4 pb-4 hidden">
-                    <p class="text-slate-400">We expect to host BISV Hacks at BASIS Independent Silicon Valley Upper School, located at 1290 Parkmoor Ave, San Jose, CA 95126.</p>
-                </div>
-            </div>
-
-            <div class="faq-item bg-slate-900 border border-slate-800 rounded-lg shadow-sm overflow-hidden">
-                <h3 class="p-4 flex justify-between items-center cursor-pointer font-semibold text-slate-100 orbitron">
-                    What should I bring?
-                    <span class="text-slate-500">+</span>
-                </h3>
-                <div class="faq-answer px-4 pb-4 hidden">
-                    <p class="text-slate-400">Bring a laptop, charger, and anything else you need to build comfortably for the day.</p>
-                </div>
-            </div>
-
-            <div class="faq-item bg-slate-900 border border-slate-800 rounded-lg shadow-sm overflow-hidden">
-                <h3 class="p-4 flex justify-between items-center cursor-pointer font-semibold text-slate-100 orbitron">
-                    Will there be food?
-                    <span class="text-slate-500">+</span>
-                </h3>
-                <div class="faq-answer px-4 pb-4 hidden">
-                    <p class="text-slate-400">Yes. We plan to provide meals, snacks, and refreshments throughout the day.</p>
-                </div>
-            </div>
-
-            <div class="faq-item bg-slate-900 border border-slate-800 rounded-lg shadow-sm overflow-hidden">
-                <h3 class="p-4 flex justify-between items-center cursor-pointer font-semibold text-slate-100 orbitron">
-                    How can I sponsor, judge, speak, or mentor?
-                    <span class="text-slate-500">+</span>
-                </h3>
-                <div class="faq-answer px-4 pb-4 hidden">
-                    <p class="text-slate-400">Use the sponsor prospectus or contact links on this page. We would love to hear from partners, judges, speakers, and mentors for 2027.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- PARTICIPANT LINKS -->
-<section id="participant-links" class="section-shell bg-slate-950">
-    <div class="container mx-auto px-6 max-w-4xl">
-        <p class="orbitron text-2xl md:text-3xl font-extrabold text-center mb-4">
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-600 via-red-400 to-orange-500">Participant Hub</span>
-        </p>
-        <p class="text-center text-slate-400 mb-8">Important links for hackers will live here as the event gets closer.</p>
-
-        <div class="participant-grid grid md:grid-cols-2 gap-5">
-            <a class="participant-card contact-card block bg-slate-900 p-6 shadow-sm border border-slate-800" href="https://discord.gg/T8cuesaNKB"
-               target="_blank"
-            >
-                <div class="text-4xl mb-3">💬</div>
-                <h3 class="orbitron font-semibold">Join Discord</h3>
-                <p class="text-slate-400 text-sm">Announcements, help, team updates, and participant communication.</p>
-            </a>
-
-            <a class="participant-card contact-card block bg-slate-900 p-6 shadow-sm border border-slate-800 cursor-not-allowed opacity-70" aria-disabled="true"
-               title="Devpost link coming soon"
-            >
-                <div class="text-4xl mb-3">🚀</div>
-                <h3 class="orbitron font-semibold">Devpost Coming Soon</h3>
-                <p class="text-slate-400 text-sm">Registration, rules, submissions, and project gallery will be posted here.</p>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="site-footer bg-slate-950 text-white">
-    <div class="footer-shell container mx-auto px-6">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <a href="#hero" class="orbitron footer-logo">
-                    <img src="images/BISV_Hacks.png" alt="BISV Hacks Logo">
-                    <span>BISV Hacks</span>
-                </a>
-                <p>Let's build a better world, one hack at a time.</p>
-            </div>
-
-            <div>
-                <h3 class="orbitron">Years</h3>
-                <a href="index.html">2027 Event</a>
-                <a href="2026.html">2026 Event</a>
-                <a href="2025.html">2025 Event</a>
-            </div>
-
-            <div>
-                <h3 class="orbitron">Connect</h3>
-                <a href="mailto:bisvhackathon@gmail.com">Email</a>
-                <a href="https://www.instagram.com/bisv.hacks/" target="_blank">Instagram</a>
-                <a href="https://discord.gg/T8cuesaNKB" target="_blank">Discord</a>
-                <a aria-disabled="true" title="Devpost link coming soon">Devpost Soon</a>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>© 2025-2027 <span class="orbitron">BISV Hacks</span></p>
-            <p>Fiscally backed by Hack Club, a 501(c)(3) nonprofit. EIN: 81-2908499</p>
-        </div>
-    </div>
+    <figure class="photo">
+      <img src="images/hero.webp" alt="BASIS Independent Silicon Valley campus" loading="eager">
+    </figure>
+  </section>
+<section id="about">
+    <h2>About</h2>
+    <p>BISV Hacks is a student-led hackathon organized by students at BASIS Independent Silicon Valley, the #3 ranked STEM school in the US. For one day in February, 300+ high school builders come together in San Jose to design and build projects that matter to them, with workshops, mentors, and meals covered.</p>
+    <p>You do not need coding experience. You can come alone or with up to four teammates. Demand has outgrown the room every year: nearly 200 registrations for 80 spots in 2025, and 200+ registrations that closed in under two months for 2026. For 2027 we have a bigger venue.</p>
+
+    <table class="facts">
+      <thead><tr><th scope="col">At a glance</th><th scope="col"></th></tr></thead>
+      <tbody>
+        <tr><td>Builders</td><td>300+</td></tr>
+        <tr><td>Length</td><td>12 hours</td></tr>
+        <tr><td>Cost to attend</td><td>Free</td></tr>
+        <tr><td>Who</td><td>Any high school student</td></tr>
+        <tr><td>Where</td><td>1290 Parkmoor Ave, San Jose <span class="note">(subject to change)</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+<section id="expect">
+    <h2>What to expect</h2>
+    <dl class="list">
+      <div><dt>Build</dt><dd>Twelve hours to take an idea to a working demo, solo or with a team.</dd></div>
+      <div><dt>Learn</dt><dd>Hands-on workshops from sponsors and industry speakers, with mentors on the floor all day.</dd></div>
+      <div><dt>Eat</dt><dd>Lunch, dinner, and snacks are provided so you can stay focused.</dd></div>
+      <div><dt>Win</dt><dd>Cash prizes, sponsor tracks, swag, and subscriptions. The full prize slate is announced closer to the event.</dd></div>
+    </dl>
+  </section>
+<section id="links">
+    <h2>Links</h2>
+    <ul class="links">
+      <li><a href="https://discord.gg/T8cuesaNKB">Discord</a> Announcements, help, and team-finding.</li>
+      <li><span class="soon">Devpost</span> Registration, rules, submissions, and the project gallery. Coming soon.</li>
+      <li><a href="sponsors.html">Sponsors</a> Who we partner with, and how to request the prospectus.</li>
+      <li><a href="mailto:bisvhackathon@gmail.com">Contact</a> bisvhackathon@gmail.com</li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <p>BISV Hacks is a student-led organization at BASIS Independent Silicon Valley. Fiscally sponsored by Hack Club Bank, a 501(c)(3).</p>
+  <p class="footer-links"><a href="about.html">About</a> · <a href="contact.html">Contact</a> · <a href="privacy.html">Privacy</a></p>
+  <p>© 2027 BISV Hacks</p>
 </footer>
 
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
-
-    .orbitron {
-        font-family: 'Orbitron', sans-serif;
-    }
-
-    body{
-        font-family: "Quicksand", sans-serif;
-        scroll-behavior: smooth;
-    }
-
-    .site-body {
-        background:
-            linear-gradient(180deg, rgba(15, 23, 42, 0.82) 0, rgba(2, 6, 23, 0) 24rem),
-            linear-gradient(90deg, rgba(248, 113, 113, 0.035), transparent 34%, transparent 66%, rgba(249, 115, 22, 0.026)),
-            #020617;
-    }
-
-    .site-nav {
-        border: 1px solid rgba(148, 163, 184, 0.14);
-        border-radius: 8px;
-        background:
-            linear-gradient(180deg, rgba(255, 255, 255, 0.045), transparent),
-            rgba(2, 6, 23, 0.84);
-        box-shadow: 0 14px 38px rgba(0, 0, 0, 0.34), 0 1px 0 rgba(255, 255, 255, 0.04) inset;
-    }
-
-    .site-nav a,
-    .site-nav button {
-        letter-spacing: 0;
-    }
-
-    .nav-brand {
-        min-width: max-content;
-        padding-right: 0.35rem;
-    }
-
-    .nav-brand img {
-        filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.3));
-    }
-
-    .nav-menu {
-        border-radius: 8px;
-        background: transparent;
-        padding: 0;
-    }
-
-    .nav-link {
-        display: inline-flex;
-        align-items: center;
-        min-height: 2rem;
-        border-radius: 8px;
-        padding: 0.36rem 0.5rem;
-        color: rgb(148, 163, 184);
-        font-size: 0.8rem;
-        transition: color 180ms ease, background 180ms ease;
-    }
-
-    .nav-link:hover {
-        color: rgb(248, 113, 113);
-        background: rgba(148, 163, 184, 0.08);
-    }
-
-    .nav-cta {
-        display: inline-flex;
-        min-height: 2.1rem;
-        align-items: center;
-        border-radius: 8px;
-        box-shadow: none;
-    }
-
-    .nav-dropdown {
-        position: absolute;
-        border-radius: 8px;
-        padding: 0.45rem;
-        background:
-            linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025)),
-            rgba(2, 6, 23, 0.72);
-        border-color: rgba(148, 163, 184, 0.18);
-        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.42), 0 0 0 1px rgba(255, 255, 255, 0.035) inset;
-        backdrop-filter: blur(18px);
-        -webkit-backdrop-filter: blur(18px);
-        overflow: hidden;
-    }
-
-    .nav-dropdown::before {
-        content: "";
-        position: absolute;
-        inset: 0 0 auto;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.32), transparent);
-        pointer-events: none;
-    }
-
-    .dropdown-link {
-        position: relative;
-        border-radius: 8px;
-        gap: 0.6rem;
-        letter-spacing: 0;
-        border: 1px solid transparent;
-        transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
-    }
-
-    .dropdown-link:hover {
-        background: rgba(255, 255, 255, 0.065);
-        border-color: rgba(248, 113, 113, 0.18);
-        color: rgb(248, 113, 113);
-    }
-
-    .hero-section::after {
-        content: "";
-        position: absolute;
-        inset: auto 0 0;
-        height: 38%;
-        background: linear-gradient(to bottom, transparent, #020617 86%);
-        pointer-events: none;
-    }
-
-    .hero-content {
-        padding-top: clamp(7rem, 14vh, 11rem);
-        max-width: 46rem;
-    }
-
-    .hero-badge {
-        border-radius: 8px;
-        background: rgba(15, 23, 42, 0.74);
-        border-color: rgba(148, 163, 184, 0.18);
-        box-shadow: none;
-    }
-
-    .stat-card {
-        min-width: 0;
-        border: 1px solid rgba(148, 163, 184, 0.14);
-        border-radius: 8px;
-        background:
-            linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent),
-            rgba(15, 23, 42, 0.5);
-        padding: 0.9rem 1rem;
-        box-shadow: none;
-    }
-
-    .section-shell {
-        position: relative;
-        padding: clamp(4rem, 6vw, 5.5rem) 0;
-        border-top: 1px solid rgba(148, 163, 184, 0.08);
-    }
-
-    .section-shell > .container {
-        position: relative;
-        z-index: 1;
-        max-width: 1120px;
-    }
-
-    .section-shell > .container > p:first-child {
-        font-size: clamp(1.65rem, 3.2vw, 2.45rem);
-        line-height: 1.1;
-        margin-bottom: 2.2rem;
-    }
-
-    .section-shell > .container > p:first-child span {
-        filter: drop-shadow(0 10px 28px rgba(248, 113, 113, 0.12));
-    }
-
-    .about-layout {
-        align-items: stretch;
-    }
-
-    @media (min-width: 768px) {
-        .about-layout {
-            grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-        }
-    }
-
-    .info-panel,
-    .feature-card,
-    .prize-card,
-    .placeholder-panel,
-    .team-card,
-    .contact-card,
-    .faq-item,
-    .photo-card {
-        border-radius: 8px;
-        background:
-            linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent),
-            rgba(15, 23, 42, 0.48);
-        border-color: rgba(148, 163, 184, 0.12);
-        box-shadow: 0 14px 36px rgba(0, 0, 0, 0.2);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-    }
-
-    .feature-card,
-    .prize-card,
-    .placeholder-panel,
-    .team-card,
-    .contact-card {
-        position: relative;
-        overflow: hidden;
-    }
-
-    .about-layout > div:first-child {
-        border: 1px solid rgba(148, 163, 184, 0.12);
-        border-radius: 8px;
-        background:
-            linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent),
-            rgba(15, 23, 42, 0.42);
-        padding: 0.4rem;
-    }
-
-    .info-panel {
-        padding: 1.25rem 1.35rem;
-        border: 0;
-        border-radius: 8px;
-        background: transparent;
-        box-shadow: none;
-    }
-
-    .info-panel + .info-panel {
-        border-top: 1px solid rgba(148, 163, 184, 0.1);
-    }
-
-    .info-panel h3 {
-        font-size: 0.98rem;
-        margin-bottom: 0.45rem;
-    }
-
-    .info-panel p,
-    .feature-card p,
-    .prize-card p,
-    .placeholder-panel p,
-    .team-card p,
-    .contact-card p,
-    .faq-answer p,
-    .schedule-card p {
-        line-height: 1.65;
-    }
-
-    .info-panel p,
-    .feature-card p,
-    .placeholder-panel p,
-    .schedule-card p {
-        font-size: 0.96rem;
-        color: rgb(148, 163, 184);
-    }
-
-    .feature-card {
-        min-height: 13rem;
-        text-align: left;
-        padding: 1.35rem;
-    }
-
-    .feature-grid {
-        align-items: stretch;
-    }
-
-    @media (min-width: 1024px) {
-        .feature-grid {
-            grid-template-columns: 1.08fr 0.96fr 0.96fr;
-        }
-
-        .feature-card:first-child {
-            background:
-                linear-gradient(140deg, rgba(248, 113, 113, 0.12), transparent 44%),
-                rgba(15, 23, 42, 0.52);
-        }
-    }
-
-    .feature-card > div:first-child,
-    .contact-card > div:first-child {
-        width: 2.55rem;
-        height: 2.55rem;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid rgba(148, 163, 184, 0.13);
-        border-radius: 8px;
-        background: rgba(2, 6, 23, 0.42);
-    }
-
-    .feature-card h3,
-    .contact-card h3 {
-        font-size: 1rem;
-    }
-
-    .prize-card {
-        min-height: 8.25rem;
-        padding: 1.25rem;
-    }
-
-    .prize-grid {
-        align-items: stretch;
-    }
-
-    .prize-card h3 {
-        font-size: 0.92rem;
-        margin-bottom: 0.75rem;
-    }
-
-    .prize-card p {
-        color: rgb(148, 163, 184);
-    }
-
-    .team-card {
-        align-items: flex-start;
-        gap: 1.15rem;
-        padding: 1.25rem;
-    }
-
-    .team-card h3 {
-        font-size: 1rem;
-    }
-
-    .team-card p {
-        font-size: 0.88rem;
-    }
-
-    .team-card img,
-    .team-card > div[aria-hidden="true"] {
-        width: 4.8rem;
-        height: 4.8rem;
-        border-radius: 8px;
-    }
-
-    .team-card img {
-        border: 1px solid rgba(248, 113, 113, 0.18);
-    }
-
-    .placeholder-panel {
-        background:
-            linear-gradient(140deg, rgba(248, 113, 113, 0.09), transparent 42%),
-            rgba(15, 23, 42, 0.48);
-    }
-
-    .feature-card,
-    .prize-card,
-    .placeholder-panel,
-    .team-card,
-    .contact-card,
-    .faq-item {
-        transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
-    }
-
-    .feature-card:hover,
-    .prize-card:hover,
-    .team-card:hover,
-    .contact-card:hover {
-        transform: translateY(-0.125rem);
-        border-color: rgba(248, 113, 113, 0.22);
-        box-shadow: 0 18px 42px rgba(0, 0, 0, 0.26);
-    }
-
-    .schedule-rail {
-        position: relative;
-        margin-top: 2.4rem;
-        display: grid;
-        gap: 0;
-        padding: 0.45rem;
-        border: 1px solid rgba(148, 163, 184, 0.12);
-        border-radius: 8px;
-        background:
-            linear-gradient(180deg, rgba(255, 255, 255, 0.028), transparent),
-            rgba(15, 23, 42, 0.38);
-    }
-
-    .schedule-rail::before {
-        content: none;
-    }
-
-    .schedule-item {
-        position: relative;
-        display: grid;
-        grid-template-columns: 6.4rem minmax(0, 1fr);
-        align-items: start;
-        gap: 0.65rem;
-    }
-
-    .schedule-item + .schedule-item {
-        border-top: 1px solid rgba(148, 163, 184, 0.08);
-    }
-
-    .schedule-item time {
-        display: inline-flex;
-        align-items: center;
-        justify-content: flex-start;
-        color: rgb(248, 113, 113);
-        font-weight: 800;
-        font-size: 0.8rem;
-        min-height: 100%;
-        padding-left: 0.75rem;
-        border: 0;
-        border-radius: 0;
-        background: transparent;
-    }
-
-    .schedule-card {
-        position: relative;
-        border-radius: 8px;
-        background: transparent;
-        border: 0;
-        padding: 1rem 0.85rem;
-        box-shadow: none;
-        overflow: hidden;
-    }
-
-    .schedule-card::before {
-        content: none;
-    }
-
-    .schedule-kicker {
-        display: inline-flex;
-        margin-bottom: 0.3rem;
-        color: rgb(248, 113, 113);
-        font-size: 0.64rem;
-        font-weight: 800;
-        text-transform: uppercase;
-    }
-
-    .schedule-card h3 {
-        color: rgb(226, 232, 240);
-        font-size: 0.96rem;
-        margin-bottom: 0.15rem;
-    }
-
-    .schedule-card p {
-        color: rgb(148, 163, 184);
-    }
-
-    .contact-card {
-        display: block;
-        padding: 1.35rem;
-    }
-
-    .participant-card {
-        text-align: left;
-    }
-
-    .participant-card:first-child {
-        background:
-            linear-gradient(140deg, rgba(248, 113, 113, 0.12), transparent 44%),
-            rgba(15, 23, 42, 0.52);
-    }
-
-    .participant-card h3 {
-        font-size: 1.05rem;
-    }
-
-    .contact-card p {
-        font-size: 0.86rem;
-    }
-
-    .photo-card {
-        position: relative;
-        min-height: 100%;
-    }
-
-    .photo-card img {
-        height: 100%;
-        min-height: 25rem;
-    }
-
-    .photo-card .p-4 {
-        position: absolute;
-        left: 0.85rem;
-        right: 0.85rem;
-        bottom: 0.85rem;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 8px;
-        background: rgba(2, 6, 23, 0.62);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        padding: 0.8rem 0.95rem;
-    }
-
-    .faq-item h3 {
-        font-size: 0.95rem;
-    }
-
-    .photo-card img {
-        transform: scale(1.01);
-    }
-
-    .site-footer {
-        border-top: 1px solid rgba(148, 163, 184, 0.1);
-        background:
-            linear-gradient(180deg, rgba(15, 23, 42, 0.5), rgba(2, 6, 23, 0.98)),
-            #020617;
-    }
-
-    .footer-shell {
-        max-width: 1120px;
-        padding-top: 3.25rem;
-        padding-bottom: 2rem;
-    }
-
-    .footer-grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1.7fr) repeat(2, minmax(0, 0.7fr));
-        gap: clamp(2rem, 7vw, 5rem);
-    }
-
-    .footer-logo {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.7rem;
-        color: rgb(248, 113, 113);
-        font-weight: 800;
-    }
-
-    .footer-logo img {
-        width: 2.5rem;
-        height: 2rem;
-        object-fit: contain;
-    }
-
-    .footer-brand p,
-    .footer-bottom,
-    .footer-grid a {
-        color: rgb(148, 163, 184);
-    }
-
-    .footer-brand p {
-        margin-top: 0.9rem;
-        max-width: 22rem;
-        line-height: 1.65;
-    }
-
-    .footer-grid h3 {
-        margin-bottom: 0.75rem;
-        color: rgb(226, 232, 240);
-        font-size: 0.78rem;
-        text-transform: uppercase;
-    }
-
-    .footer-grid a:not(.footer-logo) {
-        display: block;
-        width: fit-content;
-        margin-top: 0.45rem;
-        font-size: 0.92rem;
-        transition: color 160ms ease;
-    }
-
-    .footer-grid a:hover {
-        color: rgb(248, 113, 113);
-    }
-
-    .footer-bottom {
-        display: flex;
-        justify-content: space-between;
-        gap: 1rem;
-        margin-top: 2.5rem;
-        padding-top: 1.25rem;
-        border-top: 1px solid rgba(148, 163, 184, 0.1);
-        font-size: 0.86rem;
-    }
-
-    .footer-bottom p:last-child {
-        text-align: right;
-    }
-
-    @media (max-width: 767px) {
-        .site-nav {
-            top: 1rem;
-        }
-
-        .hero-content {
-            padding-top: 8rem;
-        }
-
-        .stat-card {
-            min-width: 0;
-        }
-
-        .section-shell {
-            padding: 4rem 0;
-        }
-
-        .photo-card img {
-            height: 17rem;
-            min-height: 0;
-        }
-
-        .photo-card .p-4 {
-            left: 0.65rem;
-            right: 0.65rem;
-            bottom: 0.65rem;
-        }
-
-        .schedule-rail::before {
-            content: none;
-        }
-
-        .schedule-item {
-            grid-template-columns: minmax(0, 1fr);
-            gap: 0.5rem;
-            padding: 0.75rem 0;
-        }
-
-        .schedule-item time {
-            grid-column: 1;
-            justify-content: flex-start;
-            width: fit-content;
-            padding: 0 0.65rem;
-            margin-bottom: -0.5rem;
-            margin-top: 0;
-        }
-
-        .schedule-card {
-            grid-column: 1;
-        }
-
-        .team-card {
-            flex-direction: column;
-        }
-
-        .footer-grid {
-            grid-template-columns: minmax(0, 1fr);
-            gap: 1.4rem;
-        }
-
-        .footer-bottom {
-            flex-direction: column;
-        }
-
-        .footer-bottom p:last-child {
-            text-align: left;
-        }
-    }
-
-    img.emoji {
-        width: 1em;
-        height: 1em;
-        display: inline-block;
-        vertical-align: -0.1em;
-    }
-
-
-    .shimmer-button {
-        position: relative;
-        overflow: hidden;
-    }
-
-    .shimmer-button::before {
-        content: "";
-        position: absolute;
-        top: 0; left: -50%;
-        width: 50%;
-        height: 100%;
-        background: linear-gradient(
-                120deg,
-                transparent 0%,
-                rgba(255, 255, 255, 0.4) 50%,
-                transparent 100%
-        );
-        transform: skewX(-20deg);
-        animation: shimmerFlash 3s ease-in-out infinite;
-        pointer-events: none;
-        z-index: 10;
-    }
-
-    @keyframes shimmerFlash {
-        0% {
-            left: -50%;
-            opacity: 0;
-        }
-        30% {
-            opacity: 1;
-        }
-        90% {
-            left: 150%;
-            opacity: 0;
-        }
-        100% {
-            left: 150%;
-            opacity: 0;
-        }
-    }
-</style>
+<script src="mode.js" defer></script>
 </body>
 </html>
