@@ -61,6 +61,7 @@
     b.addEventListener('click', function () { remember(b.value); show(b.value); });
   });
   document.body.appendChild(bar);
+  document.documentElement.classList.add('has-switch');
 
   show(recall() === 'agents' ? 'agents' : 'humans');
 })();

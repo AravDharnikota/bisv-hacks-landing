@@ -237,7 +237,7 @@ header.top nav a[aria-current="page"] { color: var(--ink); text-decoration: unde
 /* Humans | Agents switch. Agents mode shows the page's Markdown. */
 .viewswitch {
   --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
-  position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 10;
+  position: absolute; right: 1.25rem; top: 1.3rem; z-index: 10;
   display: flex; padding: 3px; gap: 2px;
   background: var(--paper); border: 1px solid var(--ink); border-radius: 999px;
   font-family: var(--mono); font-size: 0.8125rem;
@@ -261,4 +261,13 @@ header.top nav a[aria-current="page"] { color: var(--ink); text-decoration: unde
 }
 .agent-view pre:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
 .agent-note { color: var(--muted); font-size: 0.9375rem; margin-top: 0.75rem; }
-footer { padding-bottom: 6rem; }
+/* Mid widths: the nav reaches the right edge, so the header drops below the switch. */
+@media (min-width: 601px) and (max-width: 1020px) {
+  .viewswitch { top: 0.75rem; }
+  html.has-switch header.top { padding-top: 3.25rem; }
+}
+/* Smallest phones: a compact switch so it clears the wordmark. */
+@media (max-width: 360px) {
+  .viewswitch { font-size: 0.75rem; right: 0.75rem; }
+  .viewswitch button { padding: 0.3rem 0.55rem; }
+}
