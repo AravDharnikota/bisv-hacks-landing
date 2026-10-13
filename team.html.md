@@ -9,4 +9,4 @@
 
 ---
 
-This is the Markdown version of https://bisvhacks.com/team.html. BISV Hacks is a student-led organization at BASIS Independent Silicon Valley, fiscally sponsored by Hack Club Bank, a 501(c)(3). Contact: bisvhackathon@gmail.com. Every page: https://bisvhacks.com/sitemap.xml. Guide for agents: https://bisvhacks.com/llms.txt
+This is the Markdown version of https://bisvhacks.com/team. BISV Hacks is a student-led organization at BASIS Independent Silicon Valley, fiscally sponsored by Hack Club Bank, a 501(c)(3). Contact: bisvhackathon@gmail.com. Every page: https://bisvhacks.com/sitemap.xml. Guide for agents: https://bisvhacks.com/llms.txt

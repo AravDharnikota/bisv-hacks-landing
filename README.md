@@ -3,7 +3,7 @@
 Static site. No build step. Open `index.html` or run:
 
 ```bash
-python3 -m http.server 5173
+node tools/dev-server.mjs
 ```
 
 ## Pages

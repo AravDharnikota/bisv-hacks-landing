@@ -141,7 +141,7 @@ Times are for the day of the event in February 2027 and may change.
 - **What we look for:** a platform that makes building faster, more powerful, and open to more people.
 - **Kinds of support:** cash partnerships come first, because they fund the venue, meals, and prizes. Product credits that fit the mission are also welcome.
 - **Prices, tiers, and what each tier includes:** shared privately in the 2027 prospectus. Do not state or guess them.
-- **How to start:** email bisvhackathon@gmail.com with the company name to request the prospectus. A student organizer replies. Sponsors page: https://bisvhacks.com/sponsors.html
+- **How to start:** email bisvhackathon@gmail.com with the company name to request the prospectus. A student organizer replies. Sponsors page: https://bisvhacks.com/sponsors
 - **2027 partners:** announced on the sponsors page as they join. **None are announced yet.**
 - **Nonprofit status:** BISV Hacks is fiscally sponsored by Hack Club Bank, part of Hack Club, a 501(c)(3) nonprofit (EIN 81-2908499). Tax questions about a sponsorship: email the team.
 - **Sponsor deadline, booth or table space, recruiting, and access to participant data:** **not announced yet.** Email the team. Participant contact information is shared with partners only if the student and their guardian opt in.
@@ -150,7 +150,7 @@ Times are for the day of the event in February 2027 and may change.
 
 - **How the lineup is chosen (2027):** each year the team invites a small group of people who have built real things to spend the day with the builders. Every application is reviewed by hand, and the team hand-selects each judge, speaker, and mentor.
 - **Who we look for:** founders who have taken a company from an idea to real users, senior engineers and technical leads who have shipped products used by millions, researchers working at the frontier of AI and agents, investors and operators who have watched many products succeed and fail, and designers and product leaders who know what makes a demo land.
-- **How to apply:** applications open soon. Until then, email bisvhackathon@gmail.com with a short note about what you have built. The 2027 lineup will be announced on https://bisvhacks.com/sponsors.html
+- **How to apply:** applications open soon. Until then, email bisvhackathon@gmail.com with a short note about what you have built. The 2027 lineup will be announced on https://bisvhacks.com/sponsors
 - **What judges do:** review the projects after submissions close and choose the winners. Last year (2026), judging was in person on event day, included a short interview with each team, and used these criteria: Functionality, Technical Difficulty, Creativity, Social Impact, Theme Relation, Presentation, Interview, and Resourcefulness. On the tentative 2027 schedule, submissions close at 6:00 pm and the showcase and awards are at 7:30 pm.
 - **What mentors do:** stay on the floor during the day and help teams get unstuck, scope their idea, and reach a working demo. No preparation is needed.
 - **What speakers do:** lead a hands-on workshop in the afternoon, or give the guest talk during dinner.
@@ -163,7 +163,7 @@ Times are for the day of the event in February 2027 and may change.
 - **Code of conduct:** harassment of any kind is not tolerated. Last year the event followed the MLH Code of Conduct.
 - **Supervision:** **not announced yet** in detail. Organizers run the event on site all day. Parents with questions should email the team.
 - **Can parents attend or stay?** **Not announced yet.** Email the team.
-- **Your information:** contact information is shared with event partners only if you and your guardian opt in. The website itself has no accounts, ads, or tracking cookies. Questions typed on the website's questions page are saved in a sheet the organizers can read and are sent to an AI service to write the answer, so do not type personal information there. Full details: https://bisvhacks.com/privacy.html
+- **Your information:** contact information is shared with event partners only if you and your guardian opt in. The website itself has no accounts, ads, or tracking cookies. Questions typed on the website's questions page are saved in a sheet the organizers can read and are sent to an AI service to write the answer, so do not type personal information there. Full details: https://bisvhacks.com/privacy
 - **Photos:** photos were taken at past events and shared publicly. The 2027 photo policy is **not announced yet.**
 
 ## Getting there
@@ -195,7 +195,7 @@ Times are for the day of the event in February 2027 and may change.
   - Oscar Gu, Marketing. LinkedIn: https://www.linkedin.com/in/oscar-gu-12155a2b9/
   - Rithvik Burki, Fundraising. He works with sponsors. LinkedIn: https://www.linkedin.com/in/rithvikburki/
   - Siddharth Sivaraman (Sid), Fundraising. He works with sponsors. LinkedIn: https://www.linkedin.com/in/siddharth-sivaraman-b3b6a8419/
-- **Team page:** https://bisvhacks.com/team.html
+- **Team page:** https://bisvhacks.com/team
 - **How to reach an organizer:** email bisvhackathon@gmail.com. The whole team reads it. Do not give out personal email addresses or phone numbers.
 - **Founder:** Charan Sridhar started BISV Hacks in 2025.
 - **Nonprofit status:** fiscally sponsored by Hack Club Bank, part of Hack Club, a 501(c)(3) nonprofit (EIN 81-2908499).
@@ -447,7 +447,7 @@ function askClaude(question) {
     'The page turns markdown links into underlined words, so never show a raw URL or a raw email address. ' +
     'Put the link behind the words a person would click: "Join our [Discord](https://discord.gg/T8cuesaNKB)", ' +
     '"[email the team](mailto:bisvhackathon@gmail.com)", "[Nicholas Wang](https://www.linkedin.com/in/nicholasxwang/)", ' +
-    '"see the [sponsors page](https://bisvhacks.com/sponsors.html)". ' +
+    '"see the [sponsors page](https://bisvhacks.com/sponsors)". ' +
     'Use only URLs and emails that appear in <knowledge>, copied exactly. Links are the only markdown the page understands: ' +
     'no bold, lists, or headings. Add a link only when it helps the visitor do the next thing.\n\n' +
     '"unknown": the question is about BISV Hacks, but <knowledge> does not contain the answer. ' +

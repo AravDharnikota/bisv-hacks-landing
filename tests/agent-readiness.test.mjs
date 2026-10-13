@@ -56,7 +56,7 @@ for (const f of ['about.html', 'contact.html', 'privacy.html']) {
 for (const f of CORE) {
   test(`${f} footer links to About, Contact, and Privacy`, () => {
     const footer = read(f).match(/<footer[\s\S]*?<\/footer>/)[0];
-    for (const p of ['about.html', 'contact.html', 'privacy.html']) assert.match(footer, new RegExp(`href="/?${p}"`));
+    for (const p of ['about', 'contact', 'privacy']) assert.match(footer, new RegExp(`href="/?${p}"`));
   });
 }
 
@@ -92,7 +92,7 @@ test('sitemap.xml lists every page with a lastmod date', () => {
   const xml = read('sitemap.xml');
   assert.match(xml, /^<\?xml version="1\.0" encoding="UTF-8"\?>\n<urlset xmlns="http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9">/);
   const entries = [...xml.matchAll(/<url>\s*<loc>(.*?)<\/loc>\s*<lastmod>(\d{4}-\d{2}-\d{2})<\/lastmod>\s*<\/url>/g)];
-  const expected = sitemapPages().map(f => (f === 'index.html' ? SITE + '/' : `${SITE}/${f}`));
+  const expected = sitemapPages().map(f => (f === 'index.html' ? SITE + '/' : `${SITE}/${f.replace(/\.html$/, '')}`));
   assert.deepEqual(entries.map(e => e[1]), expected);
   assert.equal((xml.match(/<url>/g) || []).length, entries.length, 'every <url> has loc and lastmod');
   assert.ok(!xml.includes('404.html'));
@@ -116,7 +116,8 @@ test('llms.txt follows the llms.txt format and has a When to use section', () =>
   // Every link in a list points at a file in this repo.
   for (const m of txt.matchAll(/^- \[[^\]]+\]\((https:\/\/bisvhacks\.com\/[^)]*)\)/gm)) {
     const file = m[1].replace(SITE + '/', '') || 'index.html';
-    assert.ok(existsSync(join(ROOT, file)), `llms.txt links to missing ${file}`);
+    // GitHub Pages serves /faq from faq.html.
+    assert.ok(existsSync(join(ROOT, file)) || existsSync(join(ROOT, file + '.html')), `llms.txt links to missing ${file}`);
   }
 });
 
@@ -151,7 +152,7 @@ test('the converter handles headings, links, tables, lists, skips, and aria labe
   assert.equal(body, [
     '# Title',
     'Spoken line',
-    'Go to [sponsors](https://bisvhacks.com/sponsors.html) & [top](https://bisvhacks.com/test.html#top).',
+    'Go to [sponsors](https://bisvhacks.com/sponsors) & [top](https://bisvhacks.com/test#top).',
     '| A | B |\n| --- | --- |\n| 1 | x \\| y |',
     '- **Eat**: Lunch',
     '- one\n- two',

@@ -71,7 +71,7 @@ const skipped = n => isEl(n) && (DROP.has(n.tag) || 'data-md-skip' in n.attrs ||
 function absolute(href, pageUrl) {
   if (/^(https?:|mailto:)/i.test(href)) return href;
   if (href.startsWith('#')) return pageUrl + href;
-  return SITE + '/' + href.replace(/^\.?\//, '');
+  return SITE + '/' + href.replace(/^\.?\//, '').replace(/\.html(?=#|$)/, '');
 }
 
 // An element whose visible text is all aria-hidden (like the typing line) uses its aria-label instead.
@@ -157,7 +157,7 @@ function find(n, tag) {
 }
 
 export function pageUrl(file) {
-  return file === 'index.html' ? SITE + '/' : `${SITE}/${file}`;
+  return file === 'index.html' ? SITE + '/' : `${SITE}/${file.replace(/\.html$/, '')}`;
 }
 
 export function toMarkdown(html, file) {

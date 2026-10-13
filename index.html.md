@@ -31,7 +31,7 @@ You do not need coding experience. You can come alone or with up to four teammat
 
 - [Discord](https://discord.gg/T8cuesaNKB) Announcements, help, and team-finding.
 - Devpost Registration, rules, submissions, and the project gallery. Coming soon.
-- [Sponsors](https://bisvhacks.com/sponsors.html) Who we partner with, and how to request the prospectus.
+- [Sponsors](https://bisvhacks.com/sponsors) Who we partner with, and how to request the prospectus.
 - [Contact](mailto:bisvhackathon@gmail.com) bisvhackathon@gmail.com
 
 ---

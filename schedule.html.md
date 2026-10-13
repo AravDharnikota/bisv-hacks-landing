@@ -15,4 +15,4 @@ Tentative. Times are for the day of the event in February 2027.
 
 ---
 
-This is the Markdown version of https://bisvhacks.com/schedule.html. BISV Hacks is a student-led organization at BASIS Independent Silicon Valley, fiscally sponsored by Hack Club Bank, a 501(c)(3). Contact: bisvhackathon@gmail.com. Every page: https://bisvhacks.com/sitemap.xml. Guide for agents: https://bisvhacks.com/llms.txt
+This is the Markdown version of https://bisvhacks.com/schedule. BISV Hacks is a student-led organization at BASIS Independent Silicon Valley, fiscally sponsored by Hack Club Bank, a 501(c)(3). Contact: bisvhackathon@gmail.com. Every page: https://bisvhacks.com/sitemap.xml. Guide for agents: https://bisvhacks.com/llms.txt

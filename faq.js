@@ -95,9 +95,9 @@
   // Matching on the host alone is not enough: discord.gg and linkedin.com host anyone's page.
   const LINKS = new Set([
     "https://bisvhacks.com",
-    "https://bisvhacks.com/privacy.html",
-    "https://bisvhacks.com/sponsors.html",
-    "https://bisvhacks.com/team.html",
+    "https://bisvhacks.com/privacy", "https://bisvhacks.com/privacy.html",
+    "https://bisvhacks.com/sponsors", "https://bisvhacks.com/sponsors.html",
+    "https://bisvhacks.com/team", "https://bisvhacks.com/team.html",
     "https://bisv-hacks.devpost.com",
     "https://bisv-hacks-2026.devpost.com",
     "https://discord.gg/T8cuesaNKB",
