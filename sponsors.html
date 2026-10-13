@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sponsors | BISV Hacks 2027</title>
-  <meta name="description" content="Sponsor BISV Hacks 2027 and reach 300+ high school builders in Silicon Valley. Tiers from $200 to $8,000.">
+  <meta name="description" content="Partner with BISV Hacks 2027 and put your API in front of 300+ high school builders in Silicon Valley.">
   <meta name="theme-color" content="#F0EEE9">
   <link rel="icon" href="images/logo.png">
   <meta property="og:title" content="BISV Hacks 2027">
@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -34,40 +35,67 @@
 <main class="page">
 <section>
     <h1>Sponsors</h1>
-    <p>BISV Hacks puts your brand in the hands of 300+ of Silicon Valley's most driven young builders, the families behind them, and the wider tech community. Located at BASIS Independent Silicon Valley*, the #3 ranked STEM school in the US, we are a student-led organization that aims to provide students with the opportunity to design and develop projects that inspire them to make a meaningful impact on the world. Every contribution is 100% tax-deductible through our fiscal sponsor, Hack Club Bank, a 501(c)(3).</p>
+    <p class="agent" aria-label="Build anything: agents, backends, apps, voice, payments, and data."><span class="agent-q" aria-hidden="true">build </span><span class="agent-verb" aria-hidden="true">what didn't exist this morning</span></p>
 
-    <table class="tiers">
-      <thead>
-        <tr>
-          <th scope="col">Tier</th>
-          <th scope="col">Contribution</th>
-          <th scope="col">Highlights</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Supporter</td><td>$200</td><td>Logo on site, socials, and Discord. Shout-out and swag in every bag.</td></tr>
-        <tr><td>Bronze</td><td>$500</td><td>One dedicated social post.</td></tr>
-        <tr><td>Silver</td><td>$1,000</td><td>T-shirt logo, sponsor booth, email blast.</td></tr>
-        <tr class="gold"><td>Gold <span class="note">Most popular</span></td><td>$2,000</td><td>Branded prize track, workshop or talk, judging seat, livestream logo, stage time.</td></tr>
-        <tr><td>Platinum</td><td>$3,000</td><td>Top logo and venue banner, full attendee list, parent-reach slot.</td></tr>
-        <tr class="partner"><td>Partner <span class="note">Flagship</span></td><td>$8,000</td><td>Category exclusivity, "Presented by" naming, keynote, three spotlights of your choosing.</td></tr>
-      </tbody>
-    </table>
+    <p>BISV Hacks puts professional AI and developer tools in the hands of the people who will build with them next. This February, we are expanding to 300+ high school builders from across the Bay Area, each taking an idea to a working demo in twelve hours.</p>
+    <p>We partner with a careful set of companies each year who align with our mission: AI, agent, and developer platforms whose APIs and SDKs are worth building on, from early-stage startups to the largest platforms. If your platform makes building faster, more powerful, and open to more people, we want teams building on it from the first hour.</p>
+    <p>We prioritize cash partnerships, which fund the venue, meals, and prizes. We also welcome product credits that align with our mission.</p>
 
-    <div class="actions">
-      <a class="button" href="BISV Hacks Sponsorship Prospectus.pdf">Read the prospectus</a>
-      <a class="quiet" href="mailto:bisvhackathon@gmail.com">bisvhackathon@gmail.com</a>
+    <div class="request">
+      <p><span class="request-title">The 2027 prospectus is shared by request.</span> Tell us your company and we will send it over.</p>
+      <div class="actions">
+        <a class="button" href="mailto:bisvhackathon@gmail.com?subject=BISV%20Hacks%202027%20prospectus%20request&amp;body=Company%3A%20">Request the prospectus</a>
+        <a class="quiet" href="mailto:bisvhackathon@gmail.com">bisvhackathon@gmail.com</a>
+      </div>
     </div>
-
-    <h3>2027 partners</h3>
-    <p class="empty">Confirmed partners will be listed here as they sign on.</p>
+  </section>
+<section id="partners">
+    <h2>2027 partners</h2>
+    <p class="muted">Our partners are announced here as they join.</p>
+    <ol class="slots" aria-label="Partner places, to be announced">
+      <li><span>01</span></li><li><span>02</span></li><li><span>03</span></li>
+      <li><span>04</span></li><li><span>05</span></li><li><span>06</span></li>
+    </ol>
   </section>
 <section id="people">
     <h2>Judges, speakers, and mentors</h2>
-    <p>If you work in tech and want to spend a day with the next generation of builders, we would love to have you judge, give a talk, or mentor. Email <a href="mailto:bisvhackathon@gmail.com">bisvhackathon@gmail.com</a>.</p>
-    <p class="empty">The 2027 lineup will be announced here.</p>
+    <p>The people in the room shape what our builders believe is possible. Each year we invite a small group of people who have built real things to spend the day with us.</p>
+    <p>We are looking for founders who have taken a company from an idea to real users, senior engineers and technical leads who have shipped products used by millions, researchers working at the frontier of AI and agents, investors and operators who have watched hundreds of products succeed and fail, and designers and product leaders who know the difference between a demo that works and a demo that lands.</p>
+    <p>Applications for judges, speakers, and mentors open soon. We review every application by hand, and the 2027 lineup will be announced here.</p>
   </section>
 </main>
+
+<script>
+  // Cycle the build line. Reduced motion keeps the first phrase, no typing.
+  (function () {
+    var el = document.querySelector('.agent-verb');
+    if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var verbs = [
+      "what didn't exist this morning",
+      'an agent that books a flight',
+      'an inbox for your agent',
+      'a backend in one afternoon',
+      'and ship it to the world',
+      'an app that thinks',
+      'a voice that answers calls',
+      'a store that takes payments',
+      'a model that runs on your data'
+    ];
+    var i = 0, n = verbs[0].length, deleting = true;
+    function tick() {
+      if (deleting) {
+        n--;
+        if (n === 0) { deleting = false; i = (i + 1) % verbs.length; }
+      } else {
+        n++;
+        if (n === verbs[i].length) { el.textContent = verbs[i]; deleting = true; return setTimeout(tick, 1800); }
+      }
+      el.textContent = verbs[i].slice(0, n);
+      setTimeout(tick, deleting ? 35 : 70);
+    }
+    setTimeout(tick, 1800);
+  })();
+</script>
 
 <footer>
   <p>BISV Hacks is a student-led organization at BASIS Independent Silicon Valley. Fiscally sponsored by Hack Club Bank, a 501(c)(3).</p>
