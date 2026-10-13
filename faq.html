@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Questions | BISV Hacks 2027</title>
-  <meta name="description" content="Answers about dates, eligibility, teams, location, and food at BISV Hacks 2027.">
+  <meta name="description" content="Ask anything about BISV Hacks 2027: dates, eligibility, teams, location, food, and sponsoring.">
   <meta name="theme-color" content="#F0EEE9">
   <link rel="icon" href="images/logo.png">
   <meta property="og:title" content="BISV Hacks 2027">
@@ -12,7 +12,7 @@
   <meta property="og:image" content="images/BISV_Hacks.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -32,36 +32,33 @@
 </header>
 
 <main class="page">
-<section>
+<section class="desk">
     <h1>Questions</h1>
-    <details>
-      <summary>When is BISV Hacks 2027?</summary>
-      <p>February 2027. We will post the exact date and open registration here as soon as they are set.</p>
-    </details>
-    <details>
-      <summary>Who can participate?</summary>
-      <p>Any high school student. No coding experience is needed. Workshops and mentors will help you get started.</p>
-    </details>
-    <details>
-      <summary>Do I need a team?</summary>
-      <p>No. Come solo or with up to four teammates. You can also find a team on the Discord.</p>
-    </details>
-    <details>
-      <summary>Where is it held?</summary>
-      <p>BASIS Independent Silicon Valley Upper School, 1290 Parkmoor Ave, San Jose, CA 95126. The venue may change for 2027.</p>
-    </details>
-    <details>
-      <summary>What should I bring?</summary>
-      <p>A laptop, a charger, and anything else you need to build comfortably for the day.</p>
-    </details>
-    <details>
-      <summary>Will there be food?</summary>
-      <p>Yes. Lunch, dinner, snacks, and drinks are provided.</p>
-    </details>
-    <details>
-      <summary>How do I sponsor, judge, speak, or mentor?</summary>
-      <p>Read the <a href="sponsors.html">sponsor section</a> or email <a href="mailto:bisvhackathon@gmail.com">bisvhackathon@gmail.com</a>.</p>
-    </details>
+    <p>Ask anything about BISV Hacks. Dates, teams, food, sponsoring.</p>
+
+    <div class="glyph" aria-hidden="true">
+      <pre class="glyph-ink"></pre>
+      <pre class="glyph-red"></pre>
+    </div>
+
+    <!-- data-endpoint: the Apps Script web app URL. See backend/Code.gs and the README. -->
+    <form class="ask" data-endpoint="">
+      <label for="q">Your question</label>
+      <input id="q" name="q" type="text" maxlength="300" autocomplete="off" placeholder="When is it?" required>
+      <button type="submit">Ask</button>
+    </form>
+    <p class="status" role="status"></p>
+
+    <p class="tries">
+      Try
+      <button type="button">Who can come?</button>
+      <button type="button">Do I need a team?</button>
+      <button type="button">Is there food?</button>
+      <button type="button">How do I sponsor?</button>
+    </p>
+
+    <ol class="slips" aria-live="polite"></ol>
+    <noscript><p class="note">This page needs JavaScript. You can also email <a href="mailto:bisvhackathon@gmail.com">bisvhackathon@gmail.com</a>.</p></noscript>
   </section>
 </main>
 
@@ -70,5 +67,6 @@
   <p>© 2027 BISV Hacks</p>
 </footer>
 
+<script src="faq.js" defer></script>
 </body>
 </html>
