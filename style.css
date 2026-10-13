@@ -208,7 +208,7 @@ header.top nav a[aria-current="page"] { color: var(--ink); text-decoration: unde
 
 /* Sponsors: agent line, prospectus request, partner places */
 .agent { --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace; font-family: var(--mono); font-size: min(1rem, (100vw - 2.5rem) / 23.5); white-space: nowrap; margin: 0.25rem 0 1.75rem; min-height: 1.55em; }
-/* 38 characters max ("> build an agent that searches the web"), 0.6em each, so width / 23.5 always fits. */
+/* 38 characters max ("> build what didn't exist this morning"), 0.6em each, so width / 23.5 always fits. */
 .agent::before { content: "> "; color: var(--red); font-weight: 500; }
 .agent-q { color: var(--muted); }
 .agent-verb::after { content: ""; display: inline-block; width: 0.55em; height: 1.05em; margin-left: 0.08em; vertical-align: -0.15em; background: var(--red); animation: caret 1s steps(1) infinite; }
