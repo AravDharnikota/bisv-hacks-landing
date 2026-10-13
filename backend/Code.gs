@@ -55,6 +55,9 @@ function ask(raw) {
   }
 
   const res = askClaude(q, kb.text);
+  // An answer with a link that is not in the Knowledge tab is not trusted. This stops
+  // a visitor from getting the model to repeat a bad link that the cache then serves to others.
+  res.known = res.known && linksAreKnown(res.answer, kb.text);
   const answer = res.known ? res.answer : UNKNOWN;
 
   // Unknown answers go in the cache too. The row carries the knowledge hash, so when
@@ -72,6 +75,11 @@ function knowledge(ss) {
   const text = rows.filter(r => r[1]).map(r => '- ' + r[0] + ': ' + r[1]).join('\n');
   const digest = Utilities.computeDigest(Utilities.DigestAlgorithm.MD5, text);
   return { text: text, hash: Utilities.base64Encode(digest).slice(0, 10) };
+}
+
+function linksAreKnown(answer, kbText) {
+  const links = String(answer).match(/https?:\/\/[^\s]+[^\s.,)]|[\w.+-]+@[\w-]+\.[\w.-]*\w/g) || [];
+  return links.every(l => l === CONTACT || kbText.indexOf(l) !== -1);
 }
 
 /* --- Cache: match on shared words ----------------------------------------- */

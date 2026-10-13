@@ -88,16 +88,36 @@
   /* --- Printing an answer ------------------------------------------------ */
 
   // Turn emails and links in plain text into real links. No HTML from the server is trusted.
+  // Answers come from a model and are cached, so only link to places we trust.
+  // Everything else stays plain text.
+  const HOSTS = ["bisvhacks.com", "www.bisvhacks.com", "discord.gg", "devpost.com"];
+  const CONTACT = "bisvhackathon@gmail.com";
+
+  function trusted(url, email) {
+    if (email) return email.toLowerCase() === CONTACT;
+    try {
+      const u = new URL(url);
+      return u.protocol === "https:" && !u.username && HOSTS.includes(u.hostname);
+    } catch (e) {
+      return false;
+    }
+  }
+
   function linkify(el, text) {
     el.textContent = "";
     const re = /(https?:\/\/[^\s]+[^\s.,)])|([\w.+-]+@[\w-]+\.[\w.-]*\w)/g;
     let i = 0, m;
     while ((m = re.exec(text))) {
       el.append(text.slice(i, m.index));
-      const a = document.createElement("a");
-      a.href = m[1] ? m[1] : "mailto:" + m[2];
-      a.textContent = m[0];
-      el.append(a);
+      if (trusted(m[1], m[2])) {
+        const a = document.createElement("a");
+        a.href = m[1] ? m[1] : "mailto:" + m[2];
+        a.rel = "noopener noreferrer";
+        a.textContent = m[0];
+        el.append(a);
+      } else {
+        el.append(m[0]);
+      }
       i = m.index + m[0].length;
     }
     el.append(text.slice(i));
