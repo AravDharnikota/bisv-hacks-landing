@@ -45,6 +45,42 @@ for (const f of CORE) {
   });
 }
 
+/* --- Metadata: canonical, lang, and the four required Open Graph properties ---- */
+
+const og = (html, prop) => (html.match(new RegExp(`<meta property="og:${prop}" content="([^"]*)">`)) || [])[1];
+
+test('homepage has canonical, lang, og:type, og:image, og:url, and og:title', () => {
+  const html = read('index.html');
+  assert.match(html, /<html lang="en">/);
+  assert.match(html, /<link rel="canonical" href="https:\/\/bisvhacks\.com\/">/);
+  assert.equal(og(html, 'type'), 'website');
+  assert.equal(og(html, 'url'), 'https://bisvhacks.com/');
+  assert.ok(og(html, 'title'));
+  assert.equal(og(html, 'image'), `${SITE}/images/og.png`);
+});
+
+for (const f of CORE) {
+  test(`${f}: og:image is an absolute URL to a file that exists, and og:type is set`, () => {
+    const html = read(f);
+    const img = og(html, 'image');
+    assert.ok(img && img.startsWith(SITE + '/'), `og:image must be absolute (the Open Graph protocol requires a URL), got ${img}`);
+    assert.ok(existsSync(join(ROOT, img.slice(SITE.length + 1))), `${img} does not exist in the repo`);
+    assert.equal(og(html, 'type'), 'website');
+    const canon = (html.match(/<link rel="canonical" href="([^"]+)">/) || [])[1];
+    if (canon) assert.equal(og(html, 'url'), canon, 'og:url matches the canonical URL');
+  });
+}
+
+test('the share image is 1200x630 as declared', () => {
+  const png = readFileSync(join(ROOT, 'images/og.png'));
+  assert.equal(png.toString('ascii', 1, 4), 'PNG');
+  assert.equal(png.readUInt32BE(16), 1200);
+  assert.equal(png.readUInt32BE(20), 630);
+  const html = read('index.html');
+  assert.equal(og(html, 'image:width'), '1200');
+  assert.equal(og(html, 'image:height'), '630');
+});
+
 /* --- Trust pages ------------------------------------------------------------ */
 
 for (const f of ['about.html', 'contact.html', 'privacy.html']) {
