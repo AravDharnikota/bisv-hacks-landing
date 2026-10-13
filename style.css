@@ -230,3 +230,44 @@ header.top nav a[aria-current="page"] { color: var(--ink); text-decoration: unde
 @media (prefers-reduced-motion: reduce) {
   .agent-verb::after { animation: none; }
 }
+
+/* Footer links to the trust pages */
+.footer-links a { color: inherit; }
+
+/* Humans | Agents switch. Agents mode shows the page's Markdown. */
+.viewswitch {
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  position: absolute; right: 1.25rem; top: 1.3rem; z-index: 10;
+  display: flex; padding: 3px; gap: 2px;
+  background: var(--paper); border: 1px solid var(--ink); border-radius: 999px;
+  font-family: var(--mono); font-size: 0.8125rem;
+}
+.viewswitch button {
+  border: 0; background: none; color: var(--muted); font: inherit; cursor: pointer;
+  padding: 0.35rem 0.8rem; border-radius: 999px; transition: background 120ms ease, color 120ms ease;
+}
+.viewswitch button:hover { color: var(--ink); }
+.viewswitch button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.viewswitch button[value="agents"][aria-pressed="true"] { background: var(--red); }
+.viewswitch button:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+
+.agent-view { --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace; }
+.agent-cmd { font-family: var(--mono); font-size: 0.875rem; color: var(--muted); margin: 0 0 0.75rem; }
+.agent-cmd span { color: var(--red); font-weight: 500; }
+.agent-view pre {
+  margin: 0; padding: 1.25rem; border: 1px solid var(--rule); border-top: 1px solid var(--ink);
+  background: #F7F6F2; font-family: var(--mono); font-size: 0.8125rem; line-height: 1.6;
+  white-space: pre-wrap; overflow-wrap: anywhere; color: var(--ink);
+}
+.agent-view pre:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+.agent-note { color: var(--muted); font-size: 0.9375rem; margin-top: 0.75rem; }
+/* Mid widths: the nav reaches the right edge, so the header drops below the switch. */
+@media (min-width: 601px) and (max-width: 1020px) {
+  .viewswitch { top: 0.75rem; }
+  html.has-switch header.top { padding-top: 3.25rem; }
+}
+/* Smallest phones: a compact switch so it clears the wordmark. */
+@media (max-width: 360px) {
+  .viewswitch { font-size: 0.75rem; right: 0.75rem; }
+  .viewswitch button { padding: 0.3rem 0.55rem; }
+}

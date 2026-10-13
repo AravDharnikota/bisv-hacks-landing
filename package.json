@@ -1,0 +1,9 @@
+{
+  "name": "bisv-hacks-landing",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "agent-files": "node tools/agent-files.mjs",
+    "test": "node --test tests/*.test.mjs"
+  }
+}

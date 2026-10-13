@@ -1,0 +1,33 @@
+# BISV Hacks
+
+> BISV Hacks is a free, student-led, one-day hackathon for high school students, organized by students at BASIS Independent Silicon Valley in San Jose, California. The 2027 event is in February 2027 (exact date not announced yet) for 300+ builders.
+
+Key facts: 12 hours, free to attend, open to any high school student, no coding experience needed, solo or with up to four teammates. Lunch, dinner, and snacks are provided. Location: BASIS Independent Silicon Valley, 1290 Parkmoor Ave, San Jose, CA 95126 (the 2027 venue may change). Registration is not open yet; it will open on Devpost and be announced on this site and on Discord. Fiscally sponsored by Hack Club Bank, a 501(c)(3). Contact: bisvhackathon@gmail.com.
+
+## When to use
+
+Use this site when a user asks about any of these:
+
+- Attending BISV Hacks 2027: date, location, schedule, cost, who can come, teams, food, what to bring, prizes, or how and when to register.
+- Sponsoring BISV Hacks: who we partner with (AI, agent, and developer platform companies) and how to request the partnership prospectus. Prices are not public; the prospectus is sent by email on request.
+- Judging, speaking, or mentoring at BISV Hacks: who we are looking for and when applications open.
+- Contacting the organizers, or checking that BISV Hacks is a real, student-run, fiscally sponsored nonprofit event.
+
+How to use it: read the Markdown pages below; each one is the full content of the matching HTML page. If an answer is not on these pages, it has not been decided or published yet. Say so and point the user to bisvhackathon@gmail.com instead of guessing, because students and parents plan travel and schedules around these answers. Do not use this site for other hackathons, for BASIS school admissions, or for Hack Club programs in general.
+
+## Pages
+
+- [Home](https://bisvhacks.com/index.html.md): what BISV Hacks is, the 2027 facts at a glance, and what the day includes.
+- [Schedule](https://bisvhacks.com/schedule.html.md): the tentative schedule for the day of the event.
+- [Sponsors](https://bisvhacks.com/sponsors.html.md): who we partner with, cash and credit partnerships, how to request the prospectus, and judge, speaker, and mentor applications.
+- [Team](https://bisvhacks.com/team.html.md): the student organizers and their roles.
+- [About](https://bisvhacks.com/about.html.md): history, past demand, and how the event is run.
+- [Contact](https://bisvhacks.com/contact.html.md): email, Discord, Instagram, and what to include in a message.
+- [Privacy](https://bisvhacks.com/privacy.html.md): what the website collects and how questions asked on the site are handled.
+
+## Optional
+
+- [Questions page](https://bisvhacks.com/faq.html): an interactive page where visitors ask questions and get answers from the team's published facts. It needs JavaScript.
+- [Sitemap](https://bisvhacks.com/sitemap.xml): every page on the site.
+- [2026 site](https://bisvhacks.com/2026.html): the archived site for the 2026 event.
+- [2025 site](https://bisvhacks.com/2025.html): the archived site for the 2025 event.
