@@ -1,3 +1,10 @@
+// Keep the address bar clean. An old link or bookmark to /schedule.html still loads the page,
+// so rewrite the address in place: /schedule.html -> /schedule, /index.html -> /. No reload.
+(function () {
+  var clean = location.pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+  if (clean !== location.pathname) history.replaceState(null, '', clean + location.search + location.hash);
+})();
+
 // Humans | Agents switch. Agents mode shows the exact Markdown an agent reads for this page
 // (the file in <link rel="alternate" type="text/markdown">, or llms.txt if the page has none).
 // The choice is remembered across pages. Without JavaScript the switch never appears.
