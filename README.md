@@ -24,7 +24,6 @@ Copy these from the old site repo into this folder. The pages link to them but t
 - `images/2026/About.png` – hero photo
 - `images/2025/team/Nicholas.png`, `images/2025/team/Anderson.jpg`, `images/2026/team/Arav.png` – team photos
 - `images/BISV_Hacks.png` – social share image
-- `BISV Hacks Sponsorship Prospectus.pdf` – the "Read the prospectus" button points here
 
 ## Question desk
 
