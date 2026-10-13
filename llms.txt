@@ -29,5 +29,3 @@ How to use it: read the Markdown pages below; each one is the full content of th
 
 - [Questions page](https://bisvhacks.com/faq.html): an interactive page where visitors ask questions and get answers from the team's published facts. It needs JavaScript.
 - [Sitemap](https://bisvhacks.com/sitemap.xml): every page on the site.
-- [2026 site](https://bisvhacks.com/2026.html): the archived site for the 2026 event.
-- [2025 site](https://bisvhacks.com/2025.html): the archived site for the 2025 event.

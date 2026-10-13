@@ -142,7 +142,7 @@ a.contact:hover { color: var(--ink); }
 
 /* 52 characters wide. One mono character is 0.6em wide, so 100cqw / (52 * 0.6) fits the column. */
 .glyph { container-type: inline-size; position: relative; margin: 2.5rem 0 2rem; user-select: none; }
-.glyph pre { margin: 0; font-family: var(--mono); font-weight: 500; font-size: min(1.0625rem, 3.2cqw); line-height: 1; letter-spacing: 0; }
+.glyph pre { margin: 0; font-family: var(--mono); font-weight: 500; font-size: min(0.6875rem, 3.2cqw); line-height: 1; letter-spacing: 0; }
 .glyph-red { position: absolute; inset: 0; color: var(--red); }
 
 .ask { display: flex; align-items: baseline; gap: 0.75rem; border-bottom: 1px solid var(--ink); padding-bottom: 0.4rem; font-family: var(--mono); }
@@ -170,6 +170,18 @@ a.contact:hover { color: var(--ink); }
 .slip-q::before { content: "> "; color: var(--red); }
 .slip-a { min-height: 1.55em; overflow-wrap: anywhere; }
 .slip.unknown .slip-a { font-style: italic; }
+/* The cursor: blinks while the answer is on its way, holds still while words land. */
+.slip-a.waiting::after, .slip-a.streaming::after { content: ""; display: inline-block; width: 1.5px; height: 1.1em; margin-left: 1px; background: var(--red); vertical-align: -0.18em; }
+.slip-a.waiting::after { animation: caret 1s steps(1) infinite; }
+@keyframes caret { 50% { opacity: 0; } }
+.slip-email { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.75rem; font-family: var(--mono); font-size: 0.875rem; margin: 0 0 1rem; }
+.slip-email input { flex: 1; min-width: 12rem; border: 0; border-bottom: 1px solid var(--ink); background: none; color: var(--ink); font: inherit; padding: 0.25rem 0; caret-color: var(--red); }
+.slip-email input:focus { outline: none; border-bottom-color: var(--red); }
+.slip-email button { border: 0; background: none; padding: 0.25rem 0; font: inherit; color: var(--ink); cursor: pointer; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; text-decoration-color: var(--rule); }
+.slip-email button:hover { text-decoration-color: var(--red); }
+.slip-email button:disabled { opacity: 0.4; cursor: default; }
+.slip-email button:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; border-radius: 2px; }
+.slip-note { font-family: var(--mono); font-size: 0.875rem; color: var(--muted); }
 
 /* Links */
 .links { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; }
@@ -198,6 +210,7 @@ footer p { margin: 0 0 0.4rem; }
 
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
+  .slip-a.waiting::after { animation: none; }
 }
 
 /* Sub-pages: smaller title, less top space than the home hero */

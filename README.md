@@ -29,24 +29,33 @@ Copy these from the old site repo into this folder. The pages link to them but t
 
 ## Question desk
 
-`faq.html` sends each question to a Google Apps Script web app (`backend/Code.gs`). The script lives inside one Google Sheet. It answers from the `Knowledge` tab, reuses answers from the `Cache` tab, and writes questions it cannot answer to the `Unanswered` tab.
+`faq.html` sends each question to a Google Apps Script web app (`backend/Code.gs`). The script lives inside one Google Sheet.
+
+1. Rate limits run first.
+2. An embedding model (Gemini, or open-source `bge-small` on Hugging Face) turns the question into a vector.
+3. A close match in the hidden `Cache` tab is reused. This costs nothing.
+4. With no match, Claude answers from the `KNOWLEDGE` text at the top of `Code.gs`.
+5. If Claude does not know, the question goes on the `Unanswered` tab and the page asks for an email.
 
 Set it up once:
 
-1. Make a new Google Sheet. Open Extensions → Apps Script.
-2. Paste `backend/Code.gs` over the default code. Save.
-3. Project Settings → Script properties → add `ANTHROPIC_API_KEY` with your key. The key stays here. Do not put it in this repo.
-4. In the editor, run `setup`, then run `testAsk`. Approve the permission prompt. Check the log and the sheet tabs.
-5. Deploy → New deployment → Web app. Execute as: Me. Who has access: Anyone. Copy the `/exec` URL.
-6. Paste the URL into `data-endpoint=""` on the form in `faq.html`.
+1. In the Anthropic Console, set a monthly spend limit (for example $20). This is the hard money cap.
+2. Make a new Google Sheet. Open Extensions → Apps Script.
+3. Paste `backend/Code.gs` over the default code. Save.
+4. Project Settings → Script properties → add `ANTHROPIC_API_KEY` and `GEMINI_API_KEY` (free, from aistudio.google.com). To use the open-source `bge` model instead, add `HF_TOKEN` and no Gemini key. Hugging Face needs paid credits. The keys stay here. Do not put them in this repo.
+5. In the editor, run `setup`, then run `testAsk`. Approve the permission prompt. Check the log.
+6. Deploy → New deployment → Web app. Execute as: Me. Who has access: Anyone. Copy the `/exec` URL.
+7. Paste the URL into `data-endpoint=""` on the form in `faq.html`. Push.
 
 After you change `Code.gs`, deploy again: Deploy → Manage deployments → Edit → Version: New version.
 
-To teach it something new, add a row to the `Knowledge` tab. No deploy is needed. Old cached answers stop being used automatically.
+To teach it something new, edit `KNOWLEDGE` in `Code.gs` and deploy a new version. Old cached answers stop being used automatically.
+
+Limits are constants at the top of `Code.gs`. Run `testMatch` to tune how close two questions must be to share an answer.
 
 ## Editing
 
-- Date and registration: hero in `index.html` and the `Knowledge` tab of the question desk sheet
+- Date and registration: hero in `index.html` and `KNOWLEDGE` in `backend/Code.gs`
 - Sponsors: the `tiers` table and the "2027 partners" line in `sponsors.html`
 - Schedule: the table in `schedule.html`
 - Team: the list in `team.html`

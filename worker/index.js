@@ -75,9 +75,11 @@ export default {
 
     if (readable && prefersMarkdown(request.headers.get('Accept'))) {
       const mdPath = markdownPath(url.pathname);
-      if (mdPath) {
+      // A path like //evil.com/x resolves to another host. Only fetch from our own origin.
+      const target = mdPath ? new URL(mdPath, url.origin) : null;
+      if (target && target.origin === url.origin) {
         // Ask the origin for the .md file. Accept */* so this never negotiates again.
-        const res = await fetch(new URL(mdPath, url.origin), { headers: { Accept: '*/*' } });
+        const res = await fetch(target, { headers: { Accept: '*/*' } });
         if (res.status === 200) return markdown(await res.text(), 200, request.method);
       }
       const page = await fetch(request);
