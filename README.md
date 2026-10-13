@@ -10,6 +10,8 @@ python3 -m http.server 5173
 
 - `index.html` – home: hero, about, what to expect, links
 - `schedule.html`, `sponsors.html`, `team.html`, `faq.html` – one topic each
+- `about.html`, `contact.html`, `privacy.html` – the pages agents and search engines check before they trust a site (linked in every footer)
+- `404.html` – GitHub Pages serves this for any missing path, so its links start with `/`
 - The header and footer are copied into every page. If you change the nav, change it in all five files.
 
 ## Files
@@ -48,3 +50,43 @@ To teach it something new, add a row to the `Knowledge` tab. No deploy is needed
 - Sponsors: the `tiers` table and the "2027 partners" line in `sponsors.html`
 - Schedule: the table in `schedule.html`
 - Team: the list in `team.html`
+
+## Markdown for agents
+
+Agents read the site through these files. Keep them current.
+
+- `llms.txt` – the guide for agents: what BISV Hacks is, when to use the site, and links to every page. Edit it by hand when facts change.
+- `*.html.md` – a Markdown copy of each page, made from the page's `<main>`. Put `data-md-skip` on anything decorative that should stay out of it.
+- `sitemap.xml`, `robots.txt` – every page, for crawlers.
+- `mode.js` – the Humans | Agents switch. Agents mode shows the page's Markdown copy (or `llms.txt` on pages without one).
+
+After you change any page, run:
+
+```bash
+node tools/agent-files.mjs
+```
+
+Then run the tests. They fail if a Markdown copy is out of date, a heading skips a level, the sitemap misses a page, or the structured data loses a field:
+
+```bash
+npm test
+```
+
+### Content negotiation (Cloudflare Worker)
+
+GitHub Pages cannot change response headers, so on its own it always answers with HTML. `worker/index.js` fixes that: a request with `Accept: text/markdown` gets the page's Markdown copy with `Content-Type: text/markdown` and `Vary: Accept`, and a missing page gets a Markdown 404. Browsers get the same HTML as before.
+
+To turn it on (needs whoever controls the bisvhacks.com domain):
+
+1. Add bisvhacks.com to a free Cloudflare account and switch the domain's nameservers to Cloudflare's.
+2. Keep the four GitHub Pages `A` records and the `www` `CNAME`, proxied (orange cloud). Set SSL/TLS to Full.
+3. From `worker/`, run `npx wrangler deploy`. The routes are in `wrangler.toml`.
+4. Check it:
+
+```bash
+curl -sS -i -H 'Accept: text/markdown' https://bisvhacks.com/
+curl -sS -i -H 'Accept: text/markdown' https://bisvhacks.com/some-path-that-does-not-exist
+curl -sS -i -H 'Accept: text/html' https://bisvhacks.com/
+```
+
+The first should be `200`, `text/markdown`, `Vary: Accept`. The second should be `404` with a Markdown body. The third should be the normal HTML page.
