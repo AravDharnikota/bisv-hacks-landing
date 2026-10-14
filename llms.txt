@@ -29,3 +29,4 @@ How to use it: read the Markdown pages below; each one is the full content of th
 
 - [Questions page](https://bisvhacks.com/faq): an interactive page where visitors ask questions and get answers from the team's published facts. It needs JavaScript.
 - [Sitemap](https://bisvhacks.com/sitemap.xml): every page on the site.
+- [Agent skill](https://bisvhacks.com/.well-known/agent-skills/index.json): an Agent Skills index with one skill, bisv-hacks, that says when to use this site and how to answer from it.
