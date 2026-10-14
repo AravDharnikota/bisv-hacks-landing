@@ -68,25 +68,36 @@ function withVaryAccept(res) {
   return out;
 }
 
-export default {
-  async fetch(request) {
-    const url = new URL(request.url);
-    const readable = request.method === 'GET' || request.method === 'HEAD';
+// The whole decision, shared by this Worker and the Cloudflare Pages middleware
+// (functions/_middleware.js). getFile(url) fetches one file from our own origin;
+// getPage() returns the response the site would give this request on its own.
+export async function negotiate(request, getFile, getPage) {
+  const url = new URL(request.url);
+  const readable = request.method === 'GET' || request.method === 'HEAD';
 
-    if (readable && prefersMarkdown(request.headers.get('Accept'))) {
-      const mdPath = markdownPath(url.pathname);
-      // A path like //evil.com/x resolves to another host. Only fetch from our own origin.
-      const target = mdPath ? new URL(mdPath, url.origin) : null;
-      if (target && target.origin === url.origin) {
-        // Ask the origin for the .md file. Accept */* so this never negotiates again.
-        const res = await fetch(target, { headers: { Accept: '*/*' } });
-        if (res.status === 200) return markdown(await res.text(), 200, request.method);
-      }
-      const page = await fetch(request);
-      if (page.status === 404) return markdown(notFoundMarkdown(url.pathname), 404, request.method);
-      return withVaryAccept(page); // a real file with no Markdown copy (an image, llms.txt)
+  if (readable && prefersMarkdown(request.headers.get('Accept'))) {
+    const mdPath = markdownPath(url.pathname);
+    // A path like //evil.com/x resolves to another host. Only fetch from our own origin.
+    const target = mdPath ? new URL(mdPath, url.origin) : null;
+    if (target && target.origin === url.origin) {
+      const res = await getFile(target);
+      if (res.status === 200) return markdown(await res.text(), 200, request.method);
     }
+    const page = await getPage();
+    if (page.status === 404) return markdown(notFoundMarkdown(url.pathname), 404, request.method);
+    return withVaryAccept(page); // a real file with no Markdown copy (an image, llms.txt)
+  }
 
-    return withVaryAccept(await fetch(request));
+  return withVaryAccept(await getPage());
+}
+
+export default {
+  fetch(request) {
+    return negotiate(
+      request,
+      // Ask the origin for the .md file. Accept */* so this never negotiates again.
+      target => fetch(target, { headers: { Accept: '*/*' } }),
+      () => fetch(request),
+    );
   },
 };
