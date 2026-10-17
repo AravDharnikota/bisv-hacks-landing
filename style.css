@@ -134,8 +134,6 @@ th:last-child, td:last-child { padding-right: 0; }
 }
 .team .name:hover { text-decoration-color: var(--red); }
 .role { color: var(--muted); }
-.team .contact { color: var(--muted); }
-a.contact:hover { color: var(--ink); }
 
 /* Questions: an ASCII logo, one line to type on, answers printed below */
 .desk { --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace; }
