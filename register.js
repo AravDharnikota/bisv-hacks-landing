@@ -114,8 +114,6 @@
 
   /* --- Validation ---------------------------------------------------------- */
 
-  function digits(s) { return (s.match(/\d/g) || []).length; }
-
   // Returns an error message, or "" when the answer is fine.
   function problem(step) {
     const kind = step.dataset.kind;
@@ -138,7 +136,6 @@
     }
     if (!v) return optional ? "" : "This one is required.";
     if (kind === "email") return EMAIL.test(v) ? "" : "That does not look like an email.";
-    if (kind === "tel") return digits(v) >= 7 && digits(v) <= 15 ? "" : "That does not look like a phone number.";
     if (kind === "number") {
       const n = Number(v);
       if (!Number.isInteger(n)) return "Whole numbers only.";
@@ -323,8 +320,8 @@
   /* --- Review ------------------------------------------------------------ */
 
   const LABELS = {
-    name: "Name", grade: "Grade", age: "Age", school: "School", email: "Email", phone: "Phone",
-    diet: "Dietary restrictions", parentEmail: "Parent or guardian", built: "Something you built",
+    name: "Name", grade: "Grade", age: "Age", school: "School", email: "Email",
+    diet: "Dietary restrictions", parentEmail: "Parent or guardian",
     hasTeam: "Team", teamEmails: "Teammates",
   };
 
@@ -382,8 +379,8 @@
     }
     const payload = {
       name: answers.name, grade: answers.grade, age: answers.age, school: answers.school,
-      email: answers.email, phone: answers.phone, diet: answers.diet || "", parentEmail: answers.parentEmail,
-      built: answers.built, hasTeam: answers.hasTeam,
+      email: answers.email, diet: answers.diet || "", parentEmail: answers.parentEmail,
+      hasTeam: answers.hasTeam,
       teamEmails: answers.hasTeam === "Yes" ? answers.teamEmails || [] : [],
       website: form.elements.website ? form.elements.website.value : "",
       page: location.href,

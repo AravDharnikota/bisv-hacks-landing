@@ -22,7 +22,7 @@ const MAX_TEAM = 4;
 // saves if the email fails.
 const SEND_CONFIRMATION = false;
 
-const HEADER = ['When', 'Full name', 'Grade', 'Age', 'School', 'Email', 'Phone', 'Dietary restrictions', 'Parent/guardian email', 'Something they built', 'Has a team', 'Teammate emails', 'Status'];
+const HEADER = ['When', 'Full name', 'Grade', 'Age', 'School', 'Email', 'Dietary restrictions', 'Parent/guardian email', 'Has a team', 'Teammate emails', 'Status'];
 
 const EMAIL = /^[^\s@]{1,64}@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -60,8 +60,8 @@ function register(body) {
       return { error: row.email + ' is already registered. To change anything, email ' + CONTACT + '.' };
     }
     sheet.appendRow([
-      new Date(), row.name, row.grade, row.age, row.school, row.email, row.phone, row.diet,
-      row.parentEmail, row.built, row.hasTeam, row.teamEmails.join(', '), 'new',
+      new Date(), row.name, row.grade, row.age, row.school, row.email, row.diet,
+      row.parentEmail, row.hasTeam, row.teamEmails.join(', '), 'new',
     ]);
   } finally {
     lock.releaseLock();
@@ -78,10 +78,8 @@ function check(body) {
   const age = Number(clean(body.age, 3));
   const school = clean(body.school, 160);
   const email = clean(body.email, 120).toLowerCase();
-  const phone = clean(body.phone, 30);
   const diet = clean(body.diet, 200) || 'None';
   const parentEmail = clean(body.parentEmail, 120).toLowerCase();
-  const built = clean(body.built, 800);
   const hasTeam = clean(body.hasTeam, 3) === 'Yes' ? 'Yes' : 'No';
   const teamEmails = hasTeam === 'Yes' && Array.isArray(body.teamEmails)
     ? body.teamEmails.map(e => clean(e, 120).toLowerCase()).filter(Boolean).slice(0, MAX_TEAM)
@@ -92,9 +90,7 @@ function check(body) {
   if (!Number.isInteger(age) || age < 12 || age > 20) return { error: 'Your age does not look right. Email ' + CONTACT + ' if it is.' };
   if (school.length < 2) return { error: 'Your school is missing.' };
   if (!EMAIL.test(email)) return { error: 'Your email does not look right.' };
-  if ((phone.match(/\d/g) || []).length < 7) return { error: 'Your phone number does not look right.' };
   if (!EMAIL.test(parentEmail)) return { error: 'The parent or guardian email does not look right.' };
-  if (built.length < 20) return { error: 'Tell us a little more about what you built.' };
   if (hasTeam === 'Yes') {
     if (!teamEmails.length) return { error: 'Add at least one teammate.' };
     for (const t of teamEmails) {
@@ -104,7 +100,7 @@ function check(body) {
     if (new Set(teamEmails).size !== teamEmails.length) return { error: 'A teammate is listed twice.' };
   }
 
-  return { name, grade, age, school, email, phone, diet, parentEmail, built, hasTeam, teamEmails };
+  return { name, grade, age, school, email, diet, parentEmail, hasTeam, teamEmails };
 }
 
 function alreadyRegistered(sheet, email) {
@@ -133,7 +129,7 @@ function confirm(row) {
 
 /* --- Helpers ---------------------------------------------------------------- */
 
-// One line of plain text, trimmed and capped. Newlines in the long answer become spaces around " / ".
+// One line of plain text, trimmed and capped.
 function clean(value, max) {
   if (value === undefined || value === null) return '';
   return String(value).replace(/[\u0000-\u0008\u000B-\u001F\u007F]/g, '').replace(/\r?\n+/g, ' / ').replace(/\s+/g, ' ').trim().slice(0, max);
@@ -148,10 +144,10 @@ function setup() {
     sheet.appendRow(HEADER);
     sheet.setFrozenRows(1);
     sheet.getRange(1, 1, 1, HEADER.length).setFontWeight('bold');
-    // Emails and phone numbers stay text, so a leading + or 0 is not lost.
-    sheet.getRange('F:G').setNumberFormat('@');
-    sheet.getRange('I:I').setNumberFormat('@');
-    sheet.getRange('L:L').setNumberFormat('@');
+    // Emails stay text.
+    sheet.getRange('F:F').setNumberFormat('@');
+    sheet.getRange('H:H').setNumberFormat('@');
+    sheet.getRange('J:J').setNumberFormat('@');
   }
   return sheet;
 }
@@ -160,8 +156,8 @@ function setup() {
 function testRegister() {
   const out = register({
     name: 'Test Student', grade: '11th', age: 16, school: 'BASIS Independent Silicon Valley',
-    email: 'test+' + Date.now() + '@example.com', phone: '(408) 555-0123', diet: '',
-    parentEmail: 'parent@example.com', built: 'A weather station from a Raspberry Pi that posts readings to a website I made.',
+    email: 'test+' + Date.now() + '@example.com', diet: '',
+    parentEmail: 'parent@example.com',
     hasTeam: 'Yes', teamEmails: ['friend@example.com'],
   });
   console.log(JSON.stringify(out));

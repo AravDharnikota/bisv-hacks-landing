@@ -10,7 +10,7 @@ When you ask a question on the [questions page](https://bisvhacks.com/faq), the 
 
 ## Registration
 
-When you register on the [registration page](https://bisvhacks.com/register), your answers (name, grade, age, school, email, phone number, dietary restrictions, a parent or guardian email, a short note on something you built, and your teammates' emails if you have a team) are sent to a Google Apps Script app that the team runs and saved in a Google Sheet that only our organizers can read. We use them to run the event: confirming your place, contacting a parent or guardian, planning food, and forming teams. Your browser also keeps a copy of your unfinished answers so a refresh does not lose them; it is removed when you submit.
+When you register on the [registration page](https://bisvhacks.com/register), your answers (name, grade, age, school, email, dietary restrictions, a parent or guardian email, and your teammates' emails if you have a team) are sent to a Google Apps Script app that the team runs and saved in a Google Sheet that only our organizers can read. We use them to run the event: confirming your place, contacting a parent or guardian, planning food, and forming teams. Your browser also keeps a copy of your unfinished answers so a refresh does not lose them; it is removed when you submit.
 
 ## Services we use
 
