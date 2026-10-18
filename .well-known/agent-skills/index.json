@@ -6,7 +6,7 @@
       "type": "skill-md",
       "description": "Answer questions about BISV Hacks, the free, student-led, one-day hackathon for high school students in San Jose, California, using the official bisvhacks.com site. Use when asked about attending BISV Hacks 2027 (date, location, schedule, cost, eligibility, teams, food, prizes, registration), sponsoring it, judging, speaking, or mentoring at it, or contacting its organizers.",
       "url": "https://bisvhacks.com/.well-known/agent-skills/bisv-hacks/SKILL.md",
-      "digest": "sha256:5c5548b92bba6be98f7350013c3327c3bb699256772c53eba884f15ec767d5db"
+      "digest": "sha256:74883a1c4344e32f4fc13cd0e1e9596b0403e8d38bdfda8d60e18cb7a6a6014f"
     }
   ]
 }

@@ -284,3 +284,115 @@ header.top nav a[aria-current="page"] { color: var(--ink); text-decoration: unde
   .viewswitch { font-size: 0.75rem; right: 0.75rem; }
   .viewswitch button { padding: 0.3rem 0.55rem; }
 }
+
+/* Registration: one question per screen. register.html and register.js. */
+body.reg { min-height: 100svh; display: flex; flex-direction: column; --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace; }
+.reg-back { font-size: 1rem; text-decoration: none; }
+.reg-back:hover { text-decoration: underline; text-decoration-color: var(--red); }
+
+.progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 20; background: transparent; }
+.progress span { display: block; height: 100%; width: 0; background: var(--red); transition: width 400ms cubic-bezier(0.2, 0.7, 0.2, 1); }
+
+.stage { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 2rem 0 7rem; }
+.flow { display: grid; }
+.step:focus { outline: none; }
+.step { grid-area: 1 / 1; transition: transform 380ms cubic-bezier(0.2, 0.7, 0.2, 1), opacity 300ms ease; }
+.step.leave-up { transform: translateY(-2.5rem); opacity: 0; pointer-events: none; }
+.step.leave-down { transform: translateY(2.5rem); opacity: 0; pointer-events: none; }
+.step.enter-from-below { transform: translateY(2.5rem); opacity: 0; transition: none; }
+.step.enter-from-above { transform: translateY(-2.5rem); opacity: 0; transition: none; }
+.step.is-entering { transform: none; opacity: 1; }
+
+.step-n { display: flex; align-items: center; gap: 0.4rem; font-family: var(--mono); font-size: 0.875rem; font-weight: 500; color: var(--red); margin: 0 0 0.6rem; min-height: 1.4em; }
+.step-n .check { font-size: 1.5rem; }
+.step-q { font-size: clamp(1.5rem, 4.5vw, 2rem); font-weight: 500; line-height: 1.2; letter-spacing: -0.012em; margin: 0 0 0.5rem; }
+.step-q label { cursor: text; }
+.req { color: var(--red); margin-left: 0.15em; }
+.is-intro .step-q { font-size: clamp(2.25rem, 6.5vw, 3rem); }
+.step-d { color: var(--muted); font-size: 1.0625rem; margin: 0 0 1.75rem; }
+.is-intro .step-d { font-size: 1.125rem; }
+
+.field input, .field textarea, .person input {
+  display: block; width: 100%; min-width: 0;
+  border: 0; border-bottom: 1px solid var(--ink); border-radius: 0; background: none;
+  color: var(--ink); font: inherit; font-size: 1.5rem; line-height: 1.35; padding: 0.35rem 0;
+  caret-color: var(--red); transition: border-color 120ms ease;
+}
+.field input::placeholder, .field textarea::placeholder, .person input::placeholder { color: var(--muted); opacity: 0.55; }
+.field input:focus, .field textarea:focus, .person input:focus { outline: none; border-bottom-color: var(--red); }
+.field textarea { resize: none; min-height: 3.2em; field-sizing: content; max-height: 40vh; }
+.field-short input { width: 8rem; }
+.field input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
+.field input[type="number"]::-webkit-inner-spin-button, .field input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.has-error .field input, .has-error .field textarea, .has-error .person input { border-bottom-color: var(--red); }
+
+.err { font-family: var(--mono); font-size: 0.8125rem; color: var(--red); min-height: 1.4em; margin: 0.6rem 0 0; }
+.err:empty { margin: 0; min-height: 0; }
+.has-error .err { margin: 0.6rem 0 0; min-height: 1.4em; }
+
+.step-actions { display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap; margin-top: 1.5rem; }
+.step-actions .button { border: 0; cursor: pointer; font: inherit; font-size: 1.0625rem; padding: 0.65rem 1.35rem; }
+.step-actions .button:disabled { opacity: 0.5; cursor: default; }
+.hint { color: var(--muted); font-size: 0.875rem; }
+.hint kbd, .choice kbd { font-family: var(--mono); font-size: 0.75rem; font-weight: 500; }
+.hint kbd { border: 1px solid var(--rule); border-radius: 3px; padding: 0.05em 0.35em; background: #F7F6F2; color: var(--ink); }
+.step-fine { color: var(--muted); font-size: 0.9375rem; margin: 0.25rem 0 0; }
+
+/* Choices: lettered, so a key press picks one */
+.choices { display: grid; gap: 0.5rem; max-width: 22rem; }
+.choice {
+  display: flex; align-items: center; gap: 0.75rem; text-align: left;
+  border: 1px solid var(--rule); border-radius: 6px; background: #F7F6F2;
+  padding: 0.6rem 0.75rem; font: inherit; font-size: 1.125rem; color: var(--ink); cursor: pointer;
+  transition: border-color 120ms ease, background 120ms ease;
+}
+.choice kbd { display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border: 1px solid var(--rule); border-radius: 3px; background: var(--paper); color: var(--muted); transition: background 120ms ease, color 120ms ease, border-color 120ms ease; }
+.choice:hover { border-color: var(--ink); }
+.choice:hover kbd { color: var(--ink); border-color: var(--ink); }
+.choice[aria-checked="true"] { border-color: var(--ink); background: var(--gold); }
+.choice[aria-checked="true"] kbd { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.choice:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+
+/* Teammates: one row per person, plus Add person */
+.people { display: grid; gap: 0.75rem; }
+.person { display: flex; align-items: center; gap: 0.5rem; }
+.person input { font-size: 1.25rem; }
+.person .remove { border: 0; background: none; color: var(--muted); font: inherit; font-size: 1.5rem; line-height: 1; padding: 0.25rem 0.4rem; cursor: pointer; border-radius: 2px; }
+.person .remove:hover { color: var(--red); }
+.person .remove:focus-visible, .add:focus-visible, .edit:focus-visible, .stepnav button:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; border-radius: 2px; }
+.add { margin-top: 1rem; border: 0; background: none; padding: 0; font: inherit; font-size: 1rem; color: var(--ink); cursor: pointer; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; text-decoration-color: var(--rule); }
+.add:hover { text-decoration-color: var(--red); }
+
+/* Review: every answer, click to change */
+.summary { margin: 0 0 1.25rem; border-top: 1px solid var(--ink); font-size: 1.0625rem; }
+.summary div { display: grid; grid-template-columns: 10rem 1fr; gap: 1rem; padding: 0.5rem 0; border-bottom: 1px solid var(--rule); }
+.summary dt { color: var(--muted); }
+.summary dd { margin: 0; min-width: 0; }
+.edit { border: 0; background: none; padding: 0; margin: 0; font: inherit; color: var(--ink); text-align: left; cursor: pointer; white-space: pre-wrap; overflow-wrap: anywhere; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; text-decoration-color: var(--rule); }
+.edit:hover { text-decoration-color: var(--red); }
+
+/* Something is wrong: the field shakes once */
+@keyframes shake { 20%, 60% { transform: translateX(-4px); } 40%, 80% { transform: translateX(4px); } }
+.shake .field, .shake .choices, .shake .people { animation: shake 320ms ease; }
+
+/* Up / down, bottom right, like a pager */
+.stepnav { position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 10; display: flex; align-items: center; gap: 2px; padding: 3px; background: var(--paper); border: 1px solid var(--ink); border-radius: 999px; font-family: var(--mono); font-size: 0.8125rem; }
+.stepnav[hidden] { display: none; }
+.stepnav-count { color: var(--muted); padding: 0 0.6rem 0 0.75rem; white-space: nowrap; }
+.stepnav button { border: 0; background: none; color: var(--ink); font: inherit; font-size: 1rem; cursor: pointer; width: 2rem; height: 2rem; border-radius: 999px; display: grid; place-items: center; transition: background 120ms ease, color 120ms ease; }
+.stepnav button:hover:not(:disabled) { background: var(--ink); color: var(--paper); }
+.stepnav button:disabled { opacity: 0.3; cursor: default; }
+
+.trap { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+
+@media (max-width: 600px) {
+  header.reg-top { flex-direction: row; align-items: center; }
+  .stage { justify-content: flex-start; padding-top: 2.5rem; }
+  .field input, .field textarea { font-size: 1.25rem; }
+  .summary div { grid-template-columns: 1fr; gap: 0.1rem; }
+  .stepnav { right: 0.75rem; bottom: 0.75rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .step, .progress span { transition: none; }
+  .shake .field, .shake .choices, .shake .people { animation: none; }
+}

@@ -55,9 +55,8 @@ Sponsorship prices, packages, and terms are shared privately in the prospectus. 
 
 ## Registration
 
-- **2027:** registration is **not open yet**. It will open on Devpost and be announced on bisvhacks.com and the Discord.
-- **When it opens:** **not announced yet.**
-- **Demand:** spots have filled every year. In 2026, more than 200 students registered and registration closed in under two months. Register early once it opens.
+- **2027:** registration is **open** at https://bisvhacks.com/register. It is a short form: name, grade, age, school, email, phone, dietary restrictions, a parent or guardian email, one thing you have built, and your teammates' emails if you already have a team. It takes about three minutes and is free.
+- **Demand:** spots have filled every year. In 2026, more than 200 students registered and registration closed in under two months. Register early.
 - **Last year (2026):** students registered through a sign-up form linked from Devpost, and submitted projects on Devpost.
 - **Parents and guardians:** because participants are minors, a parent or guardian completes a consent form and receives reminder emails before the event.
 - **Waitlist:** **not announced yet.**
@@ -176,7 +175,8 @@ Times are for the day of the event in February 2027 and may change.
 
 - **Discord:** https://discord.gg/T8cuesaNKB for announcements, help, and team-finding.
 - **Instagram:** https://www.instagram.com/bisv.hacks/
-- **Devpost:** registration, rules, submissions, and the project gallery for 2027. Coming soon.
+- **Register:** https://bisvhacks.com/register
+- **Devpost:** rules, submissions, and the project gallery for 2027. Coming soon.
 - **Past Devpost pages:** 2026 at https://bisv-hacks-2026.devpost.com and 2025 at https://bisv-hacks.devpost.com
 
 ## History
