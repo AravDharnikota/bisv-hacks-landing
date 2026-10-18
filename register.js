@@ -5,6 +5,7 @@
 //
 // Keyboard: Enter continues. Shift+Enter makes a new line in the long answer. Up and Down
 // arrows move between questions. On a choice question, the letter on each option picks it.
+// Scrolling moves too: one wheel tick, trackpad flick, or swipe goes one question, like a page.
 // Progress is kept in localStorage, so a refresh does not lose anything.
 
 (function () {
@@ -464,6 +465,11 @@
       if (e.key === "ArrowDown") next(); else prev();
       return;
     }
+    if (e.key === "PageDown" || e.key === "PageUp") {
+      e.preventDefault();
+      flip(e.key === "PageDown" ? 1 : -1);
+      return;
+    }
     if (step.dataset.kind === "choice" && !typing(t) && e.key.length === 1) {
       const key = e.key.toUpperCase();
       const hit = Array.from(step.querySelectorAll(".choice")).find(c => c.querySelector("kbd").textContent.trim().toUpperCase() === key);
@@ -473,6 +479,67 @@
 
   if (navPrev) navPrev.addEventListener("click", prev);
   if (navNext) navNext.addEventListener("click", next);
+
+  /* --- Scrolling: one gesture, one question ------------------------------- */
+
+  // Down goes on, up goes back. Scrolling never submits: on the review screen, down does nothing.
+  function flip(dir) {
+    if (moving || sent) return;
+    const step = all[current];
+    if (dir > 0) { if (!step.classList.contains("is-review")) next(); }
+    else prev();
+  }
+
+  // True when something under el (a long answer box, or the page itself on a short screen)
+  // still has room to scroll in that direction. Then the scroll is a scroll, not a page turn.
+  function canScroll(el, dir) {
+    for (let n = el; n && n !== document.body; n = n.parentElement) {
+      const oy = getComputedStyle(n).overflowY;
+      if ((oy === "auto" || oy === "scroll") && n.scrollHeight > n.clientHeight + 1) {
+        if (dir > 0 && n.scrollTop + n.clientHeight < n.scrollHeight - 1) return true;
+        if (dir < 0 && n.scrollTop > 0) return true;
+      }
+    }
+    const doc = document.documentElement;
+    if (dir > 0 && window.scrollY + window.innerHeight < doc.scrollHeight - 1) return true;
+    if (dir < 0 && window.scrollY > 0) return true;
+    return false;
+  }
+
+  // A gesture is a run of wheel events less than 200ms apart. Each gesture turns at most one page,
+  // so a trackpad flick with a long tail does not skip questions.
+  let lastWheel = 0, wheelSum = 0, gestureUsed = false;
+  document.addEventListener("wheel", e => {
+    const now = Date.now();
+    if (now - lastWheel > 200) { wheelSum = 0; gestureUsed = false; }
+    lastWheel = now;
+    if (gestureUsed || !e.deltaY) return;
+    const dir = e.deltaY > 0 ? 1 : -1;
+    if (canScroll(e.target, dir)) { wheelSum = 0; return; }
+    wheelSum += e.deltaY;
+    if (Math.abs(wheelSum) < 30) return;
+    gestureUsed = true;
+    flip(dir);
+  }, { passive: true });
+
+  // A swipe of 60px or more, mostly vertical, on a screen that was not scrollable that way when the finger landed.
+  let touch = null;
+  document.addEventListener("touchstart", e => {
+    if (e.touches.length !== 1) { touch = null; return; }
+    const t = e.touches[0];
+    touch = { x: t.clientX, y: t.clientY, downRoom: canScroll(e.target, 1), upRoom: canScroll(e.target, -1) };
+  }, { passive: true });
+  document.addEventListener("touchend", e => {
+    if (!touch) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - touch.x, dy = touch.y - t.clientY;
+    const start = touch;
+    touch = null;
+    if (Math.abs(dy) < 60 || Math.abs(dx) > Math.abs(dy)) return;
+    const dir = dy > 0 ? 1 : -1;
+    if (dir > 0 ? start.downRoom : start.upRoom) return;
+    flip(dir);
+  }, { passive: true });
 
   // People step: Enter on a filled row that is not the last one moves down a row.
   form.addEventListener("keydown", e => {
