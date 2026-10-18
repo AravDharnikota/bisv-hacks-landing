@@ -244,6 +244,8 @@ header.top nav a[aria-current="page"] { color: var(--ink); text-decoration: unde
 
 /* Footer links to the trust pages */
 .footer-links a { color: inherit; }
+.archive { margin-left: 0.4rem; font-size: 0.625rem; opacity: 0.3; }
+.archive a { color: inherit; text-decoration: none; }
 
 /* Humans | Agents switch. Agents mode shows the page's Markdown. */
 .viewswitch {
