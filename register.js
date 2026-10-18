@@ -432,6 +432,7 @@
       return;
     }
     if (e.target.closest(".next")) { e.preventDefault(); next(); return; }
+    if (e.target.closest(".back")) { e.preventDefault(); prev(); return; }
     const add = e.target.closest(".add");
     if (add) {
       const step = add.closest(".step");

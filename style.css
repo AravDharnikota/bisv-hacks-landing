@@ -333,6 +333,8 @@ body.reg { min-height: 100svh; display: flex; flex-direction: column; --mono: "I
 .step-actions { display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap; margin-top: 1.5rem; }
 .step-actions .button { border: 0; cursor: pointer; font: inherit; font-size: 1.0625rem; padding: 0.65rem 1.35rem; }
 .step-actions .button:disabled { opacity: 0.5; cursor: default; }
+.step-actions .back { background: none; color: var(--ink); border: 1px solid var(--rule); padding-top: calc(0.65rem - 1px); padding-bottom: calc(0.65rem - 1px); transition: border-color 120ms ease; }
+.step-actions .back:hover { background: none; border-color: var(--ink); }
 .hint { color: var(--muted); font-size: 0.875rem; }
 .hint kbd, .choice kbd { font-family: var(--mono); font-size: 0.75rem; font-weight: 500; }
 .hint kbd { border: 1px solid var(--rule); border-radius: 3px; padding: 0.05em 0.35em; background: #F7F6F2; color: var(--ink); }
