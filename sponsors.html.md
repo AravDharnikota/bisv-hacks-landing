@@ -16,8 +16,7 @@ The 2027 prospectus is shared by request. Tell us your company and we will send 
 
 Our partners are announced here as they join.
 
-- [Hack Club](https://hackclub.com)
-- [Stellar Learning](https://stellarlearning.app)
+[Hack Club](https://hackclub.com) [Stellar Learning](https://stellarlearning.app)
 
 ## Judges, speakers, and mentors
 

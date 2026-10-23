@@ -318,3 +318,17 @@ for (const f of CORE) {
 test('every page with a Markdown copy advertises it', () => {
   for (const f of MD_PAGES) assert.match(read(f), new RegExp(`<link rel="alternate" type="text/markdown" href="${f}\\.md">`), f);
 });
+
+test('sponsors Markdown names each partner as a link', () => {
+  const md = read('sponsors.html.md');
+  assert.match(md, /\[Hack Club\]\(https:\/\/hackclub\.com\)/);
+  assert.match(md, /\[Stellar Learning\]\(https:\/\/stellarlearning\.app\)/);
+  assert.doesNotMatch(md, /\[\]\(/, 'no empty links');
+});
+
+test('every partner cell has a name and a logo file that exists', () => {
+  const html = read('sponsors.html');
+  const cells = [...html.matchAll(/<a class="p[^"]*"[^>]*aria-label="([^"]+)"[^>]*>\s*<img class="p-logo" src="([^"]+)"/g)];
+  assert.ok(cells.length >= 1);
+  for (const [, name, src] of cells) assert.ok(existsSync(join(ROOT, src)), `${name}: missing ${src}`);
+});
