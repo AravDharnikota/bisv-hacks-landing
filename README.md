@@ -78,7 +78,7 @@ Limits are constants at the top of `Code.gs`. Run `testMatch` to tune how close 
 ## Editing
 
 - Date and registration: hero in `index.html`, `register.html`, and `KNOWLEDGE` in `backend/Code.gs`
-- Sponsors: the `tiers` table and the "2027 partners" line in `sponsors.html`
+- Sponsors: the `tiers` table and the "2027 partners" line in `sponsors.html`. Partner logos are drawn as text by `sponsors.js`, in the same style as the Questions page glyph: each logo is a mask at the top of that file (`k` ink, `r` red, space paper), and the `partner-name` next to it is what agents and no-JavaScript visitors see
 - Schedule: the table in `schedule.html`
 - Team: the list in `team.html`
 

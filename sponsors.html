@@ -62,9 +62,16 @@
 <section id="partners">
     <h2>2027 partners</h2>
     <p class="muted">Our partners are announced here as they join.</p>
-    <ul class="slots">
-      <li><a href="https://hackclub.com"><span>Hack Club</span><img src="images/hack-club-logo.png" alt="" width="526" height="184"></a></li>
-      <li><a href="https://stellarlearning.app"><span>Stellar Learning</span><img src="images/stellar-learning-logo.png" alt="" width="990" height="252"></a></li>
+    <!-- Logos are drawn as text by sponsors.js, like the glyph on the Questions page. -->
+    <ul class="partners">
+      <li><a class="partner" href="https://hackclub.com" target="_blank" rel="noopener">
+        <span class="partner-art" data-logo="hack-club" aria-hidden="true"></span>
+        <span class="partner-name">Hack Club</span>
+      </a></li>
+      <li><a class="partner" href="https://stellarlearning.app" target="_blank" rel="noopener">
+        <span class="partner-art" data-logo="stellar" aria-hidden="true"></span>
+        <span class="partner-name">Stellar Learning</span>
+      </a></li>
     </ul>
   </section>
 <section id="people">
@@ -113,6 +120,7 @@
   <p>© 2027 BISV Hacks</p>
 </footer>
 
+<script src="sponsors.js" defer></script>
 <script src="mode.js" defer></script>
 </body>
 </html>

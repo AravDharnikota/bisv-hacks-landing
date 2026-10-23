@@ -232,13 +232,22 @@ header.top nav a[aria-current="page"] { color: var(--ink); text-decoration: unde
 
 .muted { color: var(--muted); }
 
+/* Partner logos, drawn as text by sponsors.js in the same hand as the Questions glyph */
+.partners { --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace; list-style: none; padding: 0; margin: 2rem 0 0; display: grid; gap: 2.5rem; }
+.partner { display: block; text-decoration: none; }
+.partner-art { display: block; container-type: inline-size; user-select: none; }
+/* One mono character is 0.6em wide, so the mask's column count (--cols, set by sponsors.js) gives the largest size that fits the column. */
+.partner-art pre { margin: 0; font-family: var(--mono); font-weight: 500; font-size: min(0.6875rem, 100cqw / (var(--cols, 72) * 0.6)); line-height: 1; letter-spacing: 0; }
+.partner-art .r { color: var(--red); }
+.partner-name { display: block; margin-top: 0.75rem; font-family: var(--mono); font-size: 0.8125rem; color: var(--muted); }
+.partner-name::before { content: "> "; color: var(--red); font-weight: 500; }
+.partner:hover .partner-name { color: var(--ink); }
+
 .slots { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--ink); border-left: 1px solid var(--rule); }
 .slots li { aspect-ratio: 3 / 2; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); position: relative; }
 .slots a { position: absolute; inset: 0; text-decoration: none; }
 .slots span { position: absolute; top: 0.6rem; left: 0.75rem; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.75rem; color: var(--muted); transition: color 120ms ease; }
 .slots a:hover span { color: var(--ink); }
-/* Both marks are transparent PNGs; cap width and height so the wide Stellar wordmark and the taller Hack Club flag read at the same weight. */
-.slots img { position: absolute; inset: 0; margin: auto; width: auto; height: auto; max-width: 68%; max-height: 34%; }
 
 @media (prefers-reduced-motion: reduce) {
   .agent-verb::after { animation: none; }
