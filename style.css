@@ -234,48 +234,40 @@ header.top nav a[aria-current="page"] { color: var(--ink); text-decoration: unde
 
 .partner-logos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 2rem;
-  margin: 2rem 0;
-  align-items: center;
-  justify-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin: 1.5rem 0 0;
+  max-width: 32rem;
 }
 
 .partner-logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  padding: 1.5rem;
+  padding: 1.75rem 1.5rem;
   border: 1px solid var(--rule);
   border-radius: 6px;
-  background: white;
-  transition: border-color 200ms ease, transform 100ms ease;
+  background: #FDFCFA;
   text-decoration: none;
+  transition: border-color 150ms ease;
 }
 
 .partner-logo:hover {
   border-color: var(--ink);
-  transform: translateY(-2px);
 }
 
 .partner-logo img {
   display: block;
   width: 100%;
-  max-width: 120px;
   height: auto;
+  max-height: 3.5rem;
   object-fit: contain;
 }
 
 @media (max-width: 600px) {
   .partner-logos {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .partner-logo {
-    max-width: 200px;
-    margin: 0 auto;
+    gap: 1.25rem;
   }
 }
 
