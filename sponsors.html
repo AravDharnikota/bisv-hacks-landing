@@ -62,17 +62,19 @@
 <section id="partners">
     <h2>2027 partners</h2>
     <p class="muted">Our partners are announced here as they join.</p>
-    <!-- Logos are drawn as text by sponsors.js, like the glyph on the Questions page. -->
-    <ul class="partners">
-      <li><a class="partner" href="https://hackclub.com" target="_blank" rel="noopener">
-        <span class="partner-art" data-logo="hack-club" aria-hidden="true"></span>
-        <span class="partner-name">Hack Club</span>
-      </a></li>
-      <li><a class="partner" href="https://stellarlearning.app" target="_blank" rel="noopener">
-        <span class="partner-art" data-logo="stellar" aria-hidden="true"></span>
-        <span class="partner-name">Stellar Learning</span>
-      </a></li>
-    </ul>
+    <!-- Logos rest in color. partners.js draws them as glyphs when hovered, in the style of the Questions page glyph. -->
+    <div class="wall">
+      <a class="p lead" data-scale="1.4" href="https://hackclub.com" target="_blank" rel="noopener" aria-label="Hack Club">
+        <img class="p-logo" src="images/partners/hack-club.svg" alt="" aria-hidden="true">
+        <span class="p-url" aria-hidden="true">hackclub.com &#8599;</span>
+        <canvas aria-hidden="true"></canvas>
+      </a>
+      <a class="p lead" data-scale="1.3" href="https://stellarlearning.app" target="_blank" rel="noopener" aria-label="Stellar Learning">
+        <img class="p-logo" src="images/partners/stellar.svg" alt="" aria-hidden="true">
+        <span class="p-url" aria-hidden="true">stellarlearning.app &#8599;</span>
+        <canvas aria-hidden="true"></canvas>
+      </a>
+    </div>
   </section>
 <section id="people">
     <h2>Judges, speakers, and mentors</h2>
@@ -120,7 +122,7 @@
   <p>© 2027 BISV Hacks</p>
 </footer>
 
-<script src="sponsors.js" defer></script>
+<script src="partners.js" defer></script>
 <script src="mode.js" defer></script>
 </body>
 </html>

@@ -83,7 +83,7 @@ function labelled(n) {
 function inline(n, ctx) {
   if (!isEl(n)) return decode(n.text).replace(/\s+/g, ' ');
   if (skipped(n)) return '';
-  if (labelled(n)) return n.attrs['aria-label'];
+  if (labelled(n)) return n.tag === 'a' && n.attrs.href ? `[${n.attrs['aria-label']}](${absolute(n.attrs.href, ctx.url)})` : n.attrs['aria-label'];
   const inner = () => n.children.map(c => inline(c, ctx)).join('');
   switch (n.tag) {
     case 'br': return '\n';
