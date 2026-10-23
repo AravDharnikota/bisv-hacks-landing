@@ -121,3 +121,19 @@ curl -sS -i -H 'Accept: text/html' https://bisvhacks.com/
 ```
 
 The first should be `200`, `text/markdown`, `Vary: Accept`. The second should be `404` with a Markdown body. The third should be the normal HTML page.
+
+### Content negotiation (Cloudflare Pages)
+
+The same negotiation also runs when the site is hosted on Cloudflare Pages, through `functions/_middleware.js`. It shares its logic with the Worker (`negotiate` in `worker/index.js`), so the two cannot drift apart. GitHub Pages does not run anything in `functions/`, so bisvhacks.com is unaffected. This is the route for a domain the team controls, with no access to bisvhacks.com's DNS needed:
+
+1. In Cloudflare, go to Workers & Pages, then Create, then Pages, then Connect to Git, and pick this repo. Production branch: `main`. Framework preset: None. Build command: leave empty. Build output directory: `/`.
+2. Every merge to `main` now deploys to Cloudflare too, alongside GitHub Pages.
+3. Under the project's Custom domains, add the team's domain (if it was bought through Cloudflare Registrar, DNS is set up automatically).
+4. Run the three `curl` checks above against that domain.
+
+Test it locally first, with no Cloudflare account needed:
+
+```bash
+npx wrangler pages dev . --port 8788
+curl -sS -i -H 'Accept: text/markdown' http://localhost:8788/
+```

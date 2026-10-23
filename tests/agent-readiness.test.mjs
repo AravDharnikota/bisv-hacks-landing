@@ -7,6 +7,7 @@ import { join, extname } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { ROOT, SITE, MD_PAGES, sitemapPages, parse, toMarkdown } from '../tools/agent-files.mjs';
 import worker, { prefersMarkdown, markdownPath } from '../worker/index.js';
+import { onRequest as pagesMiddleware } from '../functions/_middleware.js';
 
 const read = f => readFileSync(join(ROOT, f), 'utf8');
 const CORE = ['index.html', 'schedule.html', 'sponsors.html', 'team.html', 'faq.html', 'about.html', 'contact.html', 'privacy.html', '404.html'];
@@ -301,6 +302,56 @@ test('HEAD with Accept text/markdown returns headers and no body', async () => {
   assert.equal(res.status, 200);
   assert.match(res.headers.get('Content-Type'), /^text\/markdown/);
   assert.equal(await res.text(), '');
+});
+
+test('a //other-host path never fetches from another host', async () => {
+  const realFetch = globalThis.fetch;
+  const hosts = [];
+  globalThis.fetch = async (input) => { hosts.push(new URL(input instanceof Request ? input.url : input).host); return pagesOrigin(input); };
+  try {
+    const res = await worker.fetch(new Request(SITE + '//evil.com/x', { headers: { Accept: 'text/markdown' } }));
+    assert.equal(res.status, 404);
+    assert.deepEqual([...new Set(hosts)], ['bisvhacks.com']);
+  } finally {
+    globalThis.fetch = realFetch;
+  }
+});
+
+/* --- Cloudflare Pages middleware: same negotiation, for hosting on Cloudflare Pages --- */
+
+// Behaves like Cloudflare Pages: env.ASSETS serves files, next() serves the request (404.html on a miss).
+async function callPages(path, accept, method = 'GET') {
+  const request = new Request(SITE + path, { method, headers: accept ? { Accept: accept } : {} });
+  return pagesMiddleware({ request, next: async () => pagesOrigin(request), env: { ASSETS: { fetch: async (u) => pagesOrigin(u) } } });
+}
+
+test('Pages middleware: homepage Accept text/markdown returns Markdown with Vary: Accept', async () => {
+  const res = await callPages('/', 'text/markdown');
+  assert.equal(res.status, 200);
+  assert.match(res.headers.get('Content-Type'), /^text\/markdown/);
+  assert.equal(res.headers.get('Vary'), 'Accept');
+  assert.match(await res.text(), /^# BISV Hacks 2027/);
+});
+
+test('Pages middleware: Accept text/html returns HTML with Vary: Accept', async () => {
+  const res = await callPages('/', 'text/html');
+  assert.equal(res.status, 200);
+  assert.match(res.headers.get('Content-Type'), /^text\/html/);
+  assert.ok(res.headers.get('Vary').split(',').map(v => v.trim().toLowerCase()).includes('accept'), `Vary is ${res.headers.get('Vary')}`);
+  assert.match(await res.text(), /<h1/);
+});
+
+test('Pages middleware: missing page returns a Markdown 404 for agents and the HTML 404 for browsers', async () => {
+  const md = await callPages('/__ora-404-probe-test', 'text/markdown');
+  assert.equal(md.status, 404);
+  assert.match(md.headers.get('Content-Type'), /^text\/markdown/);
+  const body = await md.text();
+  assert.ok(body.length >= 20);
+  assert.match(body, /sitemap\.xml/);
+  assert.match(body, /llms\.txt/);
+  const html = await callPages('/__ora-404-probe-test', 'text/html');
+  assert.equal(html.status, 404);
+  assert.match(html.headers.get('Content-Type'), /^text\/html/);
 });
 
 /* --- Humans | Agents switch ------------------------------------------------- */
