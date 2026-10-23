@@ -16,6 +16,8 @@ The 2027 prospectus is shared by request. Tell us your company and we will send 
 
 Our partners are announced here as they join.
 
+[](https://hackclub.com) [](https://stellarlearning.app)
+
 ## Judges, speakers, and mentors
 
 The people in the room shape what our builders believe is possible. Each year we invite a small group of people who have built real things to spend the day with us.
