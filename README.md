@@ -9,6 +9,7 @@ node tools/dev-server.mjs
 ## Pages
 
 - `index.html` – home: hero, about, what to expect, links
+- `register.html` – the 2027 application, one question per screen (`register.js`). Answers go to a Google Sheet; see "Registration" below
 - `schedule.html`, `sponsors.html`, `team.html`, `faq.html` – one topic each
 - `about.html`, `contact.html`, `privacy.html` – the pages agents and search engines check before they trust a site (linked in every footer)
 - `404.html` – GitHub Pages serves this for any missing path, so its links start with `/`
@@ -26,6 +27,27 @@ Copy these from the old site repo into this folder. The pages link to them but t
 - `images/2026/About.png` – hero photo
 - `images/2025/team/Nicholas.png`, `images/2025/team/Anderson.jpg`, `images/2026/team/Arav.png` – team photos
 - `images/BISV_Hacks.png` – social share image
+
+## Registration
+
+`register.html` is the application: one question per screen, Enter to continue, arrow keys to move, letters to pick a choice. It has no dependencies and no Typeform. `register.js` keeps a draft in the browser's localStorage and posts the finished answers as JSON to a Google Apps Script web app (`backend/Register.gs`) that appends one row to a Google Sheet.
+
+Connect it to a sheet once:
+
+1. Make a new Google Sheet (or open the one you want registrations in). Open Extensions → Apps Script.
+2. Paste `backend/Register.gs` over the default code. Save.
+3. In the editor, pick `setup` and run it. Approve the permission prompt. This adds a `Registrations` tab with the header row.
+4. Run `testRegister`. A test row appears on the tab. Delete it.
+5. Deploy → New deployment → Web app. Execute as: **Me**. Who has access: **Anyone**. Copy the `/exec` URL.
+6. Paste the URL into `data-endpoint=""` on the form in `register.html`. Push.
+
+Until step 6, the form says it is not connected and points people to the team email.
+
+After you change `Register.gs`, deploy again: Deploy → Manage deployments → Edit → Version: New version. The URL stays the same.
+
+- One row per applicant. A second application with the same email is refused, so students email the team to change anything.
+- Set `SEND_CONFIRMATION = true` at the top of `Register.gs` to email each applicant a confirmation from the deploying account. Free Google accounts send about 100 emails a day through Apps Script.
+- To close registration, replace the Start button in `register.html` with a sentence, or set the `data-endpoint` back to empty.
 
 ## Question desk
 
@@ -55,7 +77,7 @@ Limits are constants at the top of `Code.gs`. Run `testMatch` to tune how close 
 
 ## Editing
 
-- Date and registration: hero in `index.html` and `KNOWLEDGE` in `backend/Code.gs`
+- Date and registration: hero in `index.html`, `register.html`, and `KNOWLEDGE` in `backend/Code.gs`
 - Sponsors: the `tiers` table and the "2027 partners" line in `sponsors.html`
 - Schedule: the table in `schedule.html`
 - Team: the list in `team.html`

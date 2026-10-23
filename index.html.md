@@ -4,7 +4,7 @@ A hackathon for Silicon Valley's next builders.
 
 February 2027 · Bay Area, California
 
-[Join the Discord](https://discord.gg/T8cuesaNKB) [Registration opens soon](https://bisvhacks.com/#links)
+[Register here](https://bisvhacks.com/register) [Join the Discord](https://discord.gg/T8cuesaNKB)
 
 ## About
 
@@ -29,8 +29,9 @@ You do not need coding experience. You can come alone or with up to four teammat
 
 ## Links
 
+- [Register](https://bisvhacks.com/register) The 2027 application. Free, takes about three minutes.
 - [Discord](https://discord.gg/T8cuesaNKB) Announcements, help, and team-finding.
-- Devpost Registration, rules, submissions, and the project gallery. Coming soon.
+- Devpost Rules, submissions, and the project gallery. Coming soon.
 - [Sponsors](https://bisvhacks.com/sponsors) Who we partner with, and how to request the prospectus.
 - [Contact](mailto:bisvhackathon@gmail.com) bisvhackathon@gmail.com
 

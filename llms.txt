@@ -2,7 +2,7 @@
 
 > BISV Hacks is a free, student-led, one-day hackathon for high school students, organized by students at BASIS Independent Silicon Valley in San Jose, California. The 2027 event is in February 2027 (exact date not announced yet) for 300+ builders.
 
-Key facts: 12 hours, free to attend, open to any high school student, no coding experience needed, solo or with up to four teammates. Lunch, dinner, and snacks are provided. Location: BASIS Independent Silicon Valley, 1290 Parkmoor Ave, San Jose, CA 95126 (the 2027 venue may change). Registration is not open yet; it will open on Devpost and be announced on this site and on Discord. Fiscally sponsored by Hack Club Bank, a 501(c)(3). Contact: bisvhackathon@gmail.com.
+Key facts: 12 hours, free to attend, open to any high school student, no coding experience needed, solo or with up to four teammates. Lunch, dinner, and snacks are provided. Location: BASIS Independent Silicon Valley, 1290 Parkmoor Ave, San Jose, CA 95126 (the 2027 venue may change). Registration for 2027 is open at https://bisvhacks.com/register (a short form; it needs JavaScript). Project submissions will be on Devpost. Fiscally sponsored by Hack Club Bank, a 501(c)(3). Contact: bisvhackathon@gmail.com.
 
 ## When to use
 
@@ -27,5 +27,7 @@ How to use it: read the Markdown pages below; each one is the full content of th
 
 ## Optional
 
+- [Register](https://bisvhacks.com/register): the 2027 application form, one question per screen. It needs JavaScript.
 - [Questions page](https://bisvhacks.com/faq): an interactive page where visitors ask questions and get answers from the team's published facts. It needs JavaScript.
 - [Sitemap](https://bisvhacks.com/sitemap.xml): every page on the site.
+- [Agent skill](https://bisvhacks.com/.well-known/agent-skills/index.json): an Agent Skills index with one skill, bisv-hacks, that says when to use this site and how to answer from it.

@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://bisvhacks.com/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-18</lastmod>
   </url>
   <url>
     <loc>https://bisvhacks.com/about</loc>
@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://bisvhacks.com/contact</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-18</lastmod>
   </url>
   <url>
     <loc>https://bisvhacks.com/faq</loc>
@@ -18,7 +18,11 @@
   </url>
   <url>
     <loc>https://bisvhacks.com/privacy</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-18</lastmod>
+  </url>
+  <url>
+    <loc>https://bisvhacks.com/register</loc>
+    <lastmod>2026-10-18</lastmod>
   </url>
   <url>
     <loc>https://bisvhacks.com/schedule</loc>
@@ -26,10 +30,10 @@
   </url>
   <url>
     <loc>https://bisvhacks.com/sponsors</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://bisvhacks.com/team</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-10-17</lastmod>
   </url>
 </urlset>

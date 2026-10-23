@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>bisv-hacks</title>
+  <meta name="description" content="Register for BISV Hacks 2027, a free, student-led hackathon for 300+ high school builders in San Jose, California. February 2027.">
+  <meta name="theme-color" content="#F0EEE9">
+  <link rel="canonical" href="https://bisvhacks.com/register">
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="512x512" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <meta property="og:title" content="Register for BISV Hacks 2027">
+  <meta property="og:description" content="A hackathon for Silicon Valley's next builders. February 2027, San Jose. Free. Takes three minutes.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bisvhacks.com/register">
+  <meta property="og:image" content="https://bisvhacks.com/images/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="BISV Hacks 2027: a hackathon for Silicon Valley's next builders. February 2027, San Jose.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="reg">
+
+<header class="top reg-top">
+  <a class="brand" href="./">
+    <img src="images/logo.png" alt="" width="46" height="22">
+    <span>BISV Hacks</span>
+  </a>
+  <a class="quiet reg-back" href="./">Back to the site</a>
+</header>
+<div class="progress" role="progressbar" aria-label="Application progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+
+<main class="stage">
+  <noscript>
+    <section class="step page">
+      <h1>Register for BISV Hacks 2027</h1>
+      <p>This application needs JavaScript. Turn it on, or email your name, grade, age, school, and email to <a href="mailto:bisvhackathon@gmail.com">bisvhackathon@gmail.com</a> and we will register you by hand.</p>
+    </section>
+  </noscript>
+
+  <!-- data-endpoint: the Apps Script web app URL for registrations. See backend/Register.gs and the README ("Registration"). -->
+  <form class="flow" novalidate autocomplete="on" data-endpoint="https://script.google.com/macros/s/AKfycbzzbRBQKtklDCRxOhnHSkHUkafGRGZkjXLSIk-pigqVC5GO1HNdkHMhKmS_zoLndS7KUw/exec">
+
+    <section class="step is-intro" data-step="intro">
+      <h1 class="step-q">Register for BISV Hacks 2027</h1>
+      <p class="step-d">Free, one day, February 2027 in San Jose. Any high school student can apply, solo or with a team. This takes about three minutes.</p>
+      <div class="step-actions">
+        <button type="button" class="button next">Start</button>
+        <span class="hint">press <kbd>Enter ↵</kbd> or scroll</span>
+      </div>
+    </section>
+
+    <section class="step" data-step="name" data-kind="text" hidden>
+      <p class="step-n"><span class="n"></span><span class="arrow" aria-hidden="true">→</span></p>
+      <h2 class="step-q"><label for="f-name">What's your full name?</label><span class="req" aria-hidden="true">*</span></h2>
+      <p class="step-d">As it should appear on your name tag.</p>
+      <div class="field"><input id="f-name" name="name" type="text" autocomplete="name" placeholder="Type your answer here..." maxlength="120" required></div>
+      <p class="err" aria-live="polite"></p>
+      <div class="step-actions">
+        <button type="button" class="button next">OK</button>
+        <button type="button" class="button back">Back</button>
+        <span class="hint">press <kbd>Enter ↵</kbd></span>
+      </div>
+    </section>
+
+    <section class="step" data-step="grade" data-kind="choice" tabindex="-1" hidden>
+      <p class="step-n"><span class="n"></span><span class="arrow" aria-hidden="true">→</span></p>
+      <h2 class="step-q" id="q-grade">What grade are you in?<span class="req" aria-hidden="true">*</span></h2>
+      <p class="step-d">This school year.</p>
+      <div class="choices" role="radiogroup" aria-labelledby="q-grade">
+        <button type="button" class="choice" role="radio" aria-checked="false" data-value="9th"><kbd>A</kbd>9th grade</button>
+        <button type="button" class="choice" role="radio" aria-checked="false" data-value="10th"><kbd>B</kbd>10th grade</button>
+        <button type="button" class="choice" role="radio" aria-checked="false" data-value="11th"><kbd>C</kbd>11th grade</button>
+        <button type="button" class="choice" role="radio" aria-checked="false" data-value="12th"><kbd>D</kbd>12th grade</button>
+      </div>
+      <p class="err" aria-live="polite"></p>
+      <div class="step-actions">
+        <button type="button" class="button next">OK</button>
+        <button type="button" class="button back">Back</button>
+        <span class="hint">press <kbd>A</kbd> to <kbd>D</kbd></span>
+      </div>
+    </section>
+
+    <section class="step" data-step="age" data-kind="number" hidden>
+      <p class="step-n"><span class="n"></span><span class="arrow" aria-hidden="true">→</span></p>
+      <h2 class="step-q"><label for="f-age">How old are you?</label><span class="req" aria-hidden="true">*</span></h2>
+      <p class="step-d">Your age on the day of the event.</p>
+      <div class="field field-short"><input id="f-age" name="age" type="number" inputmode="numeric" min="12" max="20" placeholder="16" required></div>
+      <p class="err" aria-live="polite"></p>
+      <div class="step-actions">
+        <button type="button" class="button next">OK</button>
+        <button type="button" class="button back">Back</button>
+        <span class="hint">press <kbd>Enter ↵</kbd></span>
+      </div>
+    </section>
+
+    <section class="step" data-step="school" data-kind="text" hidden>
+      <p class="step-n"><span class="n"></span><span class="arrow" aria-hidden="true">→</span></p>
+      <h2 class="step-q"><label for="f-school">Which school do you go to?</label><span class="req" aria-hidden="true">*</span></h2>
+      <p class="step-d">The full name, so we can find it.</p>
+      <div class="field"><input id="f-school" name="school" type="text" autocomplete="organization" placeholder="Type your answer here..." maxlength="160" required></div>
+      <p class="err" aria-live="polite"></p>
+      <div class="step-actions">
+        <button type="button" class="button next">OK</button>
+        <button type="button" class="button back">Back</button>
+        <span class="hint">press <kbd>Enter ↵</kbd></span>
+      </div>
+    </section>
+
+    <section class="step" data-step="email" data-kind="email" hidden>
+      <p class="step-n"><span class="n"></span><span class="arrow" aria-hidden="true">→</span></p>
+      <h2 class="step-q"><label for="f-email">What's your email?</label><span class="req" aria-hidden="true">*</span></h2>
+      <p class="step-d">We send your confirmation and all event updates here. Use one you check.</p>
+      <div class="field"><input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="name@example.com" maxlength="120" required></div>
+      <p class="err" aria-live="polite"></p>
+      <div class="step-actions">
+        <button type="button" class="button next">OK</button>
+        <button type="button" class="button back">Back</button>
+        <span class="hint">press <kbd>Enter ↵</kbd></span>
+      </div>
+    </section>
+
+    <section class="step" data-step="diet" data-kind="text" data-optional hidden>
+      <p class="step-n"><span class="n"></span><span class="arrow" aria-hidden="true">→</span></p>
+      <h2 class="step-q"><label for="f-diet">Any dietary restrictions?</label></h2>
+      <p class="step-d">Lunch, dinner, and snacks are on us. Allergies, vegetarian, vegan, halal, kosher, anything else. Leave it blank if none.</p>
+      <div class="field"><input id="f-diet" name="diet" type="text" placeholder="None" maxlength="200"></div>
+      <p class="err" aria-live="polite"></p>
+      <div class="step-actions">
+        <button type="button" class="button next">OK</button>
+        <button type="button" class="button back">Back</button>
+        <span class="hint">press <kbd>Enter ↵</kbd></span>
+      </div>
+    </section>
+
+    <section class="step" data-step="parentEmail" data-kind="email" hidden>
+      <p class="step-n"><span class="n"></span><span class="arrow" aria-hidden="true">→</span></p>
+      <h2 class="step-q"><label for="f-parent">A parent or guardian's email?</label><span class="req" aria-hidden="true">*</span></h2>
+      <p class="step-d">We send them the permission form and the day-of logistics.</p>
+      <div class="field"><input id="f-parent" name="parentEmail" type="email" inputmode="email" placeholder="parent@example.com" maxlength="120" required></div>
+      <p class="err" aria-live="polite"></p>
+      <div class="step-actions">
+        <button type="button" class="button next">OK</button>
+        <button type="button" class="button back">Back</button>
+        <span class="hint">press <kbd>Enter ↵</kbd></span>
+      </div>
+    </section>
+
+    <section class="step" data-step="hasTeam" data-kind="choice" tabindex="-1" hidden>
+      <p class="step-n"><span class="n"></span><span class="arrow" aria-hidden="true">→</span></p>
+      <h2 class="step-q" id="q-team">Do you have a team already?<span class="req" aria-hidden="true">*</span></h2>
+      <p class="step-d">Teams are up to five people. You can also come alone and find one on the Discord.</p>
+      <div class="choices" role="radiogroup" aria-labelledby="q-team">
+        <button type="button" class="choice" role="radio" aria-checked="false" data-value="Yes"><kbd>Y</kbd>Yes</button>
+        <button type="button" class="choice" role="radio" aria-checked="false" data-value="No"><kbd>N</kbd>No</button>
+      </div>
+      <p class="err" aria-live="polite"></p>
+      <div class="step-actions">
+        <button type="button" class="button next">OK</button>
+        <button type="button" class="button back">Back</button>
+        <span class="hint">press <kbd>Y</kbd> or <kbd>N</kbd></span>
+      </div>
+    </section>
+
+    <section class="step" data-step="teamEmails" data-kind="people" data-when="hasTeam=Yes" hidden>
+      <p class="step-n"><span class="n"></span><span class="arrow" aria-hidden="true">→</span></p>
+      <h2 class="step-q" id="q-people">Who else is on your team?<span class="req" aria-hidden="true">*</span></h2>
+      <p class="step-d">One email per person, not counting you. Each of them registers separately too. Up to four.</p>
+      <div class="people" aria-labelledby="q-people"></div>
+      <button type="button" class="add">+ Add person</button>
+      <p class="err" aria-live="polite"></p>
+      <div class="step-actions">
+        <button type="button" class="button next">OK</button>
+        <button type="button" class="button back">Back</button>
+        <span class="hint">press <kbd>Enter ↵</kbd></span>
+      </div>
+    </section>
+
+    <section class="step is-review" data-step="review" data-kind="review" tabindex="-1" hidden>
+      <h2 class="step-q">Everything look right?</h2>
+      <p class="step-d">Click any answer to change it.</p>
+      <dl class="summary"></dl>
+      <p class="step-fine">By sending, you agree that BISV Hacks keeps these answers to run the event. Read the <a href="privacy" target="_blank" rel="noopener">privacy page</a>.</p>
+      <p class="err" aria-live="polite"></p>
+      <div class="step-actions">
+        <button type="submit" class="button submit">Submit</button>
+        <button type="button" class="button back">Back</button>
+        <span class="hint">press <kbd>Enter ↵</kbd></span>
+      </div>
+    </section>
+
+    <section class="step is-done" data-step="done" tabindex="-1" hidden>
+      <p class="step-n"><span class="check" aria-hidden="true">✓</span></p>
+      <h2 class="step-q">You're in.</h2>
+      <p class="step-d">We have your application, <span class="done-name"></span>. Watch <span class="done-email"></span> for your confirmation and next steps, and join the <a href="https://discord.gg/T8cuesaNKB">Discord</a> for announcements and team-finding.</p>
+      <div class="step-actions">
+        <a class="button" href="./">Back to the site</a>
+      </div>
+    </section>
+
+    <!-- Bots fill this. People never see it. -->
+    <div class="trap" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+  </form>
+</main>
+
+<div class="stepnav" hidden>
+  <span class="stepnav-count" aria-live="polite"></span>
+  <button type="button" class="stepnav-prev" aria-label="Previous question" title="Previous question (scroll up)">↑</button>
+  <button type="button" class="stepnav-next" aria-label="Next question" title="Next question (scroll down)">↓</button>
+</div>
+
+<script src="register.js" defer></script>
+</body>
+</html>

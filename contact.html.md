@@ -4,7 +4,7 @@ One address, every inquiry: [bisvhackathon@gmail.com](mailto:bisvhackathon@gmail
 
 ## Writing to us
 
-Students and parents: the date, cost, teams, food, and what to bring are covered on the [home page](https://bisvhacks.com/) and the [questions page](https://bisvhacks.com/faq). Registration has not opened yet. It will be announced here and on our Discord first.
+Students and parents: the date, cost, teams, food, and what to bring are covered on the [home page](https://bisvhacks.com/) and the [questions page](https://bisvhacks.com/faq). Registration for 2027 is open on the [registration page](https://bisvhacks.com/register).
 
 Companies: put your company name in the subject line, and we will send the 2027 partnership prospectus. Who we partner with, and why, is on the [sponsors page](https://bisvhacks.com/sponsors).
 
